@@ -1,0 +1,52 @@
+2020.3.26 [수업 1일차]
+
+*이클립스
+한글 호환하기(workspace 만들때마다 실행해야함)
+window-preferences-workspace-(밑에)Textfile encoding-Other(UTF8)
+---->나중에 encoding 검색 후 모두 UTF8로 바꿔줘야함
+
+*패키지(=폴더 라고 생각해도된다)
+ex) firstProject.com.test-> firstProject파일 안에 com파일 안에 test파일을 의미 
+//하위 폴더 생성
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+*변수-메모리 공간에 한 개의 값을 기록하기 위한 공간
+ex)변수선언->기록 공간 생성
+
+*리터럴 = 변수에 대입되는 값 자체를 의미
+
+*메소드=기능
+ex) main메소드는 프로그램 시작을 의미
+
+*문자는 'A' 문자열은 "A" 방식으로 나타낸다.
+
+*상수는 한 번만 저장할 수 있는 공간을 할당하고 다른 값을 대입할 수 없다.
+
+*다른 자료형 + "문자열" = 문자열 = "문자열" + 다른 자료형
+
+*데이터 오버플로우 = 값의 허용범위를 넘었을때 생긴다.
+
+*형변환(casting)--->자동형변환(단, byte와 short 자료형 값의 계산 결과는 무조건 int로 처리한다.)
+
+*강제형변환시 데이터로스를 조심해야한다.
+
+*메모리 구조(RAM 구조)(=Static + Heap + Stack)
+-> 참조형 변수는 가리키는 주소(=메모리할당공간)는 stack영역에 있고 값은 Heap영역에 있다.
+-> new를 통해서 class를 참조할때도 참조형 변수랑 같은 구조이다.
+
+*System.out.printf("%형식", 변수) == 정해져 있는 형식에 맞춰서 값을 줄바꿈하지 않고 출력
+
+*import는 자바가 만든 애를 가져와서 쓰겠다라는 의미이다.
+*import java.io.BufferedReader;
+*import java.io.InputStreamReader;
+-->BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+*String value = br.readLine();
+
+*String(문자열)값으로 받아온 값을 숫자로 바꾸는 함수 = Integer.parseInt(변수명);
+
+*데이터 값을 받아오는 방법은 BufferedReader 와 Scanner 가 있다.
+
+
+
+

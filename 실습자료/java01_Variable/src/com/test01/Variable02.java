@@ -18,8 +18,10 @@ public class Variable02 {
 
 	
 	public void inputTest1() {
-		BufferedReader br = 
-				new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		// BufferedReader : 라인 해석, 문자스트림 값을 읽어 오는 메소드이다.
+		// InputStreamReader : 바이트 스트림 값을 문자스트림 값으로 변환해주는 메소드이다.
+		
 		System.out.println("정수 한 개 입력:   ");
 		
 		try {

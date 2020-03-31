@@ -15,7 +15,8 @@ public class TestMain {
 		
 		IfTest03 test2 = new IfTest03();
 		//test2.test();
-		test2.testIfElseIf();
+		//test2.testIfElseIf();
+		test2.testIfElseIf2();
 	}
 	
 	

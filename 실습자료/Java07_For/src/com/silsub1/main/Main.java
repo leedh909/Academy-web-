@@ -12,7 +12,8 @@ public class Main {
 //		fw.printStar2();
 //		fw.selectMenu();
 //		fw.selectMenu2();
-        fw.countInputCharacter();
+//      fw.countInputCharacter();
+        fw.countInputCharacter2();
 		
 		
 		

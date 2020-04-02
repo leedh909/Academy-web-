@@ -312,5 +312,32 @@ public class ForWhile {
 		
 	}
 	
-	
+	public void countInputCharacter2() {
+		System.out.print("문자열 입력 : ");
+		String str = sc.nextLine();
+
+		for (int i = 0; i < str.length(); i++) {
+			char temp = str.charAt(i);
+
+			if (!(temp >= 'a' && temp <= 'z' || temp >= 'A' && temp <= 'Z')) {
+				System.out.println("영문자가 아닙니다.");
+				return;
+			}
+		}
+
+		System.out.print("문자 입력 : ");
+		char ch = sc.next().charAt(0);
+
+		int count = 0;
+
+		for (int i = 0; i < str.length(); i++) {
+			if (ch == str.charAt(i)) {
+				count++;
+			}
+		}
+
+		System.out.println("포함된 갯수 : " + count + "개");
+		
+		
+	}
 }

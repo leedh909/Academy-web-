@@ -113,6 +113,29 @@ public class ArraySample {
 		
 	}
 	
+	public void test4_1() {
+		//강사님 코딩
+		Scanner sc = new Scanner(System.in);
+		
+		int sum = 0;
+		System.out.print("숫자 입력:");
+		String val = sc.next();
+			
+		if(val!=null && val.length()>0) {
+			for(int i =0;i<val.length();i++) {
+				String s= val.substring(i, i+1);				
+				sum+= Integer.parseInt(s);
+			}
+		}else {
+			System.out.println("입력된 값이 없습니다.");
+		}
+		System.out.println("합계: "+sum);
+		
+		
+		
+		
+	}
+	
 	public void test5() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("문자열 입력: ");
@@ -127,5 +150,22 @@ public class ArraySample {
 			
 		}
 		System.out.println("sum: "+sum);
+	}
+	
+	public void test5_1() {
+		//강사님 코딩
+		Scanner sc = new Scanner(System.in);
+		System.out.print("숫자 입력: ");
+		String val =sc.next();
+		int sum=0;
+		
+		for(int i=0; i<val.length();i++) {
+			
+			System.out.println((int)val.charAt(i)-48);
+			sum+=(int)val.charAt(i)-48;
+		}
+		System.out.println("sum: "+sum);
+
+		
 	}
 }

@@ -11,6 +11,7 @@ public class Main {
 //		sp.munjae1();
 //		sp.munjae1_1();
 //		sp.munjae2();
+		sp.munjae2_1();
 		
 		Sample2 sp2 = new Sample2();
 //		sp2.sample1();

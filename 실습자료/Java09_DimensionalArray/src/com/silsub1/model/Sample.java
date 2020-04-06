@@ -87,7 +87,7 @@ public class Sample {
 	
 	public void munjae2() {
 		
-		
+		//내코딩
 		Scanner sc = new Scanner(System.in);
 		System.out.print("열의 크기를 입력하시오:");
 		int size=sc.nextInt();
@@ -122,5 +122,41 @@ public class Sample {
 		
 	}
 	
+	public void munjae2_1() {
+		//강사님 코딩
+		
+		
+		int iarr[][] = new int[3][];
+		Scanner sc = new Scanner(System.in);
+		int[] sum = new int [iarr.length];
+		
+		
+		for(int i=0; i<iarr.length;i++) {
+			System.out.print(i+"번째 1차원 배열 수: ");
+			iarr[i]=new int[sc.nextInt()];
+			
+			//값기록
+			for(int j=0;j<iarr[i].length;j++) {
+				iarr[i][j]=(int)(Math.random()*100)+1;
+				sum[i]+=iarr[i][j];
+			}
+			
+		}
+		//출력
+		for(int i=0;i<iarr.length;i++) {
+			for(int j=0; j<iarr[i].length;j++) {
+				
+				System.out.print(iarr[i][j]+" ");
+				
+			}
+			System.out.println();
+		}
+		
+		for(int i=0;i<sum.length;i++) {
+			if(sum[i]%5==0) {
+				System.out.print(i+"행의 합계: "+sum[i]+"\n");
+			}
+		}
+	}
 	
 }

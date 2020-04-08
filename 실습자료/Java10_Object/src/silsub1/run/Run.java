@@ -16,6 +16,7 @@ public class Run {
 		mb.setemail("mmmmmm@naver.com");
 		
 		
+		
 		System.out.println("Id: "+mb.getmemberId());
 		System.out.println("Pwd: "+mb.getmemberPwd());
 		System.out.println("Name: "+mb.getmemberName());

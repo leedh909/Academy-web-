@@ -1,8 +1,8 @@
 package silsub3.model.vo;
 
 public class Circle {
-
-	public double PI = 3.14;
+	//내코딩
+	public final double PI = 3.14;
 	private int radius;
 	
 	public Circle() {}

@@ -7,6 +7,9 @@ public class Car {
 	
 	//생성자
 	public Car() {}
+	public Car(String color) {
+		this.color = color;
+	}
 	public Car(String color, int speed) {
 		this.color = color;
 		this.speed = speed;

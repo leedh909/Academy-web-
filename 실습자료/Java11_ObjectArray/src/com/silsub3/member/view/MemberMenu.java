@@ -48,15 +48,20 @@ public class MemberMenu {
 				mManager.printAllMember();
 				break;
 			case 9:
-				System.out.println("프로그램을 종료합니다.");
-				return;
+				System.out.print("정말로 끝내시겠습니까?(y/n): ");
+				answer = sc.next().charAt(0);
+				if(answer=='y'||answer=='Y') {
+					return;
+				}else {
+					mainMenu();
+				}
+				
 			default:
 					System.out.println("잘못 입력했습니다.!!!");
 				
 			}
-			System.out.print("정말로 끝내시겠습니까?(y/n): ");
-			answer = sc.next().charAt(0);
-		}while(answer=='y'||answer=='Y');
+			
+		}while(true);
 	}
 	public void searchMenu() {
 		char answer=' ';
@@ -69,16 +74,22 @@ public class MemberMenu {
 			System.out.println("9. 이전 메뉴로 가기");
 			System.out.print("메뉴 선택: ");
 			int choose = sc.nextInt();
-			
+			int index=-1;
 			switch(choose) {
 			case 1:
-				mManager.searchMemberId();
+				System.out.println("검색할 ID를 입력하시오.");
+				String id = sc.next();
+				index=mManager.searchMemberId(id);
 				break;
 			case 2:
-				mManager.searchMemberName();
+				System.out.println("검색할 이름을 입력하시오.");
+				String name = sc.next();
+				index=mManager.searchMemberName(name);
 				break;
 			case 3:
-				mManager.searchMemberEmail();
+				System.out.println("검색할 이메일을 입력하시오.");
+				String email = sc.next();
+				index=mManager.searchMemberEmail(email);
 				break;
 			case 9:
 				System.out.println("메인 메뉴로 화면 이동합니다.");
@@ -87,6 +98,10 @@ public class MemberMenu {
 				System.out.println("잘못 입력 하셨습니다.");
 
 			}
+			if(index>-1) {
+				mManager.printMember(index);
+			}
+			
 			System.out.print("Search메뉴를 끝내시겠습니까?(y/n): ");
 			answer = sc.next().charAt(0);
 		}while(answer=='y'||answer=='Y');
@@ -136,6 +151,7 @@ public class MemberMenu {
 	}
 	public void modifyMenu() {
 		char answer=' ';
+		
 		do {
 			System.out.println("***** 회원 정보 수정 메뉴 *****");
 			System.out.println();
@@ -145,19 +161,20 @@ public class MemberMenu {
 			System.out.println("9. 이전 메뉴로 가기");
 			System.out.print("메뉴 선택: ");
 			int choose = sc.nextInt();
-			
+			int index =-1;
 			switch(choose) {
 			// 수정이 필요함.!!!!!!!!
 			case 1:
 				System.out.println("변경할 회원의 아이디: ");
 				String id=sc.next();
+				index=mManager.searchMemberId(id);
 				
 				break;
 			case 2:
-				mManager.searchMemberName();
+				//mManager.searchMemberName();
 				break;
 			case 3:
-				mManager.searchMemberEmail();
+				//mManager.searchMemberEmail();
 				break;
 			case 9:
 				System.out.println("메인 메뉴로 화면 이동합니다.");

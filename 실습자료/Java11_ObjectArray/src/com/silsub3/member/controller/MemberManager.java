@@ -2,6 +2,8 @@ package com.silsub3.member.controller;
 
 import java.util.Scanner;
 
+import javax.management.MBeanParameterInfo;
+
 import com.silsub3.member.model.vo.Member;
 
 public class MemberManager {
@@ -150,6 +152,25 @@ public class MemberManager {
 
 	public void printMember(int index) {
 		System.out.println(mb[index].memberInfo());
+	}
+
+
+	public void modifyMemberPassword(int index, String password) {
+		mb[index].setPassword(password);
+		System.out.println("회원의 정보가 변경되었습니다.");
+		
+	}
+
+	public void modifyMemberEmail(int index, String email) {
+		mb[index].setEmail(email);
+		System.out.println("회원의 정보가 변경되었습니다.");
+		
+	}
+
+	public void modifyMemberAge(int index, int age) {
+		mb[index].setAge(age);
+		System.out.println("회원의 정보가 변경되었습니다.");
+		
 	}
 	
 	

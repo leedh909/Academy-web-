@@ -168,13 +168,41 @@ public class MemberMenu {
 				System.out.println("변경할 회원의 아이디: ");
 				String id=sc.next();
 				index=mManager.searchMemberId(id);
+				if(index>-1) {
+					mManager.printMember(index);
+					System.out.println("변경할 암호 입력:");
+					String password = sc.next();
+					mManager.modifyMemberPassword(index,password);
+				}else {
+					System.out.println("입력하신 아이디가 없습니다.");
+				}
 				
 				break;
 			case 2:
-				//mManager.searchMemberName();
+				System.out.println("변경할 회원의 아이디: ");
+				id=sc.next();
+				index=mManager.searchMemberId(id);
+				if(index>-1) {
+					mManager.printMember(index);
+					System.out.println("변경할 이메일 입력:");
+					String email = sc.next();
+					mManager.modifyMemberEmail(index,email);
+				}else {
+					System.out.println("입력하신 아이디가 없습니다.");
+				}
 				break;
 			case 3:
-				//mManager.searchMemberEmail();
+				System.out.println("변경할 회원의 아이디: ");
+				id=sc.next();
+				index=mManager.searchMemberId(id);
+				if(index>-1) {
+					mManager.printMember(index);
+					System.out.println("변경할 나이 입력:");
+					int age = sc.nextInt();
+					mManager.modifyMemberAge(index,age);
+				}else {
+					System.out.println("입력하신 아이디가 없습니다.");
+				}
 				break;
 			case 9:
 				System.out.println("메인 메뉴로 화면 이동합니다.");

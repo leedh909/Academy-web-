@@ -11,6 +11,7 @@ public class Main {
 		
 		System.out.println("회원관리 프로그램을 종료합니다.");
 		
+		
 	}
 
 }

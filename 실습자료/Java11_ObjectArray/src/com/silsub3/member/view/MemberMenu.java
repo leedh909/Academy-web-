@@ -64,7 +64,7 @@ public class MemberMenu {
 		}while(true);
 	}
 	public void searchMenu() {
-		char answer=' ';
+		
 		do {
 			System.out.println("***** 회원 정보 검색 메뉴 *****");
 			System.out.println();
@@ -101,15 +101,12 @@ public class MemberMenu {
 			if(index>-1) {
 				mManager.printMember(index);
 			}
-			
-			System.out.print("Search메뉴를 끝내시겠습니까?(y/n): ");
-			answer = sc.next().charAt(0);
-		}while(answer=='y'||answer=='Y');
+		
+		}while(true);
 		
 		
 	}
 	public void sortMenu() {
-		char answer=' ';
 		do {
 			System.out.println("***** 회원 정보 정렬 출력 메뉴 *****");
 			System.out.println();
@@ -145,12 +142,9 @@ public class MemberMenu {
 				System.out.println("잘못 입력 하셨습니다.");
 
 			}
-			System.out.print("Sort메뉴를 끝내시겠습니까?(y/n): ");
-			answer = sc.next().charAt(0);
-		}while(answer=='y'||answer=='Y');
+		}while(true);
 	}
 	public void modifyMenu() {
-		char answer=' ';
 		
 		do {
 			System.out.println("***** 회원 정보 수정 메뉴 *****");
@@ -211,9 +205,8 @@ public class MemberMenu {
 				System.out.println("잘못 입력 하셨습니다.");
 
 			}
-			System.out.print("Modify메뉴를 끝내시겠습니까?(y/n): ");
-			answer = sc.next().charAt(0);
-		}while(answer=='y'||answer=='Y');
+			
+		}while(true);
 	}
 	
 	

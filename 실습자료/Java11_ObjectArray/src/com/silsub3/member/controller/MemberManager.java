@@ -137,28 +137,87 @@ public class MemberManager {
 
 
 	public void sortIDDes() {
+		//아이디 내림차순 정렬
+		Member[] temp = new Member[1];
+		for(int i=0;i<memberCount;i++) {
+			for(int j=i+1;j<memberCount;j++) {
+				int num=mb[i].getId().compareTo(mb[j].getId());
+				if(num<0) {
+					temp[0]=mb[i];
+					mb[i]=mb[j];
+					mb[j]=temp[0];
+				}
+
+			}
+
+		}
 		
+		printAllMember();
+			
 		
 	}
 
 
 
 	public void sortAgeAsc() {
-		// TODO Auto-generated method stub
+		//나이 오름차순 정렬
+		Member[] temp = new Member[1];
+		for(int i=0;i<memberCount;i++) {
+			for(int j=i+1;j<memberCount;j++) {
+				if(mb[i].getAge()>mb[j].getAge()) {
+					temp[0]=mb[i];
+					mb[i]=mb[j];
+					mb[j]=temp[0];
+				}
+
+			}
+
+		}
 		
+		printAllMember();		
 	}
 
 
 
 	public void sortAgeDes() {
-		// TODO Auto-generated method stub
+		//나이 내림차순 정렬
+		Member[] temp = new Member[1];
+		for(int i=0;i<memberCount;i++) {
+			for(int j=i+1;j<memberCount;j++) {
+				if(mb[i].getAge()<mb[j].getAge()) {
+					temp[0]=mb[i];
+					mb[i]=mb[j];
+					mb[j]=temp[0];
+				}
+
+			}
+
+		}
 		
+		printAllMember();
 	}
 
 
 
 	public void sortGenderDes() {
-		// TODO Auto-generated method stub
+		//성별 내림차순 정렬(남여순)
+				Member[] temp = new Member[1];
+				for(int i=0;i<memberCount;i++) {
+					for(int j=i+1;j<memberCount;j++) {
+						if(mb[i].getGender()>mb[j].getGender()) {
+							temp[0]=mb[i];
+							mb[i]=mb[j];
+							mb[j]=temp[0];
+						}
+
+					}
+
+				}
+				
+				printAllMember();
+		
+		
+		
 		
 	}
 

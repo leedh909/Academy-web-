@@ -45,11 +45,36 @@ public class MemberManager {
 
 
 	public void deleteMember() {
+
+		System.out.println("삭제할 회원아이디를 입력하시오");
+		String id = sc.next();
+		int index = -1;
 		
+		for(int i=0;i<memberCount;i++) {
+			if(id.equals(mb[i].getId())) {
+				
+				index=i;
+				break;
+			}
+		}
+		
+		if(index>-1) {
+			
+			if(index==memberCount-1) {
+				memberCount--;
+			}else {
+				for(int i= index;i<memberCount-1;i++) {
+					
+					mb[i]=mb[i+1];
+				}
+				memberCount--;
+			}
+			System.out.println("입력하신 아이디를 삭제하였습니다.");
+		}else {
+			System.out.println("입력한 아이디랑 일치하는 정보가 없습니다.");
+		}
 		
 	}
-
-
 
 	public void printAllMember() {
 		if(memberCount==0) {
@@ -59,9 +84,8 @@ public class MemberManager {
 				System.out.println(mb[i].memberInfo());
 			}
 		}
+
 	}
-
-
 
 	public int searchMemberId(String id) {
 		

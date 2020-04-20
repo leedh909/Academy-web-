@@ -1,7 +1,7 @@
 package com.io.silsub1.run;
 
-import com.io.silsub1.model.dao.File0Test;
-import com.io.silsub1.model.dao.File0Test_1;
+import com.io.silsub1.model.dao.FileI0Test;
+import com.io.silsub1.model.dao.FileI0Test_1;
 
 public class Run {
 
@@ -10,7 +10,8 @@ public class Run {
 //		File0Test ft = new File0Test();
 //		ft.fileRead();
 		
-		File0Test_1 ft = new File0Test_1();
+		FileI0Test_1 ft = new FileI0Test_1();
+		ft.fileSave();
 		ft.fileRead();
 		
 		

@@ -6,59 +6,50 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 
-public class NoteDao {
+public class NoteDao_1 {
 
 	
-	public int fileSave(StringBuilder sb, String fileName) {
+	public void fileSave(StringBuilder sb, String fileName) {
 		
 		BufferedWriter bw = null;
-		FileWriter fw =null;
 		
 		try {
-			fw = new FileWriter(fileName);
-			bw = new BufferedWriter(fw);
-
-			String res = sb.toString();
-			bw.write(res);
+			bw = new BufferedWriter(new FileWriter(fileName));
 			
-			System.out.println(fileName+" 파일에 성공적으로 저장하였습니다.");
+			bw.write(sb.toString());
+			System.out.println(fileName+" 저장 성공!");
 			System.out.println();
-			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally {
 			try {
 				bw.close();
-				fw.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
 		}
-		
 
-		
-		return 0;
 	}
 	
 	public StringBuilder fileOpen(String fileName) {
 		
 		StringBuilder sb = new StringBuilder();
-		BufferedReader br=null;
+		BufferedReader br = null;
 		
-		try{
+		try {
+			br = new BufferedReader(new FileReader(fileName));
 			
-			 br = new BufferedReader(new FileReader(fileName));
-			 
-			 int no;
-			 while((no=br.read())!=-1) {
-				 
-				 sb.append((char)no); 
-				 
-			 }
+			while(true) {
+				String line = br.readLine();
+				if(line==null) {
+					break;
+				}
+				sb.append(line+"\n");
+			}
+			
+			
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -70,8 +61,8 @@ public class NoteDao {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
 		}
+		
 		return sb;
 	}
 	

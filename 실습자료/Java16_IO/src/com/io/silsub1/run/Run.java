@@ -11,7 +11,6 @@ public class Run {
 //		ft.fileRead();
 		
 		FileI0Test_1 ft = new FileI0Test_1();
-		ft.fileSave();
 		ft.fileRead();
 		
 		

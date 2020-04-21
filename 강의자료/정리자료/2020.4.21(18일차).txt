@@ -1,0 +1,180 @@
+2020.4.21 [수업 18일차]
+
+
+
+
+*컬렉션(Collection)
+//데이터를 모와둔것을 효율적으로 사용하려고 사용.
+//자바에서 제공하는 자료구조를 담당하는 프레임워크
+
+*프레임워크
+//이미 만들어진 틀안에 내가 작성하는 코드가 들어가서 작동하는것..
+
+
+*배열 vs 컬렉션
+(배열의 단점)
+//한번 크기를 지정하면 변경할 수 없다.
+//기록된 데이터에 대한 중간 위치의 추가, 삭제가 불편한다.
+//한 타일의 데이터만 저장 가능하다.
+(컬렉션의 장점)
+//크기의 제약이 없다.
+//추가,삭제,정렬 등의 기능처리가 간단. ( 자료구조가 내장되어 있다. )
+//여러 타입의 데이터 저장가능.
+
+
+*Collection(List / Set) 와 Map 으로 주요 구분된다.
+
+
+*List 
+//배열과 생긴게 같다.
+//list에서는 길이(length)를 size()로 뽑아온다.
+//중복 가능하고 순서(=인덱스번호)가 있다.
+//추가 add() , 검색 get(), 삭제 remove()
+
+*ArrayList
+//초기 용량은 10으로 자동 설정.
+//저장순서 유지
+//동기화(Synchronized)를 제공하지 않음. == 아무나 막 접근해서 쓴다는 의미이다.
+//ex)System.out.println("alist: "+alist);  --> toString Overriding 가 일어났다. 
+(==> 원래는 주소값이 나와야하는데 제대로 출력값이 나오고 있기때문에 알수있다.)
+//ex)System.out.println(i+" : "+alist.get(i)); -->배열처럼 []가 아닌 get으로 값을 가져와야한다.
+// Collections.sort(list); --> 오름차순
+
+*Vector
+//ArrayList와 비슷하지만 동기화를 제공한다.
+//동기화를 제공해서 성능이 좋지 않다. (접근을 막기때문에)
+
+*LinkedList
+//서로 연결이 되어있다.
+//삭제와 삽입이 빈번하게 일어나는 곳에서 좋음.
+
+*Comparable 과 Comparator
+(Comparable)
+//Comparable를 상속받아 CompareTo() 를 오버라이딩해 사용한다.
+//기준이 되는 걸로 정렬
+//기본(base)이 되는거 하나만 정렬 가능.
+(Comparator)
+//Comparator를 상속받아 compare() 를 오버라이딩해 사용한다.
+//기준이 아닌 다른 걸로 정렬
+//기준이 아닌 여러개의 정렬 가능.
+
+*Comparable
+//implements로 상속받아와서 compareTo를 오버라이딩한다.
+//ex) Collections.sort(list);
+//ex) list.sort(null); --> null값을 넣으면 기본으로 정의된 정렬로 실행된다.
+//return name.compareTo(otherName);   -->양수면 바꾸고 음수면 바꾸지 않겠다. (= 오름차순)
+//return -name.compareTo(otherName);  -->양수면 바꾸고 음수면 바꾸지 않겠다. (= 내림차순)
+
+*Comparator
+//implements로 상속받아와서 compare를 오버라이딩한다.
+//ex) Collections.sort(list,new ScoreSorting());
+//ex) list.sort(new ScoreSorting());  -->위와 같은 기능이다.
+	
+
+
+
+
+진행 : 컬렉션(Collection) - list , Comparable, Comparator
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+진행 : 컬렉션(Collection) - Set , Map , Properties
+
+
+
+*Set
+//집합과 같다.
+//중복 안되고 순서가 없다.
+
+
+*Map
+//(키와 value)의 1쌍으로 존재한다.
+//**********Entry == (key 와 value)
+//key는 중복 안되고 , value는 중복 가능하다.
+
+
+*HashSet
+//다형성으로 선언가능.
+//ex) Collection hset3 = new HashSet();       
+//ex) Set hset2 = new HashSet();
+//저장 순서 유지 안된다.
+//중복 허용 안함.
+//객체안에 hashcode와 equals가 오버라이딩 되어 있어야지 주소값을 비교해도 값이 같다는걸 알수 있다.
+//Set에서는 하나씩 꺼내는 기능 없다.(-> index가 없기때문에)
+//포함여부확인-> System.out.println("포함확인: "+hset.contains(new Integer(123)));
+//1.toArray()배열로 바꾸고 반복문 사용
+// ex) Object[] arr= hset.toArray();
+//	for(int i=0;i<arr.length;i++) {		System.out.println(i+" : "+arr[i])	}
+//2.Iterator()로 목록 만들어 처리  (= 반복자 라는 의미이다.)
+// 한줄로 항목들을 줄세운다. 한파트별로 정보를 읽어온다.
+// ex) Iterator iter = hset.iterator();
+// 	while(iter.hasNext()) { //Stringtokenizer랑 비슷하다.
+		System.out.println(iter.next());}
+// Iterator는 1회용짜리이다. 그래서 다시 하고 싶으면 다시 생성해야한다.
+
+
+*LinkedHashSet
+//저장순서가 유지된다.
+//오름차순 정렬 -> 자동으로 되지않는다
+(만들어진 LinkedHashSet을 가지고 TreeSet 객체를 생성하면 자동으로 오름차순 정렬된다.)
+(단, 정렬을 하기 위해서는 같은 타입의 객체가 들어가 있어야한다.)
+
+
+*HashMap
+//다형성
+//ex) Map hmap2 = new HashMap();
+//ex) Collection hmap3 = new HashMap(); //Collection의 하위 객체가 아니므로 오류가 뜬다.
+//데이터를 집어 넣을때 put을 사용한다.
+//ex) hmap.put(key, value);
+//키값으로 객체의 내용을 가져올 수도 삭제할 수도 있다.
+//ex) System.out.println("키가 9인 객체: "+hmap.get(9));
+//ex) hmap.remove(9);
+
+*Map의 데이터 접근하는 방법
+//1.keySet()
+//ex) Set keys = hmap.keySet();
+//키 값만 set에 담겠다.
+//키 값은 중복이 허용되지 않으므로 Set이랑 비슷하다 그래서 Set에다가 넣을 수 있다.
+
+//2.저장된 value값들만 values()를 이용해 Collection으로 만든다.
+//ex) Collection values = hmap.values();
+//value 값만 Collection에 담겠다.
+//Value값은 중복 허용하므로 list의 특징과 비슷하다. 그래서 List, Collection에다가 넣을 수 있다.
+
+//2.1 Iterator() ->반복자
+//ex) Iterator valIter = values.iterator();
+/	while(valIter.hasNext()) {	System.out.println(valIter.next());	}
+
+//2.2 객체배열로 만들어서 처리
+//ex) Object[] valArr = values.toArray();
+	for(int i=0;i<valArr.length;i++) {	System.out.println(i+" : "+valArr[i]);	}
+
+//3.Map 내부 클래스인 EntrySet을 이용 
+//ex) Set set = hmap.entrySet();
+       Iterator entryIter = set.iterator();
+       while(entryIter.hasNext()) {
+	Map.Entry entry = (Map.Entry)entryIter.next();
+	System.out.println(entry.getKey()+" : "+entry.getValue()); 	}
+
+
+*Properties
+//key, value 값 모두 문자열만 들어간다.
+//설정 파일의 값을 읽어서 적용할때 사용한다.
+//Jdbc에서 사용하게 된다.
+// prop.setProperty("  key  ","  value  ");   -> 데이터를 저장한다.
+// prop.getProperty("  key  ")  -> value 값을 가져온다.
+// prop.store( 기반스트림, 메모 );  -> 기반스트림을 이용해서 파일을 저장하고 파일안에 메모를 남긴다.
+// prop.storeToXML( 기반스트림, 메모);  -> 기반스트림을 이용해서 xml 파일을 저장하고 파일안에 메모를 남긴다.
+// prop.load( 기반스트림("외부자원") );  -> 기반스트림을 이용해서 파일을 읽어온다.
+// prop.loadFromXML(  기반스트림("외부자원"));  -> 기반스트림을 이용해서 xml 파일을 읽어온다.
+//xml 파일로 만들고 파일을 열면 처음에 알아보기 힘들다 -> 아래쪽 source를 누르면 보기 편하게 바뀐다.
+
+// System.out.println(prop.getProperty("passw")); //오타를 내면 결과값은 null값이 출력된다.
+
+
+
+

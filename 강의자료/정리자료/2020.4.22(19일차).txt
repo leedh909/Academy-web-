@@ -1,0 +1,57 @@
+2020.4.22 [수업 19일차]
+
+
+
+
+*Map.Entry
+//Map안에 있는 Entry(=key&value)를 의미한다.
+
+
+*제네릭스(Generics)
+//제네릭스 : 컬렉션에 저장되는 객체의 자료형에 제한을 거는 기능
+//컬렉션에 한가지 종류의 객체만 저장되기 때문에
+//꺼내서 사용할 때 객체 레퍼런스 형변환X
+//제네릭스 < > 안에는 생략이 되지 않는다.
+//원하는 타입을 < > 안에 지정해놓으면 그 타입으로만 받아올거다 라는 의미이다.
+//ex) ArrayList<String> alist = new ArrayList<String>();  ->String 타입 데이터만 받아올거다.
+//ex) HashMap<String,Book> map = new HashMap<>(); -> 생략을 해도 앞의 제네릭스를 따라가겠다는 의미이다.
+
+
+*MVC패턴을 이용해서
+//Model = 무엇을 처리할지 = 어떤걸 처리할지. 어떤정보, DB랑 연동 많이함.
+(VO : valueObject 객체의 값을 담아주는 것으로 주로 쓰인다.)ex)Car, Student 등...
+(Dao : DB랑 연동되서 값(=데이터)을 가지고 오는 것)=>주로 Collection에 담아서 넘긴다.
+//View = 화면에 보여지는 걸 의미하는 것.
+//Controller = 프로그램이 돌아갈때 무엇을 할지 정해주는 것.ex)manager
+
+//Model은 데이터를 가지고 있는 곳이다.
+//입력값으로 Model을 받아와 Controller에서 함수기능을 통해 결과값을 View에서 출력. 
+
+
+
+진행 : 제네릭스, 연습
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+진행 : 연습문제&풀이
+
+
+
+
+*nextLine()사용시 주의할점.
+System.out.print("차량타입(1.경차/2.세단/3.SUV/4.트럭): ");
+int carType = sc.nextInt();
+sc.nextLine();      
+// nextInt()는 enter, 띄어쓰기 값들을 신경안쓴다. 
+//그러나 바로 다음 nextLine()이 버퍼에 남아있는 enter,띄어쓰기 값들을 받아와서 그냥 넘어가는 것이다.
+System.out.print("차주: ");
+String owner = sc.nextLine();
+
+
+
+
+

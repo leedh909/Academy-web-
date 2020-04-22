@@ -83,7 +83,13 @@ public class TestHashMap {
 //			System.out.println(entry.getKey()+" : "+entry.getValue());
 //		}
 		
+		Set set = hmap.entrySet();
+//		Map.Entry entry2 = (Map.Entry)hmap.entrySet();
 		
+		
+		
+//		System.out.println(entry2.getKey());
+//		System.out.println(entry2.getValue());
 		
 		
 	}

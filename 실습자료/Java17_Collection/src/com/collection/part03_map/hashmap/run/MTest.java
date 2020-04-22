@@ -9,7 +9,7 @@ public class MTest {
 
 		TestHashMap thm = new TestHashMap();
 //		thm.testHashMap();
-//		thm.testHashMap2();
+		thm.testHashMap2();
 		
 	
 	}

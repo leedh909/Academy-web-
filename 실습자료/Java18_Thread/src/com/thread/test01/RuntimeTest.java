@@ -12,7 +12,7 @@ public class RuntimeTest {
 		
 		try {
 			Process prc = rt.exec("\"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\"");
-			
+			//크롬창 하나 띄우기!
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

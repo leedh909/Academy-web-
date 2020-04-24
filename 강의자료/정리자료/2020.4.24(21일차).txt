@@ -1,0 +1,113 @@
+2020.4.24 [수업 21일차]
+
+
+
+
+*Web 
+//web프로젝트 만들기 new-other-web-DynamicWebProject
+//java 관련 소스는 javaResources에 넣으면된다.
+//Web 관련 소스는 WebContent-web_INF-lib에 넣으면 된다.
+
+* URL : Uniform Resource Locator 주소(위치)
+// 특정 서버의 한 리소스에 대한 구체적인 위치를 서술
+
+(도메인네임서비스)www.naver.com =>원래 IP:포트번호//Index.html 을 가지고 있다라는 말이다.
+ 
+* URN : Uniform Resource Name 대상(이름)
+//위치보다는 유일무이한(=중복되지않는) 이름을 사용해서 접속한다.
+
+* URI : URL + URN 
+
+
+*이미지 받아오기
+//ex) URL url = new URL("https://t1.daumcdn.net/cfile/tistory/122E6B4A5021EFAF14");
+		
+	URLConnection urlConnection = url.openConnection();
+	urlConnection.connect();
+	DataInputStream di= new DataInputStream(urlConnection.getInputStream());   
+        //이미 url과 연결된 통로를 만들어놨기때문에 가져와서 쓸수 있다.
+	FileOutputStream fo = new FileOutputStream("a.jpg");
+	while(di.read(b,0,1) != -1) {
+		fo.write(b,0,1);
+	}
+
+*서버 만들기
+//Apache Tomcat을 이용한다.(무료임)
+//원하는 버전의 파일을 다운 받아서 압축을 풀고 "C:"에다가 넣으면 됨.
+
+
+//"맥북사용시" -> 홈브류?라는 프로그램을 이용하면 패키지 관리가 편해진다.
+	brew install tomcat
+	/usr/local/Cellar/
+
+
+//실행창이 살아졌을때 왼쪽 상단 Window->showview->원하는메뉴 를 선택하면 다시 볼 수 있다.
+***우측상단에 커피콩모양을 누르면 web기반으로 작업하기 편하게 바뀐다.
+(하위메뉴 중 Servers 랑 Data Source Explorer를 많이 사용한다.)
+*Servers(서버를 연결할때 사용)
+//apache -> 다운받은 버전 선택 -> 파일이 있는 경로를 지정
+//servers안에 tomcat버전을 더블클릭->HTTP포트넘버를 바꾼다.(8787) ->저장하고 닫는다.
+*Data Source Explorer(이클립스와 DB를 연결할때 사용)
+
+
+*Web에서 실행방법
+//URL입력 -> http://localhost:포트번호/프로젝트명/파일명.html
+//ex) http://localhost:8787/Java19_URI_Web/index.html
+
+*실행순서
+//클라이언트가 요청->WAS가 작업 후->클라이언트에게 응답
+//내 컴퓨터내에 (클라이언트(크롬창) , 서버(Tomcat)) 으로 구분.
+//ex) 해당 URL로 통로를 연결
+//->클라이언트가 WAS(서버tomcat)안에 index.html를 요구했으니 클라이언트에게 보내줬다.
+
+
+WS(WebServer) -> WAS(WebApplicationServer):서버안에 파일, 코드를 관리한다.
+
+
+//submit파일은 해당 action으로 지정된 곳으로 정보를 전달한다.
+
+
+***Jsp파일이 처음에 빨간줄이 뜨면
+//프로젝트 맨아래 Properties -> Project Facets-> 우측상단에 Runtimes 
+//->해당 server를 체크
+
+
+*Web은 서버에 페이지로 요청할때
+//두가지 방식을 취한다.
+// 1. 	queryString을 포함한 GET방식
+// 2. 	주소줄에 요청 페이지만 있고
+	queryString이 없는 POST방식
+
+
+*InetAddress클래스
+//InetAddress클래스는 IP주소를 표현하고 class
+//(주의)new로 생성하지 않는다. 
+//ex) InetAddress addr = InetAddress.getLocalHost();
+
+진행 :  Web 이용방법 및 실행방법, 
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+진행 : Client와 Server의 연습, 
+
+
+
+
+*서버생성
+
+
+
+
+
+
+
+
+
+
+
+
+

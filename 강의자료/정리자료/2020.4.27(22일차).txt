@@ -1,0 +1,209 @@
+2020.4.27 [수업 22일차]
+
+
+
+
+*GUI는 크게 두가지로 나뉜다.( AWT , Swing )
+
+*AWT - 운영체제에서 제공하는 GUI를 사용하겠다.
+*Swing - 순수한 자바로만 이루어져있다. AWT를 확장한 GUI 프로그래밍 도구이다.
+
+
+*컨테이너 = 프레임
+//틀자체를 컨테이너라고 한다.
+//도화지라고 생각해라.
+
+*컴포넌트
+//컨테이너 안의 버튼 등 여러 가지 항목을 의미한다.
+//화면에 출력될 수 있는 GUI 객체이다
+
+*이벤트
+//버튼이 클릭이 되었을때 무엇이 발생되는지.
+
+
+
+*프레임을 생성하는 방법1
+//생성자에 프레임에 대한 설정
+//생성자안에 프레임의 크기지정
+//ex) this.setLocation(300, 200);   this.setSize(800, 600);
+
+//프레임이 보이게 하려면 this.setVisible(true); 로 하나 설정하면 된다.
+
+//닫기 버튼을 눌러도 프로세스는 실행중.
+//프로그램 종료시 프로세스도 정상종료 될 수 있게 설정.
+//ex) this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+//프레임 상단에 타이틀 설정
+//ex) this.setTitle("나와라 타이틀!!");
+//ex) super("BorderLayout");   //부모클래스에게 원하는 이름을 전달하면서 설정가능하다.
+
+//프레임 상단에 이미지를 변경
+//ex) this.setIconImage(ImageIO.read(new File("images/icon.PNG")));
+
+//프레임 사이즈 조정 비활성화
+//ex) this.setResizable(false);   //true : 사이즈 조정 가능, 기본값.
+
+
+*프레임을 생성하는 방법2
+//JFrame 클래스 객체 생성
+//ex) JFrame mainFrame = new JFrame("MMMMMMMMMMMM2");
+
+//Rectangle 객체를 활용한 사이즈 설정
+//ex) Rectangle r = new Rectangle(300,200,800,500);    mainFrame.setBounds(r);
+//setBounds(300,200,800,600); 으로 한번에 조정도 가능하다.
+
+
+******LayOut(레이아웃) : 구역을 나눠주는 걸 의미한다.
+
+*BorderLayout
+//ex) this.setLayout(new BorderLayout());
+//레이아웃을 설정하지 않아도 기본값이 BorderLayout 이다.
+//North, South, East, West, Center 로 구성되어있다.
+
+*FlowLayout
+//ex) this.setLayout(new FlowLayout());
+//왼쪽부터 오른쪽으로 채워가는 레이아웃이다.
+//추가 레이아웃 설정
+// this.setLayout(new FlowLayout(FlowLayout.CENTER)); //기본값(가운데 정렬)
+// this.setLayout(new FlowLayout(FlowLayout.LEFT)); //왼쪽 정렬
+// this.setLayout(new FlowLayout(FlowLayout.RIGHT)); //오른쪽 정렬
+
+*GridLayout
+//ex) this.setLayout(new GridLayout(5,5,10,20));
+//가로, 세로, 가로갭, 세로갭 순으로 값을 넣는다.
+//순서 : 위쪽에서 아래로 왼쪽에서 오른쪽으로 순이다.
+
+(set을 이용해 중복 제거하여 랜덤으로 빙고판 만들기)
+//HashSet을 호출시 어느정도까지는 정렬이 된 상태로 나온다. 
+//그래서 LinkedHashSet()을 사용해서 순서를 있게 만들어서 불러온다.
+
+
+*CardLayout
+//ex) this.setLayout(new CardLayout());
+//패널 만들기
+//ex) JPanel card1 = new JPanel();
+//패널안에 컴포넌트를 생성하여 마지막에 메인에 추가한다.
+
+//CardLayout card = new CardLayout();
+//CardLayout 의 객체를 만들어서 패널을 추가시키고 객체를 next()로 넘기면 다음 패널이 보인다.
+
+
+*card1.addMouseListener(new MouseAdapter() {	});
+//MouseListener() 는 마우스 이벤트를 받는 클래스이다.
+//MouseAdapter() 는 마우스 이벤트를 받는 메소드이다.
+
+//@Override	public void mouseClicked(MouseEvent e){ ... }
+//오버라이딩을 통해서 마우스 클릭하는 메소드의 기능을 바꿀 수 있다.
+//e.getButton() 은 마우스 클릭버튼값을 받아오는 메소드이다. 
+
+
+*패널(Panel)
+//CardLayout에서 여러 개의 Panel을 만들 수 있다.
+//패널에 레이아웃 설정하지 않으면 기본이 flowLayout의 center
+
+
+
+
+
+진행 :  GUI(Graphic User Interface), 컨테이너, Layout의 종류, 마우스 이벤트(클릭)
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+진행 : 컴포넌트(component)
+
+
+
+
+*글을 입력할 수 있는 텍스트 상자
+//ex)	JTextField id = new JTextField(30);
+
+*비밀번호를 입력 할 수 있는 TextField
+//입력되는 값을 화면상에서 볼 수 없다, 한글입력X
+//ex)	JPasswordField password = new JPasswordField(30);
+
+*여러 줄의 텍스트를 입력 할 수 있다.
+//ex)	JTextArea textArea = new JTextArea(10,30);
+
+
+//차곡차곡 쌓아가면서 화면을 구현해야한다. (역순으로 생각해야한다!!)
+//컴포넌트부터 생각해서 패널에 넣어놓고 그 패널을 프레임에 올려놔야한다.
+
+
+**컨테이너크기를 구성요소들의 크기로 설정
+//ex) mf.pack();
+
+
+//tf.setText("");   -> 실행을 했을때 텍스트 창을 비운다.(=다른내용으로 채운다)
+
+
+*RadioButton
+//ex) JRadioButton small = new JRadioButton("Small size");
+//라디오 버튼을 사용하려면 라디오 버튼그룹을 이용해서 만들어야한다.
+//라디오 버튼을 버튼그룹으로 지정
+//ex) ButtonGroup size = new ButtonGroup();
+		size.add(small);
+		size.add(medium);
+		size.add(large);	
+
+
+*CheckBox
+//ex)  String[] fruits = {"appel","orange","banana"};
+//	JCheckBox[] buttons = new JCheckBox[3];
+//	for(int i=0;i<buttons.length;i++) {	buttons[i]= new JCheckBox(fruits[i]);   }
+
+
+**************************************************
+//컴포넌트를 추가할때는 패널을 만들어서 패널에 넣고 
+//패널을 프레임에 추가시키는 식으로 습관드려라!!!
+
+
+*ImageLabel
+//이미지 객체를 생성(크기 지정)
+//ImageIcon으로 이미지 사이즈를 변경한뒤 다시 ImageIcon으로 추가한다.
+//ex) Image icon = new ImageIcon("images/user.PNG").getImage().getScaledInstance(200, 200, 0);
+	JLabel label = new JLabel(new ImageIcon(icon));
+
+
+*ComboBox
+//ex) String[] animals = {"dog","cat","tiger"};
+//콤보박스 생성
+	JComboBox animalList = new JComboBox(animals);
+//어떤 메뉴를 선택했는지에 대한 요소를 가지고 온다.
+//getSource() 메소드는 처음에 Object타입으로 가져온다. 그러니깐 형변환 필수!!!!!
+//ex) JComboBox cb = (JComboBox)e.getSource();
+//선택된 메뉴의 텍스트를 가지고 온다.
+//선택된 이름에 해당하는 사진을 label에 추가
+//설정된 영역 내에서 위치를 가운데로 설정한 것이다.
+//ex) label.setHorizontalAlignment(JLabel.CENTER);
+
+*ListTest
+//ex) String[] cities = {"서울","대전","대구","부산","경기","강원","인천","광주","울산"	};
+	JList list = new JList(cities);
+//리스트에 경계선 설정 ( 많이 쓸거다 )
+//ex) list.setBorder(BorderFactory.createLineBorder(Color.black,3));
+		
+//리스트에 스크롤바 추가
+//ex) JScrollPane scroller = new JScrollPane(list);
+
+//스크롤 패널 사이즈 지정
+//스크롤 패널의 사이즈를 지정하기 위해 Dimension타입의 객체를 인자로 넣어주어야 한다.
+//ex) scroller.setPreferredSize(new Dimension(200,50));
+
+//read only
+//ex) selected.setEditable(false);
+
+
+
+
+
+
+
+
+
+
+
+

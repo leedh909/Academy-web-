@@ -1,0 +1,10 @@
+2020.5.12 [수업 31일차]
+
+
+
+
+* 앞으로 수업진행
+// 오라클 끝내고 -> JDBC -> HTML
+
+** 오라클 다운(로그인 필요)
+오라클 사이트 -> 다운로드 ->데이터베이스-> database 11g -> Oracle database expressedition-> window64bit 다운

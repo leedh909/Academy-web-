@@ -1,0 +1,137 @@
+2020.5.13 [수업 32일차]
+
+
+
+
+진행 : 시험봄
+
+------------------------------------------------------------------------------------
+
+
+
+진행 : 오라클(데이터베이스)환경설정 , 데이터베이스 개요 , DML
+
+
+
+*OracleXE112_Win64 압축풀기(설치)
+//오라클 관리자 번호 설정 = 1234  (본래는 원하는 걸로)
+
+
+*데이터베이스 = 오라클
+//데이터를 효율적으로 관리하려고 만듬.
+//정보를 저장할 떄 중복된 값을 제거한다.
+//계속적인 변화(시간에 따라 항상 바뀜)
+//동시 공유 가능
+
+
+*DBMS(ex 오라클)
+//데이터베이스를 관리할 시스템
+//계층형 데이터베이스, 네트워크형 데이터베이스, 관계형 데이터베이스(표모양), 객체관계형 데이터베이스
+
+
+*DBeaver (=DBMS이다. == 데이터베이스 관리용 툴이다)
+
+
+*cmd -> sqlplus -> Enter user-name: system -> Enter password: 1234 (설치시 입력한 암호)
+-> SQL> create user KH identified by KH; -> 계정을 만듬
+
+*계정을 바꾸는 방법
+//CONN SYSTEM/1234
+ (-> CONN 유저이름/비번)
+
+*권한을 주는 코드
+//GRANT CONNECT, RESOURCE TO KH;
+ (-> 연결, 소스변경 권한을 KH에게 주겠다.) 
+
+
+//system 은 관리자 계정이다. (=super계정)
+//사용자 계정은? 보통 작업을 할때 사용하는 일반계정을 의미한다.
+//SQL> create user KH identified by KH;    (= 일반계정 만들기)
+ (->               ID               PW 를 의미한다.)
+
+
+*KH.sql 파일을 cmd 창에 실행시켰다.
+
+
+*KH 계정에서 -> SELECT * FROM TABS; (TABS라는 테이블의 모든 걸 검색하겠다.)
+//ex) SELECT * FROM JOB;
+//ex) SELECT * FROM EMPLOYEE;
+
+
+******dbeaver 시작지점 오류시 해결방법
+//https://www.microsoft.com/ko-kr/download/details.aspx?id=48145
+(들어가서 운영체제에 맞는걸 다운받는다.)
+
+
+*디비버랑 데이터베이스 연결방법
+//왼쪽 상단 콘센트 클릭 -> 오라클 선택 -> host: localhost , port:1521 
+//-> database: xe , SID ->  Username: KH , Password: KH        입력
+//-> Edit Driver Settings 클릭
+//-> 우측에 Download/Update 클릭 -> download 클릭 -> 확인 
+//-> 왼쪽하단에 Test Connection 클릭(Connected 나오면 성공) -> 완료
+
+
+*디비버 사용방법
+//데이터베이스 사용시 데이터베이스 누르고 상단의 콘센트모양 클릭
+//해제는 빨간색 콘센트 누르면 된다.
+//화면 구성
+ ( 원도우 -> 설정 -> "문서 편집기"검색 -> 행 번호 표시 클릭후 완료)
+ ( 윈도우 -> 설정 -> DBeaver -> 연결유형 -> "Auto-commit by default" 해제 후 완료)
+//**쿼리문 작성 후 작성한 부분에 커서를 올리고 (Ctrl + Enter) 누르면 실행된다.
+
+
+
+*SQL (Structured Query Language)
+//DQL, DML, DDL, TCL
+//트랜젝션 : 데이터베이스에서 작업할 때 쓰는 가장 작은 작업단위
+
+
+*Char vs Varchar 차이는
+//Char는 빈공간이 있으면 *로 채운다
+//Varchar는 빈공간이 있으면 비우고 출력한다.(가변문자)
+cf)들어가는 데이터는 대소문자 구분을 하지만 쿼리문을 쓸때는 대소문자 구분이 안된다.
+
+
+*Result Set = 데이터를 조회한 결과를 의미한다.
+
+
+*디비버 주석달아주는 방법  --  를 사용하면 된다.
+
+
+*SELECT 문 : 조회용 SQL
+ [형식]
+ SELECT 컬럼명 		: 조회하고자 하는 내용
+ FROM 테이블명 		: 조회하고자 하는 테이블 명
+ [WHERE 조건] 		: 특정 조건
+ [ORDER BY 컬럼] 	: 정렬
+ ;
+
+* WHERE 절
+// 테이블에서 조건을 만족하는 값을 가지는 행을 따로 선택하여 
+// 조회하는 조건절 
+// 여러 개의 조건을 선택하고자 할 경우 AND, OR 명령어를 함께 사용
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,167 @@
+2020.5.15 [수업 34일차]
+
+
+
+*******날짜 처리 함수 
+********SYSDATE : 현재 컴퓨터의 날짜를 반환하는 함수
+//EX) SELECT SYSDATE FROM DUAL;
+
+*MONTHS_BETWEEN(날짜1, 날짜2) : 두 날짜 사이의 개월 수
+//EX) SELECT HIRE_DATE 입사일, MONTHS_BETWEEN(SYSDATE, HIRE_DATE) "입사 후 개월 수" FROM EMPLOYEE;
+
+*ADD_MONTHS(날짜, 개월 수)
+//몇달뒤 "비밀번호 변경하세요" 라는 알람을 뜨게 만들 수 있다.
+
+*EXTRACT(YEAR | MONTH | DAY FROM 날짜 데이터)
+--지정한 날로 부터 날짜 값을 추출 하는 함수
+//EX) SELECT EXTRACT(YEAR FROM HIRE_DATE) 년,
+	EXTRACT (MONTH FROM HIRE_DATE) 월,
+	EXTRACT (DAY FROM HIRE_DATE) 일 FROM EMPLOYEE;
+
+**형변환 함수
+--DATE <--> CHAR <--> NUMBER
+--TO_DATE(), TO_CHAR(), TO_NUMBER()
+--날짜로 변환, 문자로 변환, 숫자로 변환
+//EX) SELECT HIRE_DATE, TO_CHAR(HIRE_DATE,'YYYY-MM-DD'), TO_CHAR(HIRE_DATE ,'YY-MON-DD') FROM EMPLOYEE;
+//EX) SELECT SALARY , TO_CHAR(SALARY,'L999,999,999'),TO_CHAR(SALARY,'000,000,000')  FROM EMPLOYEE;
+// 9:남은 빈칸은 표시하지 않는다./ 0:남은 빈 칸을 0으로 표시/ L:통화기호(원,엔,위안,달러)
+// 단, 지정한 범위를 넘어가면 이상하게 표시된다. EX)TO_CHAR(SALARY, 'L999,999')
+//EX) SELECT 20200515, TO_DATE(20200515,'YYYYMMDD'),TO_DATE(20200515,'YYYY/MM/DD') FROM DUAL;
+
+*******DECODE()
+--JAVA에서 3항연산자
+--조건? 참 : 거짓
+--현재 근무하는 직원들의 성별을 남, 여로 구분 짓기
+//EX) DECODE(SUBSTR(EMP_NO,8,1),'1','남','여') 성별
+
+
+*별칭으로 정렬도 가능하다.
+//EX) ORDER BY 성별;
+
+*****CASE 문  
+--JAVA의 IF, SWITCH 처럼 사용할 수 있는 함수 표현식
+--CASE
+--WHEN (조건식1) THEN 결과값1
+--WHEN (조건식2) THEN 결과값2
+--ELSE 결과값3
+--END
+
+**NVL2( 컬럼명|데이터, NULL이 아닐경우 값, NULL일 경우 값 )
+//EX) NVL2(BONUS ,TO_CHAR(BONUS,'0.99'),'X' )
+
+
+*숫자 데이터 함수
+--ABS() : 절대값 표현
+--MOD() : 주어진 컬럼이나 값을 나눈 나머지를 반환하는 함수
+--ROUND() : 지정한 숫자를 반올림 하는 함수
+--CEIL() : 소수점 첫째 자리에서 올림
+--FLOOR() : 소수점 이하 자리를 버림
+--TRUNC() : 지정한 위치까지 숫자를 버림
+
+
+
+
+진행 : 날짜처리함수, 조건함수, 숫자데이터함수
+
+
+
+------------------------------------------------------------------------------------
+
+
+
+진행 : 날짜데이터, 날짜형변환, ORDER BY, GROUP BY
+
+
+
+*날짜 데이터
+--SYSDATE, MONTHS_BETWEEN, ADD_MONTHS,
+--EXTRACT, LAST_DAY, NEXT_DAY
+
+--SYSDATE, SYSTIMESTAMP
+//둘의 차이점은 SYSTIMESTAMP는 밀리세컨즈 단위까지 나타낼 수 있다.
+//EX) TO_CHAR(SYSDATE, 'YYYY-MM-DD HH:MI:SS') ,TO_CHAR(SYSTIMESTAMP, 'YYYY-MM-DD HH:MI:SSFF' ) 
+
+--NEXT_DAY(날짜, 요일명)
+--앞으로 다가올 가장 가까운 요일을 반환하는 함수
+//EX) NEXT_DAY(SYSDATE,'토'), NEXT_DAY(SYSDATE,'토요일')
+//EX) NEXT_DAY(SYSDATE,7) --1:일요일 ~ 7:토요일
+
+
+*데이터사전(데이터 딕셔너리)
+--현재 계정에 설정된 정보를 DB의 테이블 형태로 보관하는 테이블
+--기본적으로 시스템의 관리자만 변경 가능
+--단, 사용자 계정도 접속한 동안은 변경 가능, 변경 후 재접속 하면 초기화
+//EX) SELECT  * FROM V$NLS_PARAMETERS;
+//EX) ALTER SESSION SET NLS_LANGUAGE = AMERICAN;
+//EX) SELECT  NEXT_DAY(SYSDATE, 'SATURDAY') FROM DUAL;
+
+
+*LAST_DAY() : 주어진 날짜의 마지막 일자를 조회
+--날짜 값끼리는 가장 최근 날짜일 수록 점점 더 큰 값으로 판단
+-- +,- 연산 가능
+
+
+--날짜 형변환
+/*
+	YYYY 년도 표현(4자리)    YY 년도 표현(2자리)
+	MM 월을 숫자로
+	DAY 요일 표현
+ */
+
+--날짜 포맷 설정에서 Y / R 차이 (결과값 2020,2020,2080,1980)
+//EX)	TO_CHAR(TO_DATE('200315','YYMMDD'),'YYYY') "결과1",
+	TO_CHAR(TO_DATE('200315','RRMMDD'),'RRRR') "결과2",
+	TO_CHAR(TO_DATE('800315','YYMMDD'),'YYYY' ) "결과3",
+	TO_CHAR(TO_DATE('800315','RRMMDD'),'RRRR' ) "결과4"
+--앞에 입력 4자리 한번에 입력 받을 경우 문제X    EX) '19200315'
+--앞에 입력 2자리 입력 받을 경우         EX)'200315'
+--YY는 현 세기 기준 -- 80 --> 2080
+--RR은 반 세기 기준 -- 51~99 --> 1900년대 , 00~50 -->2000년대
+
+
+*SELECT '123'+'456' FROM DUAL;
+//정상작동 (단, 사칙연산이 된다.)
+*SELECT '123'+'456ABC' FROM DUAL;
+//오류(다 되는건 아니다.
+
+
+--SELECT 문의 실행순서
+/*
+ 5.	SELECT 컬럼명 AS 별칭, 계산, 함수식
+ 1.	FROM 테이블명
+ 2.	WHERE 조건
+ 3.	GROUP BY 그룹을 묶을 컬럼명
+ 4.	HAVING 그룹에 대한 조건식, 함수식
+ 6.	ORDER BY 컬럼|별칭|순서 
+ */
+
+
+*ORDER BY
+-- 정렬 기본 값은 오름차순 ASC
+-- 내림차순 DESC
+
+
+*GROUP BY
+--특정 컬럼, 계산식을 하나의 그룹으로 묶어
+--한테이블 내에서 소그룹 별로 조회하고자 할때 선언하는 구문
+
+
+*******SUB QUERY
+//SQL문 안에 SQL문이 또 들어가 있다.
+//EX) 	SELECT DEPT_CODE , SUM(SALARY) FROM EMPLOYEE 
+	GROUP BY DEPT_CODE 
+	HAVING SUM(SALARY) = 
+	 (SELECT MAX(SUM(SALARY)) FROM EMPLOYEE GROUP BY DEPT_CODE);
+
+
+
+
+
+
+
+
+
+
+
+
+

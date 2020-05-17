@@ -302,7 +302,10 @@ SELECT DISTINCT DEPT_CODE FROM EMPLOYEE; --중복하는 값이 몇개 있는지 확인
 --EMPLOYEE 테이블에서
 --모든 사원의 사번, 사원명, 이메일, 주민번호를 조회하여 사원 목록표를 만들고자 한다.
 --이때, 이메일은 '@' 전까지, 주민번호는 7번째 자리 이후 '*' 처리를 하여 조회하시오.
-SELECT EMP_ID 사번, EMP_NAME 사원명, SUBSTR(EMAIL,1,INSTR(EMAIL,'@')-1) 이메일, RPAD(SUBSTR(EMP_NO,1,8),13,'*') 주민번호 FROM EMPLOYEE;
+SELECT EMP_ID 사번, EMP_NAME 사원명, SUBSTR(EMAIL,1,INSTR(EMAIL,'@')-1) 이메일, RPAD(SUBSTR(EMP_NO,1,8),14,'*') 주민번호 
+FROM EMPLOYEE 
+ORDER BY 1; 
+--ORDER BY 숫자 를 입력시 숫자번째 컬럼의 값으로 정렬된다.
 
 
 --실습 7
@@ -310,11 +313,6 @@ SELECT EMP_ID 사번, EMP_NAME 사원명, SUBSTR(EMAIL,1,INSTR(EMAIL,'@')-1) 이메일, 
 --**ENT_YN : 현재 근무 여부 파악하는 컬럼(퇴사 여부)
 SELECT EMP_ID 사번, EMP_NAME 사원명, JOB_CODE 직급코드 FROM EMPLOYEE WHERE ENT_YN ='N' AND SUBSTR(EMP_NO,8,1)='2' ;
 SELECT EMP_NAME , EMP_NO FROM EMPLOYEE WHERE SUBSTR(EMP_NO,8,1)='2';
-
-
-
-
-SELECT COUNT(DEPT_CODE IS NULL) FROM EMPLOYEE;
 
 
 

@@ -1,0 +1,316 @@
+2020.5.26 [수업 41일차]
+
+
+*인덱스 : SQL 명령어 조회 처리 속도를 향상시키기 위한 객체
+--장점 : 	검색 속도가 향상
+--단점 : 	인덱스가 존재하는 테이블의 내용이 자주 변경되는 테이블이라면
+--		인덱스를 매번 다시 계산하여 만들어야 하기 때문에 오히려 성능이 저하 될 수 있다.
+--		인덱스를 저장하기 위한 별도의 공간을 할당
+--(단점이 존재하더라도 장점이 극대화되기 때문에 사용한다.)
+
+*인덱스 생성방법
+--CREATE [UNIQUE] INDEX 인덱스명 ON 테이블명(컬럼[,컬럼명 | 함수식])
+
+*인덱스를 관리하는 데이터 사전
+//EX) SELECT * FROM USER_IND_COLUMNS;
+
+*ROWID
+--테이블 생성 및 데이터 추가시에 오라클에서 해당 객체를 관리하기 위한
+--데이터의 순번, 시스템에서 직접 관리하기 때문에 사용자가 함부로 변경 불가
+//EX) SELECT ROWID, EMP_ID, EMP_NAME FROM EMPLOYEE ;
+
+
+**인덱스의 종류
+--1. 고유인덱스(UNIQUE INDEX)
+--2. 비고유인덱스(NOUNIQUE INDEX)
+--3. 단일인덱스(SINGLE INDEX)
+--4. 결합인덱스(COMPOSITE INDEX)
+--5. 함수기반 인덱스(FUNCTION BASE INDEX)
+
+
+*고유인덱스(UNIQUE INDEX)
+--인덱스 생성 시 고유값을 기준으로 생성하는 인덱스
+--PRIMARY KEY 제약조건을 사용하면 자동으로 생성하는 인덱스
+--(이미 만들어진 인덱스는 또 만들 수 없다.)
+//EX) CREATE UNIQUE INDEX IDX_EMP_NO ON EMPLOYEE(EMP_NO);
+--(확인해보는 코드)
+//EX) SELECT * FROM USER_IND_COLUMNS WHERE TABLE_NAME ='EMPLOYEE';
+--컬럼의 값이 중복값 존재할 경우 UNIQUE INDEX 생성할 수 없다.
+//EX) CREATE UNIQUE INDEX IDX_DEPT_CODE ON EMPLOYEE(DEPT_CODE);
+
+*NON-UNIQUE INDEX 
+--내가 자주 사용하는 컬럼을 인덱스로 구성하여 검색 속도를 향상시키기 위한 인덱스
+//EX) CREATE INDEX IDX_DEPT_CODE ON EMPLOYEE(DEPT_CODE);
+
+*결합 인덱스
+--여러 컬럼을 하나로 묶기 위한 인덱스
+//EX) CREATE INDEX IDX_DEPT ON DEPARTMENT(DEPT_ID, DEPT_TITLE);
+--(아래 코드를 사용할때 속도가 빨라진다.)
+//EX)	SELECT DEPT_ID, DEPT_TITLE FROM DEPARTMENT 
+	WHERE DEPT_ID !='D1' AND DEPT_TITLE !='기술지원부';
+
+*함수 기반 인덱스
+--조회 시 자주 사용하는 함수식이 있다면 해당 함수식을 
+--인덱스 생성시 반영하여 검색을 향상하는 인덱스
+//EX) CREATE INDEX IDX_EMP_SAL_CAL ON EMPLOYEE((SALARY*NVL(BONUS,0)+SALARY)*12);
+--(아래 코드를 사용할때 속도가 빨라진다.)
+//EX) 	SELECT EMP_ID, EMP_NAME, SALARY
+	FROM EMPLOYEE
+	WHERE ((SALARY*NVL(BONUS,0)+SALARY)*12)>10000000;
+
+*인덱스 새로고침
+//EX) ALTER INDEX IDX_DEPT REBUILD;
+
+*인덱스 삭제
+//EX) DROP INDEX IDX_DEPT;
+
+
+**계정 정보
+--1. SYS / 최상위 관리자
+--2. SYSTEM / 일반 관리자
+--3. SCOTT / 교육용 샘플계정
+--4. HR / 교육용 샘플계정
+
+
+--ORACLE--
+--DBMS
+--데이터를 효율적으로 관리하기 위한 시스템
+
+--DDL: 데이터 정의어
+--CREATE, ALTER, DROP
+
+--DBMS 객체 : USER, TABLE, VIEW, INDEX, SEQUENCE
+
+--DML: 데이터 조작어
+--CRUD
+--CREATE : INSERT
+--READ : SELECT
+--UPDATE : UPDATE
+--DELETE : DELETE
+
+--SELECT 순서--
+--5.SELECT
+--1.FROM
+--2.WHERE
+--3.GROUP BY
+--4.HAVING
+--6.ORDER BY
+
+--SET OPERATOR, JOIN
+--SET OPERATOR
+--UNION, UNION ALL, MINUS, INTERSECT
+
+--JOIN
+--INNER JOIN : 두개 이상의 테이블에서 같은 값끼리 묶어서 결과 셋을 만드는 조인 방식
+--OUTER JOIN : 서로 다른 값도 포함하기 위해 사용
+--    LEFT, RIGHT, FULL
+
+--TABLE
+-- 저장된 데이터를 표의 형태로 표현하여 관리하는 DB객체
+--VIEW
+-- 조회한 SELECT 쿼리로 저장, 필요시 가져다 사용할 수 있는 가상 테이블
+--SEQUENCE
+-- 1,2,3,4,5 .. 등의 순서를 자동으로 증감시켜 숫자데이터를 얻을 수 있는 DB객체
+--INDEX
+-- 테이블에서 특정 데이터를 검색할 때, 효율적이고 빠르게 검색하기 위한 객체
+
+
+
+진행 : 인덱스, 지금까지 복습
+
+------------------------------------------------------------------------------------
+
+진행 : PLSQL (기초, IF, CASE, FOR)
+
+
+*PL/SQL
+--(PROCEDURAL LANGUAGE EXTENSION TO SQL)
+--기능: 변수선언, 비교 처리, 반복 처리
+
+*PL/SQL의 구조
+--선언부, 실행부, 예외처리부
+--선언부: DECLARE, 변수 선언 하는 부분
+--실행부: BEGIN, 제어문/반복문 등을 작성하는 부분
+--예외처리부: EXCEPTION, 예외 발생시 처리하는 내용 작성하는 부분
+
+--실행부를 사용해서 간단한 문장 출력
+//EX) BEGIN
+	DBMS_OUTPUT.PUT_LINE('HELLO WORLD');
+	--DBMS_OUTPUT패키지의 PUT_LINE 이라는 프로시저를 이용하여 호출
+	END;
+	/
+
+--화면에 보이도록 설정 (CMD 혹은 ORACLEdeveloper에서 작동된다.)
+//EX) SET SERVEROUTPUT ON;
+
+
+*변수 선언과 초기화, 출력
+--[1] 일반 변수
+DECLARE
+	vid NUMBER;
+BEGIN
+	SELECT EMP_ID
+	INTO vid       --변수에 조회한 값을 담음
+	FROM EMPLOYEE
+	WHERE EMP_NAME='선동일';
+	DBMS_OUTPUT.PUT_LINE('ID='||vid);
+EXCEPTION
+	WHEN NO_DATA_FOUND THEN DBMS_OUTPUT.PUT_LINE('NO DATA!!!!!');
+END;
+/
+--PLSQL에서 변수에 값을 대입하는 방법 ( := )
+DECLARE
+	v_empno NUMBER(4);
+	v_empname VARCHAR2(10);
+	test_num NUMBER(5) := 10*20;  --대입을 할 수 있다.
+BEGIN
+	v_empno := 1001;
+	v_empname := '이대희';
+	DBMS_OUTPUT.PUT_LINE(v_empno||'   '||v_empname||'     '||test_num);
+END;
+/
+
+--[2] 래퍼런스 변수
+-- (1) %TYPE : 한 컬럼의 자료형을 받아 올때 사용하는 자료형 타입
+DECLARE
+	EMP_ID EMPLOYEE.EMP_ID%TYPE;
+	EMP_NAME EMPLOYEE.EMP_NAME%TYPE;
+	SALARY EMPLOYEE.SALARY%TYPE;
+BEGIN
+	SELECT EMP_ID, EMP_NAME, SALARY
+	INTO EMP_ID, EMP_NAME,SALARY
+	FROM EMPLOYEE
+	WHERE EMP_NAME='송종기';
+	DBMS_OUTPUT.PUT_LINE(EMP_ID||'  '||EMP_NAME||'  '||SALARY);
+END;
+/
+
+-- (2) %ROWTYPE : 한 테이블의 모든 컬럼의 자료형을 참조할 때 사용하는 타입
+DECLARE
+	myrow EMPLOYEE%ROWTYPE;
+BEGIN
+	SELECT EMP_ID, EMP_NAME
+	INTO myrow.emp_id, myrow.emp_name
+	FROM EMPLOYEE
+	WHERE EMP_NAME ='선동일';
+	DBMS_OUTPUT.PUT_LINE(myrow.emp_id||', '||myrow.emp_name);
+END;
+/
+
+-- IF 문 --
+--1. IF ~ THEN ~ END IF 
+ 	IF 조건 THEN 조건을 만족할 경우 처리구문;
+ 	END IF;
+--
+BEGIN
+	IF '이창진'='이창진' THEN
+		DBMS_OUTPUT.PUT_LINE('이창진이냐?');
+	END IF;
+END;
+/
+--2. IF ~ THEN ~ ELSE ~ END IF
+BEGIN
+	IF '이창진'='이창진' THEN
+		DBMS_OUTPUT.PUT_LINE('이창진이네?');
+	ELSE DBMS_OUTPUT.PUT_LINE('아니네....');
+	END IF;
+END;
+/
+--3. IF ~ THEN ~ ELSIF ~ ELSE ~ END IF;
+ 	IF 조건1 THEN 실행1;
+ 	ESLIF 조건2 THEN 실행2;
+ 	ELSE 모든 조건 만족하지 않을때;
+ 	END IF;
+--4. CASE 문
+-- CASE ~ END CASE;
+ 	CASE 변수명
+ 		WHEN 표현식1 THEN 실행문1;
+ 		WHEN 표현식2 THEN 실행문2;
+ 		ELSE 기본실행문3;
+ 	END CASE;
+--
+DECLARE
+	NUM NUMBER(10) := 5;
+BEGIN
+	CASE NUM
+		WHEN 1 THEN DBMS_OUTPUT.PUT_LINE(NUM||' 입니다.');
+		WHEN 2 THEN DBMS_OUTPUT.PUT_LINE(NUM||' 입니다아.');
+		WHEN 3 THEN DBMS_OUTPUT.PUT_LINE(NUM||' 입껄요?.');
+		ELSE DBMS_OUTPUT.PUT_LINE('으잉???');
+	END CASE;
+END;
+/
+
+****PL/SQL 반복문   
+*LOOP
+DECLARE
+	E EMPLOYEE%ROWTYPE;
+BEGIN
+	SELECT *
+	INTO E
+	FROM EMPLOYEE;
+	DBMS_OUTPUT.PUT_LINE(E.EMP_ID);
+END;
+/
+--위에 코딩은 오류가 뜬다.
+--일반적으로 PLSQL은 하나의 구문을 처리하기 때문이다.
+
+*반복문의 종류
+--LOOP, FOR, WHILE
+--일반 LOOP문
+ 	LOOP
+ 		반복시킬 내용
+ 		IF 반복 종료 조건
+ 			EXIT;
+ 		END IF;
+ 		또는
+ 		EXIT [WHEN 종료 조건]
+ 	END LOOP;
+--
+DECLARE
+	N INT := 5;
+BEGIN
+	LOOP
+		DBMS_OUTPUT.PUT_LINE(N);
+		N := N-1;
+		EXIT WHEN N=0;
+	END LOOP;
+END;
+/
+
+***FOR 반복문
+--카운트용 변수는 자동 선언, 카운트 값은 자동으로 1씩 증가, REVERSE 1씩 감소
+	FOR 카운트변수 IN [REVERSE] 시작값..종료값 LOOP
+		반복할 내용;
+	END LOOP;
+--기본 FOR문 사용
+BEGIN
+	FOR N IN 1..5 LOOP
+		DBMS_OUTPUT.PUT_LINE(N);
+	END LOOP;
+END;
+/
+-- REVERSE FOR문 사용
+BEGIN
+	FOR N IN REVERSE 1..5 LOOP
+		DBMS_OUTPUT.PUT_LINE(N);
+	END LOOP;
+END;
+/
+
+**FOR문을 통한 INSERT 사용
+--테이블 하나를 생성한다.
+CREATE TABLE TB_FOR(
+	NO NUMBER(10),
+	TEST_DATE DATE
+);
+--생성된 테이블의 FOR을 이용한 데이터 INSERT하기. 
+BEGIN 
+	FOR X IN 1..10 LOOP
+		INSERT INTO TB_FOR VALUES(X,SYSDATE+X);
+	END LOOP;
+END;
+/
+
+
+

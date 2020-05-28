@@ -1,0 +1,14 @@
+package common;
+//db연결, 연결해제, commit, rollback
+//new 연산자 사용X, static으로 생성
+public class JDBCTemplate {
+
+	//1.연결
+	public Connection getConnection() {
+		
+		return null;
+	}
+	
+	
+	
+}

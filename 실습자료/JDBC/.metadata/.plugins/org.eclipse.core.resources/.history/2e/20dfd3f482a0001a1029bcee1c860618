@@ -1,0 +1,33 @@
+package com.test01;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class DBTest03_select {
+
+	public static void main(String[] args) {
+
+		//jdbc를 통한 db연결 후 mytest테이블 select하는 코드 작성
+		
+		//준비
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		String url ="jdbc:oracle:thin:@localhost:1521:xe";
+		String id="KH";
+		String pw="KH";
+		String sql="SELECT * FROM MYTEST";
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

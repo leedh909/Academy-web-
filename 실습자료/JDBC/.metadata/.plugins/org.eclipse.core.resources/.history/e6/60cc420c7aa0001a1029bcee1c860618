@@ -1,0 +1,21 @@
+package com.test01;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class DBTest02 {
+
+	public static void main(String[] args) {
+
+		//0.준비 (변수생성, url id/pw 를 미리 작성해 놓는다.)
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		
+		
+		
+	}
+
+}

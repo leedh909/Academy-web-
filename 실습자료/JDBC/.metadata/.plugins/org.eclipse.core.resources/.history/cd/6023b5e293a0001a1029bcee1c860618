@@ -1,0 +1,13 @@
+package com.test01;
+
+public class DBTest01_Run {
+
+	public static void main(String[] args) throws Exception {
+
+		new DBTest05().insert();
+		
+		
+		
+	}
+
+}

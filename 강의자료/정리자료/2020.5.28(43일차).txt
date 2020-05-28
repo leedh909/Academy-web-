@@ -1,0 +1,106 @@
+2020.5.28 [수업 43일차]
+
+
+*db랑 이클립스 연동순서
+// 변수준비->드라이버등록 -> db연결 -> sql실행 -> 결과리턴 -> 종료
+
+*0.준비 (변수생성, url id/pw 를 미리 작성해 놓는다.)
+//Connection con = null;
+//Statement stmt = null;
+//ResultSet rs = null;
+
+*1. 드라이버 등록
+//Class.forName("oracle.jdbc.driver.OracleDriver");
+
+*2. DB연결
+//Connection con = DriverManager.getConnection(
+	"jdbc:oracle:thin:@localhost:1521:xe", "KH", "KH"
+);
+
+*3. sql 실행
+//Statement stmt = con.createStatement();
+//ResultSet rs = stmt.executeQuery("SELECT * FROM EMP");
+
+*4. 결과리턴
+//while(rs.next()) { System.out.println(rs.getString(2)); }
+	
+*5. 종료
+//rs.close();
+//stmt.close();
+//con.close();
+
+*Statement 는 쓸때 insert 구문에서 values() 의 값을 일일히 지정해줘야함.
+// String sql = "INSERT INTO MYTEST VALUES( "+no+" , ' "+name+" ' , "+" ' "+nickname+" ' ) ";
+
+*jdbc(select, insert, delete)를 sql 변수에 써서 적용시킨다.
+*select 할때는 ResultSet 을 사용하여 결과값을 저장한다. 
+	저장후 while문을 이용해서 출력
+//ex)  rs = stmt.executeQuery(sql);
+	while(rs.next()) {
+		System.out.println(rs.getInt(1)+" : "+rs.getString(2)+
+			"\t["+rs.getString("LOC")+"]");
+	}
+
+*insert나 delete 할때는 결과를 보는게 아니라 실행여부를 판단하기 위해
+	int 변수를 하나 지정하여 실행 여부를 판단한다.
+//ex) res = stmt.executeUpdate(sql);
+	if(res>0) {
+		System.out.println("insert 성공");
+	}else {
+		System.out.println("insert 실패");
+	}
+
+
+
+
+진행 : jdbc복습 , Statement 사용 - jdbc(select, insert, delete) 
+
+------------------------------------------------------------------------------------
+
+진행 : PreparedStatement 사용 - jdbc(insert, delete, select) , db연결 중복 구문을 하나로 통합 
+
+
+//자바파일중에 DB의 정보를 가져오는 곳은 DAO 이다.
+
+*PreparedStatement 은 Statement를 상속받은 자식이다.
+//PreparedStatement를 이용하면 변수를 ?로 대체할 수 있다.
+	String sql="INSERT INTO MYTEST VALUES(?,?,?)";
+//Preparedstatement 준비(?에 순서에 맞게 들어갈 값을 셋팅한다.)
+	pstm = con.prepareStatement(sql);
+	pstm.setInt(1, no);
+	pstm.setString(2, name);
+	pstm.setString(3, nickname);
+
+//query 실행(insert 나 delete 일때 정수로 성공 여부를 판단한다.)
+	int res = pstm.executeUpdate();
+	if(res>0) {
+		System.out.println("insert 성공");
+	}else {
+		System.out.println("insert 실패");
+	}
+
+//select할때는 값을 ResultSet에다가 받아와서 while으로 출력한다.
+	ptmt = con.prepareStatement(sql);
+	ResultSet rs = ptmt.executeQuery();	
+	while(rs.next()) {
+		System.out.println(rs.getInt(1)+" : "+rs.getString(2)+" : "+ rs.getString(3));
+	}
+
+
+*db연결, 연결해제, commit, rollback ( JDBCTemplate.java 파일 참조하기!!!!! )
+//new 연산자 사용X, static으로 생성
+
+****JDBCTemplate 파일을 쓰는 방법
+//첫번째 방법은 JDBCTemplate을 상속받아서 사용한다.
+//ex) public class 데이블명 extends JDBCTemplate{ ... }
+//두번째 방법은 import static 으로 하는 방법이있다.
+//ex) import static common.JDBCTemplate.*;
+
+
+*static으로 선언되어있기때문에 바로 불러올 수 있다.
+//con = getConnection();
+
+
+
+
+

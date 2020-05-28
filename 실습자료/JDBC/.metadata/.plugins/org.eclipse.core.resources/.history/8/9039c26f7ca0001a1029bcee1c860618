@@ -1,0 +1,4 @@
+SELECT * FROM EMP;
+SELECT * FROM EMPLOYEE;
+
+-- 실행코드 블럭 후 ALT + X

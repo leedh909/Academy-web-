@@ -1,0 +1,26 @@
+package com.test01;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBTest01 {
+
+	public static void main(String[] args) throws ClassNotFoundException {
+
+		//1.드라이버 등록
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		
+		
+		//2.DB연결
+		Connection con = DriverManager.getConnection(url);
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

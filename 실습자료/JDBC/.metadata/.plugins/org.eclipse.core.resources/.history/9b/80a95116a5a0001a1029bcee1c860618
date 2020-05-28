@@ -1,0 +1,28 @@
+package com.test01;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+//두번째 방법은 import static 으로 하는 방법이있다.
+public class DBTest06 /*extends JDBCTemplate*/{
+
+	public void selectAll() {
+
+		Connection con = null;
+		PreparedStatement pstm = null;
+		ResultSet rs= null;
+		
+		String sql ="SELECT * FROM MYTEST";
+		
+		
+		
+		
+	}
+
+		
+		
+	
+		
+		
+		
+		
+}

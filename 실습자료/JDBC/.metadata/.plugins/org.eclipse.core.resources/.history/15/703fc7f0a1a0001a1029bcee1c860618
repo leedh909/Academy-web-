@@ -1,0 +1,31 @@
+package common;
+
+import java.sql.Connection;
+
+//db연결, 연결해제, commit, rollback
+//new 연산자 사용X, static으로 생성
+public class JDBCTemplate {
+
+	//1.연결
+	public Connection getConnection() {
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("[ERROR] 드라이버 등록 실패");
+			e.printStackTrace();
+		}
+		
+		//url, id, pw
+		String url ="jdbc:oracle:thin:@localhost:1521:xe";
+		String id = "KH";
+		String pw = "KH";
+		
+		
+		
+		return null;
+	}
+	
+	
+	
+}

@@ -1,0 +1,35 @@
+2020.5.29 [수업 44일차]
+
+
+//commit 되는 순간에 따라서 데이터 결과가 달라질 수 있다.
+
+*dao 와 dto 는 MVC에서 model 에 포함된다.
+
+*Connection con 과 여러 객체를 매개변수로 해서 Dao한테 보낸다.
+
+*Dao는 DB와 연결해서 sql 을 실행 후 결과값을 받아온다.
+
+
+
+진행 : (과제 insert,selectOne 풀이), DAO, DTO, update, selectAll
+
+------------------------------------------------------------------------------------
+
+진행 : selectAll, selectOne, insert, update, delete, 
+
+
+
+//Project를 생성하면 BuildPath에서 jar 파일을 추가해줘야한다.
+//biz = 비즈니스 로직(business logic)
+
+*interface로 선언 후 상속시킨 이유는 코드의 유연성을 위함이다.
+(여러 중복 코드에 적용하기 쉽게)
+
+*view에서 biz객체를 생성하고 biz 객체안에 dao객체를 생성하고 
+ dao객체 안에서 db와 연결 및 결과데이터를 받아온다.
+
+
+
+
+
+

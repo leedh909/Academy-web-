@@ -1,0 +1,23 @@
+2020.6.1 [수업 45일차]
+
+진행 :  5차 시험 진행
+
+------------------------------------------------------------------------------------
+
+진행 : properties를 이용한 디비접속
+
+*driver.properties 에 저장한 값은 key,value 로 값을 저장한 것이다.
+(query.properties도 같은 방법으로 sql을 불러온다)
+//ex)  driver=oracle.jdbc.driver.OracleDriver
+//        key = value
+
+
+****(MVC패턴을 이용한 데이터의 흐름)중요!!!!!!!!*****  
+메인(run) -> view -> controller -> service -> dao -> db접근
+
+
+*DAO 파일은 sql을 이용해서 DB와 연결하는 파일이다.
+// 그래서 DAO파일 생성자를 통해서 query.properties를 연결해준다.
+
+
+

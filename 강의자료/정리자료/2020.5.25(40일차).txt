@@ -155,7 +155,7 @@
 //EX) CREATE ROLE EMP_ROLE;
 --ROLE에 권한 부여
 //EX) GRANT SELECT ON KH.EMPLOYEE TO EMP_ROLE;
---TEST 사용자에게 EMP_ROLE 권한 부여
+--TESTER 사용자에게 EMP_ROLE 권한 부여
 //EX) GRANT EMP_ROLE TO TESTER;
 
 --흐름의 이해: ROLE 생성 -> ROLE에 권한 부여 -> ROLE을 사용자에게 부여

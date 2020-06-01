@@ -29,7 +29,7 @@
 
 
 
-진행 : 복습, Inline View, ROWNUM, RANK(), 
+진행 : 복습, Inline View, ROWNUM, RANK(), DENSE_RANK()
 
 
 
@@ -37,7 +37,7 @@
 
 
 
-진행 : WITH AS 구문, 상호연관쿼리, 스칼라 서브쿼리
+진행 : WITH AS 구문, 상호연관쿼리, 스칼라 서브쿼리, 데이터사전
 
 
 

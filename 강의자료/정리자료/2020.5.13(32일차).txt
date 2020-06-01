@@ -9,7 +9,7 @@
 
 
 
-진행 : 오라클(데이터베이스)환경설정 , 데이터베이스 개요 , DML
+진행 : 오라클(데이터베이스)환경설정 , 데이터베이스 개요 , DML(select) & 실습
 
 
 
@@ -35,6 +35,13 @@
 *cmd -> sqlplus -> Enter user-name: system -> Enter password: 1234 (설치시 입력한 암호)
 -> SQL> create user KH identified by KH; -> 계정을 만듬
 
+
+//system 은 관리자 계정이다. (=super계정)
+//사용자 계정은? 보통 작업을 할때 사용하는 일반계정을 의미한다.
+*SQL> create user KH identified by KH;    (= 일반계정 만들기)
+ (->                      ID                   PW 를 의미한다.)
+
+
 *계정을 바꾸는 방법
 //CONN SYSTEM/1234
  (-> CONN 유저이름/비번)
@@ -42,12 +49,6 @@
 *권한을 주는 코드
 //GRANT CONNECT, RESOURCE TO KH;
  (-> 연결, 소스변경 권한을 KH에게 주겠다.) 
-
-
-//system 은 관리자 계정이다. (=super계정)
-//사용자 계정은? 보통 작업을 할때 사용하는 일반계정을 의미한다.
-//SQL> create user KH identified by KH;    (= 일반계정 만들기)
- (->               ID               PW 를 의미한다.)
 
 
 *KH.sql 파일을 cmd 창에 실행시켰다.
@@ -60,7 +61,7 @@
 
 ******dbeaver 시작지점 오류시 해결방법
 //https://www.microsoft.com/ko-kr/download/details.aspx?id=48145
-(들어가서 운영체제에 맞는걸 다운받는다.)
+(들어가서 운영체제에 맞는걸 다운받는다.)(디비버가 C++위주여서 받아야 실행됨)
 
 
 *디비버랑 데이터베이스 연결방법

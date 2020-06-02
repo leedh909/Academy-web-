@@ -9,6 +9,13 @@ public class Product {
 	
 	//생성자(기본,매개변수)
 	public Product() { super(); }
+	
+	public Product(String pid, int price) {
+		super();
+		this.pid = pid;
+		this.price = price;
+	}
+
 	public Product(String pid, String pName, int price, String desc) {
 		super();
 		this.pid = pid;

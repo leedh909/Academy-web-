@@ -22,6 +22,61 @@ public class ProductService {
 		return res;
 	}
 
+	public Product selectOne(String pid) {
+		
+		ProductDao dao = new ProductDao();
+		Connection con = getConnection();
+		
+		Product res = dao.selectOne(con, pid);
+		close(con);
+		
+		return res;
+	}
+
+	public int insert(Product in) {
+
+		ProductDao dao = new ProductDao();
+		Connection con = getConnection();
+		
+		int res = dao.insert(con,in);
+		if(res>0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		close(con);
+		return res;
+	}
+
+	public int update(Product up) {
+		
+		ProductDao dao = new ProductDao();
+		Connection con = getConnection();
+		
+		int res = dao.update(con, up);
+		if(res>0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		close(con);
+		return res;
+	}
+
+	public int delete(String del_pid) {
+
+		ProductDao dao = new ProductDao();
+		Connection con = getConnection();
+		
+		int res = dao.delete(con,del_pid);
+		if(res>0) {
+			commit(con);
+		}else {
+			rollback(con);
+		}
+		close(con);
+		return res;
+	}
 	
 	
 	

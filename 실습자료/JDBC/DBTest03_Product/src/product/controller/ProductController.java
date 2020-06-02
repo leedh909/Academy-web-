@@ -15,7 +15,25 @@ public class ProductController {
 		return ps.selectAll();
 	}
 	
+	public Product selectOne(String pid) {
+		
+		return ps.selectOne(pid);
+	}
+
+	public int insert(Product in) {
+
+		return ps.insert(in);
+	}
+
+	public int update(Product up) {
+
+		return ps.update(up);
+	}
+
+	public int delete(String del_pid) {
 	
+		return ps.delete(del_pid);
+	}
 	
 	
 	

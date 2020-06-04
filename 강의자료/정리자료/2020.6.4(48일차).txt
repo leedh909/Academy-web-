@@ -1,0 +1,149 @@
+2020.6.4 [수업 48일차]
+
+
+***이미지 관련 태그
+*<img> : 이미지 파일 경로를 src라는 속성의 속성값으로 지정, 닫기태그x
+
+*<img src="sample/image/river.PNG" alt="리버1">
+//이미지를 읽을 수 없을 경우 대체되는 텍스트 설정
+
+*width 와 height 속성
+//사진의 높이와 너비를 지정할 수 있다.
+//고정 크기 단위: 화면사이즈가 줄어도 크기가 변하지 않는다.
+<img src="sample/image/flower1.PNG" width="200px" height="150px">
+//가변 크기 단위: 화면사이즈에 따라 크기가 변한다.
+<img src="sample/image/flower1.PNG" width="15%" height="150px">
+
+*이미지 구역을 2개로 나누어 각각 링크 설정
+<img src="sample/image/river1.PNG" usemap="#map">
+    <map name="map">
+        <area shape="rect" coords="00,00,300,500" href="http://www.naver.com" target="_blank">
+        <area shape="rect" coords="300,00,600,500" href="http://www.google.com" target="_blank">
+    </map>
+// ( target="_blank" )하면 새로운 창에 출력된다. 
+// ( coords )는 img의 크기에서 하이퍼링크 영역을 지정하는 것이다.
+
+***미디어 관련 태그
+*오디오
+// <audio src="sample/audio/major.mp3" controls="controls"></audio>
+
+*비디오
+// <video src="sample/video/video1.mp4" controls="controls"></video>
+//해당 브라우저에서 실행이 안될때 아래 방법으로 사용할 수 있다.
+  <video controls="controls">
+        <source src="sample/video/video1.mp4" type="video/mp4">
+  </video>
+
+***하이퍼링크 관련 태그
+*a태그를 이용한 하이퍼링크 테스트
+// <li><a href="html01_block_inline.html">block_inline</a></li>
+//네트워크가 연결된 상황이라면 현재 서비스 되는 웹페이지도 링크 가능
+// <li><a href="http://www.naver.com" target="_blank">네이버</a></li>
+//img태그를 이용해서 링크
+// <a href="http://www.naver.com" target="_blank"><img src="sample/image/flower5.PNG" width="150px" height="100px"></a>
+
+*a태그 사용
+// #id 로 원하는 지점을 하이퍼링크할 수 있다. 
+//<a href="#a">1번으로</a>
+//<p id="a">1번</p>
+
+
+
+진행 : 이미지 관련 태그, 미디어 관련 태그, 하이퍼링크 관련 태그
+
+------------------------------------------------------------------------------------
+
+진행 : form 관련 태그
+
+
+***폼 관련 태그
+form태그는 사용자가 입력할 수 있는 양식을 제공하는 태그
+form 태그 내의 input 태그들을 통해 사용자가 입력한 정보를 서버로 넘기는 역할을 한다.
+* action 속성 : 폼의 입력된 값들을 전송받을 서버의 이름을 입력
+* method 속성 : get/post 방식으로 전송방식을 지정.
+//submit 버튼을 눌렀을 때 action에 지정한 경로로 method에 지정한 방식으로 input태그에 입력한 값을 전달
+
+//form 안에 fieldset을 넣고 틀을 만들 수도 있다.
+ <form >
+        <fieldset>
+            <legend>필드셋의 제목을 작성하는 태그</legend>
+            <label>입력1: </label><input type="text"><br>
+            <label>입력2: </label><input type="text"><br>
+        </fieldset>
+ </form>
+
+
+**text와 관련된 input 태그
+*type="text"
+//한줄 짜리 텍스트 입력할 수 있는 상자
+*type="password"
+//비밀번호 입력할 수 있는 텍스트 상자
+*type="search","url","email","tel"
+//겉모습은 텍스트 상자와 비슷, 각각의 정보에 맞게 기능을 제공하는 텍스트 상자
+//placeholder="Enter " --> 입력하지 않았을때 텍스트 창에 표시되는 내용.
+ <input type="password" name="userpw" size="20" placeholder="Enter PW" maxlength="10">
+
+
+**숫자 관련 input 태그
+*type="number"
+//입력창에 숫자를 입력하는 것이 기본
+*type="range"
+//슬라이드바를 통해 숫자를 지정
+
+
+**날짜/시간 관련 input 태그
+*type="date","month","week","time"
+<label>date: </label> <input type="date">
+
+
+**라디오버튼과 체크박스
+*type="radio"
+  <form>
+        <h2>라디오버튼과 체크박스</h2>
+        <h3>type="radio"</h3>
+        <label>GENDER: </label> <input type="radio" value="M" name="gender" id="male">남자&nbsp;
+        <input type="radio" value="F" name="gender" id="female" checked>여자 <br>
+        <label>sports: </label>
+        <input type="checkbox" name="hobby" id="baseball" value="bb"><label for="baseball">야구</label> &nbsp;
+        <input type="checkbox" name="hobby" id="football"><label>축구</label> &nbsp;
+        <input type="checkbox" name="hobby" id="basketball"><label>농구</label> &nbsp;
+    </form>
+// label for="baseball"로 input의 id 를 지정해서 라벨을 눌러도 체크박스가 인식할 수 있다.
+
+
+**select와 option
+//내용을 포함한 목록을 만들 수 있다.
+        <label>국적: </label>
+        <select size="3" multiple>
+            <option value="ko">한국</option>
+            <option value="ch">중국</option>
+            <option value="etc">기타</option>
+        </select>
+//size: listbox의 크기를 지정
+//multiple: 다중 선택이 가능하다.
+
+*textarea
+//텍스트 형식으로 크기를 지정해 여러 문장을 입력할 수 있는 텍스트영역이다.
+<textarea cols="30" rows="5"></textarea>
+
+*form에서 보내는 값을 표시하는 방법.
+<form action="html10_form_res.html" method="post">
+method="get/post" 
+//get은 주소줄에 값들을 표시하고
+//post는 보내는 값들을 숨겨서 넘긴다.
+
+*type="hidden"
+//태그를 숨기고 원하는 값만 보내고 싶을때 사용한다.
+//유저에게 공개될 필요는 없지만 서버에선 필요한거
+ <input type="hidden" name="hidden01" value="my_hidden_value">
+
+
+
+
+
+
+
+
+
+
+

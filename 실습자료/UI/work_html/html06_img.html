@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지</title>
+</head>
+<body>
+    <!-- <img> 이미지 파일 경로를 src라는 속성의 속성값으로 지정, 닫기태그x -->
+    <h1>이미지 관련 태그</h1>
+    <img src="sample/image/river1.PNG">
+    <hr>
+    <h2>자주 사용하는 속성들</h2>
+    <h3>alt 속성</h3>
+    <p>이미지를 읽을 수 없을 경우 대체되는 텍스트 설정</p>
+    <img src="sample/image/river.PNG" alt="리버1">
+    <hr>
+    <h3>width 와 height 속성</h3>
+    <p>사진의 높이와 너비를 지정할 수 있다.</p>
+    <h4>고정 크기 단위 : 화면사이즈가 줄어도 크기가 변하지 않는다.</h4>
+    <img src="sample/image/flower1.PNG" width="200px" height="150px">
+    <img src="sample/image/flower2.PNG" width="200px" height="150px">
+    <img src="sample/image/flower3.PNG" width="200px" height="150px">
+    <img src="sample/image/flower4.PNG" width="200px" height="150px">
+    <img src="sample/image/flower5.PNG" width="200px" height="150px">
+
+    <h4>가변 크기 단위 : 화면사이즈에 따라 크기가 변한다.</h4>
+    <img src="sample/image/flower1.PNG" width="15%" height="150px">
+    <img src="sample/image/flower2.PNG" width="15%" height="150px">
+    <img src="sample/image/flower3.PNG" width="15%" height="150px">
+    <img src="sample/image/flower4.PNG" width="15%" height="150px">
+    <img src="sample/image/flower5.PNG" width="15%" height="150px">
+    <hr>
+    <h4>이미지 구역을 2개로 나누어 각각 링크 설정</h4>
+    <img src="sample/image/river1.PNG" usemap="#map">
+    <map name="map">
+        <area shape="rect" coords="00,00,300,500" href="http://www.naver.com" target="_blank">
+        <!-- target="_blank" 하면 새로운 창에 출력된다. -->
+        <!-- coords는 img의 크기에서 하이퍼링크 영역을 지정하는 것이다. -->
+        <area shape="rect" coords="300,00,600,500" href="http://www.google.com" target="_blank">
+    </map>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

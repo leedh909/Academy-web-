@@ -1,0 +1,125 @@
+2020.6.8 [수업 50일차]
+
+
+*정의를 표현할때 사용하는 태그(=정의형 목록 태그)
+//용어 설명할때 주로 사용한다. (목록을 만든다.)
+dl : 리스트
+dt : 제목
+dd : 내용
+
+***background
+*background-image : 뒷배경
+//background-image: url("image/img01.png");
+*background-repeat: 반복여부, 반복하지 않고 한번만 출력
+//background-repeat: no-repeat
+*background-position: center; ---뒷배경 정렬
+*background-attachment: fixed; 
+//이미지가 고정된체 스크롤을 내리면 안움직이는걸 볼 수 있다.
+
+*box모델
+//테두리는 각각의 영역에 맞게 지정되어있다.
+
+*float 
+//어느쪽으로 정렬할지 정한다.
+
+*clear
+//clear : left, both, right 3가지가 있다.
+//다른내용과 겹치지 않게 땔 수 있다.
+
+*display
+//none : 보이지 않는다.
+//inline : 인라인 박스
+//block : 블록 박스
+//inline-block : 블록과 인라인의 중간
+//ex) display: none;
+
+
+
+진행 : background, box, float, clear, display
+
+------------------------------------------------------------------------------------
+
+진행 : overflow, position, background, border, transform
+
+
+
+**overflow 사용시
+//auto : 알아서 영역을 지정해준다. 
+//visible : 내용이 범위를 넘어도 한번에 보여준다.
+//ex) overflow: auto;
+
+*position
+//relative 는 본인이 원래 있어야할 기준에서 시작된다.
+//absolute 는 브라우저 기준으로 시작된다.(=적용된다.)
+//fixed 는 고정된 위치에 있는다.
+//ex) position: absolute;
+
+* z-index: 숫자; 
+//숫자가 높을 수록 앞으로 올라오게 된다.
+
+* :hover{ ... }
+//마우스가 해당 영역 안에 있을때 이벤트가 발생한다.
+
+**background
+*background-size : 뒷배경 사이즈 지정
+//ex) background-size: 50px 50px;
+//ex) background-size: 50% 50%;
+*background-clip : 영역을 어디까지 지정할지
+//padding-box : padding영역까지만 영역지정이 된다.
+//border-box : border영역까지만 영역지정이 된다.
+//ex)background-clip: padding-box;
+//ex)background-clip: border-box;
+
+*text-shadow : 글자뒤에 그림자를 만드는것.
+//ex)text-shadow: 5px 5px blue;
+
+***border
+*list-style
+//none : 아무것도 없는.
+//circle : 비어있는 원 
+//decimal : ul태그인데 숫자가 붙는다.
+//lower-roman : 로마숫자도 가능.
+//ex)list-style: none;
+
+*padding-top: 30px;
+//padding 윗 영역이 늘어난다.
+
+*border-radius: 50px 50px 50px 50px;
+//값이 커질수록 모서리 부분이 둥굴어진다.
+//ex)border-radius: 30px 30px 30px 30px; 
+           
+
+***transform
+*transform - translate
+//traslate(x,y): 위치 이동
+//위치 이동이 가능하다. 기존에 있던 곳에서 원하는 곳까지
+//ex) transform: translate(50px,50px);
+
+*transform - rotate
+//rotate(deg) : 회전
+//원하는 만큼 회전이 가능하다.
+//ex) transform: rotate(40deg);
+
+*transform - scale
+//scale(x,y) : 크기
+//ex) transform: scale(0.6,0.6);
+
+*transform - skew
+//skew(deg,deg) : 변형
+//skew(앞은 줄이는 부분, 뒤는 늘리는 부분)
+//ex) transform: skew(10deg,50deg);
+
+*transition 속성 전환
+//변경되는 상태의 액션 속도를 조절해준다.
+//ex)transition: width 0.5s, background 1.5s linear, transform 1.5s;
+
+*cursor: help; 
+//마우스가 올라가 있으면 마우스형태가 변경된다. 
+//ex)pointer, help,...
+
+* word-wrap: break-word;
+//범위를 벗어나는 값을 다음열에 다시 보여준다. 
+
+
+
+

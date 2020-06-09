@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        form{
+            width: 300px;
+            background-color: aqua;
+            border-radius: 10px;
+            padding: 20px;
+
+        }
+        fieldset{
+            border: 0px;
+            background-color: aquamarine;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Prac</h1>
+    <form>
+        <fieldset>
+            <legend>Part1. 정보</legend>
+            <ul>
+                <li><label for="idd">ID</label><input type="text" name="id" id="idd"></li>
+                <!-- for="idd" id를 입력해야 ID를 눌러도 텍스트가 포커스된다.-->
+                <li><label for="pwd">PW</label><input type="password" name="pw" id="pwd"></li>
+                <li><label>Grade</label><input type="text" name="grade" value="일반회원"></li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>Part2. 개인정보</legend>
+            <ol>
+                <li><label>NAME</label><input type="text" name="name" placeholder="5자미만"></li>
+                <li><label>EMAIL</label><input type="email" name="email" placeholder="abc@abcd.com"></li>
+
+            </ol>
+
+        </fieldset>
+        <fieldset>
+            <legend>Part3. 코딩실력</legend>
+            <input type="checkbox" value="상" name="code"><label>상</label>
+            <input type="checkbox" value="중" name="code"><label>중</label>
+            <input type="checkbox" value="하" name="code"><label>하</label>
+        </fieldset>
+
+
+
+    </form>
+
+
+
+</body>
+</html>

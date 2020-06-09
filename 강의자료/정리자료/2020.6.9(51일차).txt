@@ -1,0 +1,71 @@
+2020.6.9 [수업 51일차]
+
+
+***Animation 효과
+* @keyframs 이름{ 효과 }
+// animation 효과를 어떻게 지정할지 나타낸다.
+//ex) animation: mybox 2s infinite;
+
+*padding: px px;
+//앞에는 상하 px , 뒤에는 좌우 px
+
+*text-decoration: none;
+//text에 작용하는 효과를 없앤다.
+
+*opacity: 숫자;
+// 0: 대상을 불투명하게 만든다.,  1: 원래의 대상이 보인다.
+
+*<form action="#">
+//자기 자신에서 처리하겠다. 원래는 어디서 처리할지 정하는 곳이다.
+
+
+
+진행 : animation효과, navMenu, prac(1)
+
+------------------------------------------------------------------------------------
+
+진행 : prac(2), JQuery, JavaScript
+
+
+
+*<li><label for="idd"> ID </label><input type="text"  name="id"  id="idd"></li>
+//	for="idd" id를 입력해야 ID를 눌러도 텍스트가 포커스된다.
+
+
+*JQuery : java에서 지원해주는 쿼리
+
+***JavaScript의 작성방식 (3가지)
+*inline 방식
+<li onclick="alert('inline');">inline방식</li>
+
+*내부 작성 방식
+<li onclick="embTest();">내부 작성 방식</li>
+//메소드처럼 script영역에 선언해준다.
+<script type="text/javascript">
+        function embTest(){
+            alert("embTest()");
+            var doc = document.getElementsByTagName("li")[1];
+            //태그요소를 불러오는 부분이다.
+            // li이름으로된 배열에서 index=1인 곳을 불러온다.
+            doc.style.color="red";
+            doc.innerHTML="<strong>글자가 바뀝니다.</strong>";
+        }// 해당 목록이 선택되면 글자가 바뀐다.
+</script>
+
+*외부 작성 방식
+<li onclick="test();">외부 링크 방식(*.js)</li>
+//js파일에 작성후 script영역에서 불러온다.
+<script type="text/javascript" src="js/test.js">  </script>
+
+
+*alert("내용")
+//오류알람처럼 페이지에 나타난다.
+
+*window.onload=funcion(){ ... }
+//브라우저가 생성시 작동한다.
+
+
+
+
+
+

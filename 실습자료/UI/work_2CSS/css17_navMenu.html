@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu</title>
+    <style type="text/css">
+        .navi{
+            list-style-type: none;
+            height: 40px;
+            padding: 0px;
+            margin: 0px;
+        }
+        .navi li{
+            float: left;
+            position: relative;
+            padding: 0px;
+            line-height: 40px;
+            background-color: lawngreen;
+        }
+        .navi li a{
+            display: block;
+            font-weight: 600px;
+            font-size: 14px;
+            padding: 5px 25px; /*앞에는 상하 5px, 뒤에는 좌우 25px */
+            color: indigo;
+            text-decoration: none; /* text에 작용하는 효과를 없앤다.*/
+        }
+        .navi li a:hover{
+            color: maroon;
+        }
+        .navi li ul{
+            opacity: 0; /* 0: 대상을 불투명하게 만든다.,  1: 원래의 대상이 보인다.*/
+            position: absolute;
+            left: 0;
+            width: 180px;
+            background-color: green;
+            list-style-type:none;
+            padding: 0px;
+            margin: 0px;
+        }
+        .navi li:hover ul{
+            opacity: 1;
+        }
+
+        .navi li ul li{
+            float: none;
+            position: static;
+            height: 0px;
+            line-height: 0px;
+            background: none;
+        }
+        .navi li:hover ul li{
+            height: 30px;
+            line-height: 30px;
+            padding: 5px 0px;
+        }
+        .navi li ul li a{
+            color: grey;
+            /* background-color: hotpink; */
+        }
+        .navi li ul li a:hover{
+            background-color: pink;
+        }
+        .navi li ul{
+            transition: all 0.5s;
+        }
+        .navi li ul li{
+            transition: height 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <h1>navMenu</h1>    
+    <hr>
+    <ul class="navi">
+        <li><a href="http://www.naver.com">Home</a></li>
+        <li>
+            <a href="http://www.naver.com">Java</a>
+            <ul>
+                <li><a href="http://www.google.com">변수</a></li>
+                <li><a href="http://www.google.com">메소드</a></li>
+                <li><a href="http://www.google.com">제어문</a></li>
+                <li><a href="http://www.google.com">반복문</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="http://www.naver.com">게시판</a>
+            <ul>
+                <li><a href="http://www.google.com">Q&A</a></li>
+                <li><a href="http://www.google.com">방명록</a></li>
+            </ul>
+        </li>
+        <li><a href="http://www.naver.com">고객센터</a></li>
+    </ul>
+
+
+
+</body>
+</html>

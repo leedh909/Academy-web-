@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #result{
+            background-color: aqua;
+            border: 1px solid black;
+            height: 200px;
+        }
+
+    </style>
+    <script type="text/javascript">
+        function print(){
+            var area = document.getElementById("result");
+
+            var pName = document.getElementById("productName").value;
+
+            var pAmont = document.getElementById("productAmount").value;
+
+            var pLevle = document.getElementById("productLevel").value;
+
+            var pmsg = document.getElementById("message").value;
+
+
+            area.innerHTML += "<br>상품명: "+pName;
+            area.innerHTML += "<br>상품수량: "+pAmont;
+            area.innerHTML += "<br>상품등급: "+pLevle;
+            area.innerHTML += "<br>기타사항: "+pmsg;
+            
+            return false;
+
+        }
+
+    </script>
+</head>
+<body>
+    <h2>연습2</h2>
+    <form method="GET" action="#">
+        <fieldset>
+            <legend>상품정보</legend>
+            <ul>
+                <li>
+                    <label>상품명: </label><input type="text" id="productName" list="goodlist" required>
+                    <datalist id="goodlist">
+                        <option value="dog1004">도그1004</option>
+                        <option value="catchicken">고양이치킨</option>
+                        <option value="milk">서울우유</option>
+                    </datalist> 
+                    <!-- datalist : 데이터 항목들을 만들어준다. id를 가지고 가리켜줄 수 있음.
+                        또한 목록 중에 선택 안하고 데이터를 입력해주어도된다. -->
+                </li>
+                <li>
+                    <label>상품수량: </label>
+                    <input type="number" id="productAmount" min="10" max="100" step="10" placeholder="최소10개이상">
+                    
+                </li>
+                <li>
+                    <label>상품등급: </label>
+                    <input type="range" id="productLevel" min="0" max="10" step="2">
+                </li>
+                <li>
+                    <label>기타사항:</label>
+                    <textarea id="message" cols="30" rows="5"></textarea>
+                </li>
+            </ul>
+        </fieldset>
+        <br><br>
+        <input type="submit" value="send" onclick="return print();">
+        <br><br>
+        <div id="result"></div>
+    </form>
+
+
+
+</body>
+</html>

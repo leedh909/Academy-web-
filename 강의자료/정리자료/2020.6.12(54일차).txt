@@ -1,0 +1,139 @@
+2020.6.12 [수업 54일차]
+
+
+***String
+*문자열 합치기
+//'+'
+//  var str03 = str01 + str02;
+//concat() : 여러 문자열을 입력해서 하나로 합치는 함수
+//  var newString = str01.concat(" Test ","Java ","Script");
+
+*다른 자료형 합치기
+//var numVal = 12.5;
+//var bool = true;
+//var res = "String" + numVal + bool;
+//결과값 타입은 string으로 나온다.
+
+*문자열 비교하기
+	if(str =="이창진"){
+                span.textContent = str+"님, 환영합니다.";
+            }else if(str.toLowerCase()=="lee"){
+                span.textContent = str+"님, 환영합니다.";
+            }else {
+                span.textContent = "이름을 확인해 주세요";
+            }
+
+//동등 연산자 연산자==
+//비교하는 자료형에도 자동 형변환
+	var numVal = 10;
+            if(numVal=="10"){
+                alert("==연산자 사용: 숫자 10이 맞습니다.");
+            }else{
+                alert("==연산자 사용: 숫자 10이 아닙니다.");
+            }
+
+//만약, 자료형의 자동 형변환을 원하지 않는다면
+//===연산자 사용(엄격한 비교)
+            if(numVal==="10"){
+                alert("===연산자 사용: 숫자 10이 맞습니다.");
+            }else{
+                alert("===연산자 사용: 숫자 10이 아닙니다.");
+            }
+
+*문자열 검색하기
+//indexOf : 주어진 string에서 앞에서 부터 비교 후 인덱스 값을 반환
+//lastIndexOf : 주어진 string에서 뒤에서 부터 비교 후 인덱스 값을 반환
+	var str ="추민석 한예인 홍주연 황선웅 권궁 추민석";
+            var prop = prompt("검색할 이름을 입력해주세요.");
+
+            alert("indexOf(): "+ str.indexOf(prop));
+            alert("lastIndexOf(): "+str.lastIndexOf(prop));
+
+*문자열 추출하기
+//substring() : 문자열을 시작인덱스와 종료인덱스로 추출
+//split() : 문자열에 기준이 되는 요소로 나누어 배열로 저장
+	var strVal = "문자열 추출하기.관련 함수:indexOf, substring."
+	var startIndex = strVal.indexOf(":");
+            var endIndex = strVal.lastIndexOf(".");
+            var subStr = strVal.substring(startIndex+1,endIndex);
+            alert(subStr);
+            var splitVal = subStr.split(",");
+            alert(splitVal[0]);
+            alert(splitVal[1]);
+
+***Math
+*랜덤 숫자 생성하기
+	var rnum = Math.floor(Math.random()*100);
+            document.getElementById("rnum").value=rnum;
+
+*랜덤으로 배경색 설정하기
+	var rnum = function(){
+                return Math.floor(Math.random()*256);
+	//0부터 255까지 필요하니깐 256으로 잡는다.   
+            }
+            document.body.style.backgroundColor="rgb("+rnum()+","+rnum()+","+rnum()+")";
+
+*원 만들기
+	var rnum = Math.floor(Math.random()*200);
+            var circle = document.getElementById("circle");
+
+            circle.style.width=rnum+"px";
+            circle.style.height=rnum+"px";
+
+            circle.style.display="block";
+            // circle.style.borderRadius="50%";
+            circle.style.borderRadius=Math.floor(rnum/2)+"px";
+
+
+진행 : 자바스크립트string, Math
+
+------------------------------------------------------------------------------------
+
+진행 : 자바스크립트 배열, 연습&활용
+
+
+
+***배열
+//배열이란 : 자바스크립트에서는 자료형 지정이 없기 때문에 모든 자료형을 보관하는 변수의 모음(자바의 컬렉션과 비슷)
+//var arr=['이창진',19,true,[1,2,3,4]];
+
+*array객체의 함수
+//indexOf() : 배열에서 요소가 위치한 인덱스 리턴
+ area.innerHTML += "바나나가 있는 인덱스: "+ arr.indexOf('바나나');
+//concat(배열명) : 배열을 합친다.
+ var conArr = arr.concat(arr2);
+//join(): 특정값을 배열 요소 사이에 삽입하여 문자열로 반환
+ var joinTest = ["가","나","다","라"].join("++");
+//reverse() : 배열의 순서를 뒤집는다.
+ area.innerHTML += "<br>reArr Reverse(): "+reArr.reverse();
+//push() : 배열의 맨 뒤에 요소 추가
+ pArr.push('양재동');
+//pop() : 배열의 맨 뒤에 요소 제거
+ pArr.pop();
+//sort() 정렬
+ pArr.sort();
+//shift() : 배열의 맨 앞에 요소 제거
+	area.innerHTML += "<br>sArr에 shift() 하면?: "+sArr.shift();
+            area.innerHTML += "<br>sArr은...?: "+sArr;
+	//제거되어있는걸 확인할 수 있다.
+//unshift() : 배열의 맨 앞에 요소 추가
+  area.innerHTML += "<br>sArr에 unshift()를 : "+ sArr.unshift('배구'); //배열의 길이가 나온다.
+
+
+*array객체의 함수2
+//slice(시작인덱스, 종료인덱스) : 배열의 요소 선택 잘라내기
+ area.innerHTML += "<br>slice를 해보면: "+arr.slice(2,4); //해당 인덱스부터 다음 인덱스 전까지
+//splice(인덱스, 제거수, 추가값) : 배열의 요소 선택 잘라내기, 원본 배열에 영향o
+ area.innerHTML += "<br>splice 해보자: "+arr.splice(2,2,'spring'); 
+	//해당 인덱스부터 갯수까지 제거후 빈자리에 추가해줌
+ area.innerHTML += "<br>splice 해보자: "+arr.splice(2,2);
+	//해당 인덱스부터 갯수까지 제거
+//toString() : 배열을 문자열로 반환
+	area.innerHTML += "<br>tArr toString 해보자: "+tArr.toString();
+            area.innerHTML += "<br>자료형: "+ typeof(tArr);
+
+            var str = tArr.toString();
+            area.innerHTML += "<br>str의 자료형은?: "+ typeof(str);
+
+
+     

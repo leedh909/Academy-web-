@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- <title>팝업창</title> -->
+<script type="text/javascript">
+	function test() {
+		var val = document.getElementsByName("test")[0].value;
+		window.opener.document.getElementById("tt").innerHTML=val;
+		//opener는 window.open을 한 곳을 의미한다.
+		//opener의 id가 tt라는 곳에 추가하겠다 라는 의미이다.
+		close();
+	}
+</script>
+
+</head>
+<body>
+	<input type="text" name="test">
+	<input type="button" onclick="test();" value="전달">
+	<input type="button" onclick="self.close();" value="창닫기">
+	
+
+
+
+</body>
+</html>

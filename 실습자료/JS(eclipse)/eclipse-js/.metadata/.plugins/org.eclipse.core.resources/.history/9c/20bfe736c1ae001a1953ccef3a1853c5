@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#regist{
+		border: 1px solid black;
+		background: pink;
+		position: absolute;
+		top: 200px;
+		left: 500px;
+		display: none;
+	}
+</style>
+<script type="text/javascript">
+	function openWin() {
+		var url ="js13_window02.html";
+		var title ="";
+		var prop ="top =200px, left=600px, width=500px, height=500px, resizable=no";
+		window.open(url,title,prop);
+		
+	}
+	function registForm() {
+		document.getElementById("regist").style.display = "block";
+		
+	}
+</script>
+</head>
+<body>
+	<h1>window 객체</h1>
+	<!-- 브라우저 내장 객체이다. -->
+	<pre> 
+	프로퍼티
+	-document
+	-history
+	-location
+	-navigator
+	-screen
+	-frames
+	-parent
+	-top
+	-self
+	메서드
+	-alert()
+	-confirm()
+	-prompt()
+	-forward()
+	-open()
+	-close()
+	</pre>
+	
+	<div id="f1">
+		<h1>팝업창 만들기</h1>
+		<button onclick="openWin();" name="btn">창열기</button>
+		<div id="tt"></div>
+		<h1>회원가입하기(div팝업창)</h1>
+		<button onclick="registForm();">회원가입</button>
+	
+	</div>
+	<hr>
+	
+	<!--  -->
+	<div id="regist">
+		<form>
+			<table>
+				<caption>회원가입</caption>
+				<tr>
+					<td>ID</td>
+					<td><input type="text" name="id" onclick="idchk();">
+					<input type="button" value="중복체크" onclick="idCheck();"></td>
+				</tr>
+				<tr>
+					<td>PW</td>
+					<td><input type="password" name="pwd" style="color:red;"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" value="확인" onclick="closeWind();">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	var ids = ["kh","java","script","lcj"];
+
+	function confirmChk() {
+		var id= document.getElementsByName("id")[0].value;
+		
+		var div = document.getElementsByTagName("div")[0];
+		
+		if(ids.indexOf(id) != -1){
+			div.innerHTML="<b>아이디가 존재합니다.</b>";
+		}else{
+			var useId = "사용할 수 있는 아이디입니다."+"<input type='button' value='확인'" + "onclick='insertId(\""+id+"\");'>";
+			/* onclick ="insert('id')" 라는걸 넣어주기 위해서 역슬래쉬(\)를 중간에 넣어준다. */
+			div.innerHTML = useId;
+		}
+		
+		
+		
+	}
+	
+	function insertId(id) {
+		console.log(id);
+		opener.document.getElementsByName("id")[0].value=id;
+		opener.document.getElementsByName("pwd")[0].focus();
+		/* close(); */
+	}
+	
+</script>
+</head>
+<body>
+
+<table>
+	<tr>
+		<td>ID</td>
+		<td><input type="text" name="id"></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" value="중복확인" onclick="confirmChk();">
+			<input type="button" value="취소" onclick="self.close();">
+		</td>
+	</tr>
+</table>
+<div></div>
+
+</body>
+</html>

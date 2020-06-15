@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="text" name="test">
+	<input type="button" onclick="test();" value="전달">
+	<input type="button" onclick="" value="창닫기">
+	
+
+
+
+</body>
+</html>

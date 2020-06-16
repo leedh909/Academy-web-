@@ -1,0 +1,147 @@
+2020.6.16 [수업 56일차]
+
+****프로퍼티(Property) --> key , value 를 의미한다.
+***객체
+*객체 안에 값을 뽑아오는 방법1 -> 객체명['속성명']
+//ex) area.innerHTML +="product['pName'] : "+product['pName']+"<br>";
+*객체 안에 값을 뽑아오는 방법2 -> 객체명.속성명
+//ex) area.innerHTML +="product['source'] : "+product['source'][0]+"<br>";
+*객체 안에 값이 배열이면 인덱스 번호로 접근할 수 있다.
+//ex) area.innerHTML +="product['source'] : "+product['source'][0]+"<br>";
+//ex) area.innerHTML += "product.source[1]: "+product.source[1]+"<br>";
+
+*객체의 키 테스트
+//객체의 키는 모든 문자열을 사용할 수 있다.
+	var objTest={
+                'I love you':'자바스크립트',
+                'I hate !@#$%':'S강의장'
+            };
+// area.innerHTML += objTest.'I love you'+"<br>"; 
+//위처럼 문자로 되어있는 속성은 객체.속성명 으로 지정할 수 없다.
+//아래처럼 해야 문자로된 속성을 지정할 수 있다.
+// area.innerHTML += objTest['I love you']+"<br>";
+
+*객체의 메소드 속성
+//객체의 속성 중 함수 자료형인 속성을 메소드라고 부른다.
+	var dog = {
+                name:'멍충이',
+                eat:function(food){
+                    area.innerHTML += this.name+"가 "+food+"를 먹고 있네요~멍머활멍!<br>";
+                    //객체 안에서 자신의 속성을 사용하고 싶으면 this를 사용하면 된다.
+                }
+            };
+//메소드를 사용하려면 ()를 붙이면 사용가능하다.
+
+*객체의 반복문 
+//객체의 속성을 살펴볼때 for in문을 사용하여 확인할 수 있다.
+	for(var key in game){   area.innerHTML += key+" : "+game[key]+"<br>";   }
+
+*객체의 속성 추가와 제거
+// 추가 ---> 객체명.속성명 ="값"; 
+// 삭제 ---> delete(객체명.속성명);
+
+
+***객체 배열
+//객체와 배열을 사용한 데이터 관리
+//this라는 개념을 파악하고 잘 써야한다. 안쓰면 오류 뜰 확률 높음.
+
+*with(객체) --> 공통된 부분(=객체명)을 생략하고 속성명으로만 사용할 수 있게끔한다.
+	for(var i in students){
+                with(students[i]){
+                    document.getElementById("area1").innerHTML += "이름: "+ name +", 총점: "+getSum()+", 평균: "+getAvg()+"<br>";
+                }
+            }
+
+**생성자 함수
+function Student(name,java,oracle,html,css,js){
+            this.name = name;
+            this.java = java;
+            this.oracle = oracle;
+            this.html = html;
+            this.css = css;
+            this.js = js;
+
+            this.getSum = function(){
+                return this.java+this.oracle+this.html+this.css+this.js;
+            }
+
+            this.getAvg = function(){
+                return this.getSum()/5;
+            }
+            this.toString = function(){
+                return this.name +', 총점: '+this.getSum()+", 평균: "+this.getAvg()+"<br>";
+            }
+       }
+//생성자를 만든 후 new 키워드 사용해 객체를 생성
+// var student = new Student('이창진',90,100,30,20,40);
+
+
+*배열에 값을 넣을 시
+//push()함수를 사용한다. var students=[];
+//ex) students.push(student);
+
+
+
+
+진행 : 자바스크립트 객체 생성 및 접근방법, 객체배열, 생성자 생성
+
+------------------------------------------------------------------------------------
+
+진행 : 객체 키값, 체크박스 응용, select 활용, location 설명
+
+
+
+**instanceof 키워드
+//해당 객체가 어떠한 함수를 통해 생성되었는지 확인
+// var myDog = new Dog('멍충이');
+// area.innerHTML += "myDog instanceof Dog : "+(myDog instanceof Dog);
+  -->결과값은 true가 나온다.
+
+
+*document.getElementById(chks[i].value).style.backgroundColor=chks[i].value;
+//value값이 id 값과 같아서 가능하다.
+
+
+*document.querySelectorAll("선택자");
+//어떤 css 선택자관계(id,class,자식..)를 querySelectorAll()에 넣으면 태그 지정가능하다.
+//ex) var colorboxs = document.querySelectorAll("#colorbox > div"); 
+//	colorbox의 자식 div 를 의미한다.
+
+
+*<select onchange="함수();">
+//onchange="" 는 버튼의 onclick과 같은 기능이다.
+*<select name="food" multiple="multiple" size="5"> 
+//multiple은 여러가지 option을 선택할 수 있게한다.
+
+*selectedIndex
+//select태그의 선택권 값의 index번호를 알려준다.
+//선택한 option태그의 인덱스 반환
+//ex) var idx = food.selectedIndex;
+
+*options
+//option들 중에서 원하는 인덱스 값을 가져올 수 있다.
+//ex) var foodVal = food.options[idx].value; 
+            
+
+**location
+//location은 주소(url)와 관련된 친구라고 생각하면된다.
+//비슷한 예로 <a>태그가 있다.
+	<a href="https://www.google.com">구글로 이동</a>
+	클라이언트(내컴퓨터)가 구글서버에 요청해서 응답받으면 화면을 볼 수 있다.
+******location.href="url";
+//지정한 url 로 접근가능. (단순 페이지 이동)
+//ex) location.href="https://www.google.com";
+****location.assign("url");
+//지정한 url 로 접근가능. (단순 페이지 이동)
+//ex) location.assign("https://www.naver.com");
+
+***location.replac("url");
+//history가 존재하지않는다.(=섹션이 존재하지않는다.)
+//고로, 뒤로가기가 없다.(=이전페이지)
+//ex) location.replace("https://www.daum.net"); 
+
+**location.reload();
+//페이지가 새로고침된다.
+// ()안에 값은 없다.
+
+

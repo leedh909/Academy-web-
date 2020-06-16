@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function locTest(){
+            // location.href="https://www.google.com"; //가장 중요하다!!!!!!!!!!!
+            // location.assign("https://www.naver.com"); //위에 location.href와 같은 기능을 한다.(페이지 이동)
+            
+            //위 두개와 차이점은 뒤로가기가 없다.(history가 존재하지않는다.)=섹션이 존재하지 않는다.
+            location.replace("https://www.daum.net"); 
+            
+            // location.reload(); //페이지가 새로고침 된다.
+        }
+    </script>
+</head>
+<body>
+    <!-- location은 주소(url)와 관련된 친구라고 생각하면된다. -->
+    <!-- 요청을 보낸다. 요청을 받는다. -->
+    <a href="https://www.google.com">구글로 이동</a>
+    <!-- 클라이언트(내컴퓨터)가 구글서버에 요청해서 응답받으면 볼 수 있다. -->
+    <button onclick="locTest();">이동</button>
+    
+
+
+
+</body>
+</html>

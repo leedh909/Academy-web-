@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #colorbox{
+            width: 320px;
+            height: 320px;
+            position: relative;
+        }
+        #red, #yellow, #blue, #black{
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            position: absolute;
+        }
+        #yellow{
+            left: 160px;
+        }
+        #blue{
+            top:160px;
+        }
+        #black{
+            top: 160px;
+            left: 160px;
+        }
+
+    </style>
+    <script type="text/javascript">
+        function sel(){
+            var chks = document.getElementsByName("chk");
+            
+            if( chkChecked(chks) > 0){
+                for(var i=0;chks.length;i++){
+                    if(chks[i].checked){
+                        document.getElementById(chks[i].value).style.backgroundColor=chks[i].value;
+                        //value값이 id 값과 같아서 가능하다.
+                    }else{
+                        document.getElementById(chks[i].value).style.backgroundColor="white";
+                    }
+                }
+            }else{
+                clearDiv();
+            }
+
+
+        }
+
+        function chkChecked(chks){
+
+            var count = 0;
+            for(var i=0;i<chks.length;i++){
+                if(chks[i].checked){
+                    count++;
+                }
+            }
+            return count;
+
+        }
+
+        function clearDiv(){
+            var colorboxs = document.querySelectorAll("#colorbox > div"); 
+            //어떤 css 선택자관계(id,class,자식..)를 querySelectorAll()에 넣으면 태그 지정가능하다.
+
+            var chks = document.getElementsByName("chk");
+
+            for(var i=0;i<colorboxs.length;i++){
+                colorboxs[i].style.backgroundColor="white";
+                chks[i].checked = false;
+                document.getElementsByName("all")[0].checked =false;
+            }
+            // document.getElementById("red").style.backgroundColor="white";
+            // document.getElementById("yellow").style.backgroundColor="white";
+            // document.getElementById("blue").style.backgroundColor="white";
+            // document.getElementById("black").style.backgroundColor="white";
+
+        }
+        function allsel(check){
+            
+            var chks = document.getElementsByName("chk");
+            
+            for(var i=0;i<chks.length;i++){
+                chks[i].checked = check;
+            }
+            
+        }
+    </script>
+
+</head>
+<body>
+    
+    <div id="colorbox">
+        <div id="red"></div>
+        <div id="yellow"></div>
+        <div id="blue"></div>
+        <div id="black"></div>
+    </div>
+
+    <div id="base">
+        <form>
+            <input type="checkbox" name="all" onclick="allsel(this.checked);">전체선택<br>
+
+            <input type="checkbox" name="chk" value="red">빨강<br>
+            <input type="checkbox" name="chk" value="yellow">노랑<br>
+            <input type="checkbox" name="chk" value="blue">파랑<br>
+            <input type="checkbox" name="chk" value="black">검정<br>
+
+            <input type="button" value="선택" onclick="sel();">
+            <input type="button" value="초기화" onclick="clearDiv();">
+        </form>
+
+    </div>
+    
+
+</body>
+</html>

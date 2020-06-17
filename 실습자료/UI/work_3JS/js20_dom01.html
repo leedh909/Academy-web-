@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom탐색</title>
+    <script type="text/javascript">
+        function searchPar(){
+            var child02 = document.getElementsByTagName("p")[1];
+
+            var parent01 = child02.parentNode;
+            //부모노드를 반환해준다.
+            alert(parent01.nodeName);
+            parent01.style.backgroundColor="black";
+        }
+        function searchChi(){
+            var parent01 = document.getElementsByTagName("div")[0];
+            var divChildren = parent01.childNodes;
+            //자식태그들이 배열로 반환된다.
+            var str="";
+            for(var i=0;i<divChildren.length;i++){
+                str+=divChildren[i].nodeName+" ";
+            }//자식태그 조회시 : 중간중간에 text라는 것이 존재해서 인덱스 번호 조정할때 참고해야한다.
+            alert(str);
+            divChildren[3].style.backgroundColor="pink"; //두번째 p태그를 나타내는 값이다.
+
+
+        }
+        function test01(){
+
+            // var divt  = document.getElementsByTagName("div")[1];
+            // divt.style.backgroundColor="pink";
+            
+            var p = document.getElementsByTagName("p")[3];
+            var parentP = p.parentNode;
+            parentP.style.backgroundColor="skyblue";
+        }
+        function test02(){
+            var lastdiv = document.getElementsByTagName("div")[2];
+            var lastdivChi = lastdiv.childNodes;
+            lastdivChi[3].style.fontSize = "20pt";
+            //자식태그중에 text노드(중간중간들어가는) 선택시 백그라운드요소가 존재하지않아서 오류가 뜨는것이다. 
+
+        }
+    </script>
+</head>
+<body>
+    <h1>부모, 자식 탐색</h1>
+    <div>
+        --
+        <p>child01</p>
+        --
+        <p>child02</p>
+        --
+        <p>child03</p>
+        --
+    </div>
+    <button onclick="searchPar();">부모탐색</button>
+    <button onclick="searchChi();">자식탐색</button>
+
+    <h3 onclick="test01();">1."test01"태그를 포함한 div태그에 배경색을 적용하자.</h3>
+    <h3 onclick="test02();">2.마지막 div 태그에 포함된 "test04"태그의 폰트크기를 20pt로 적용하자.</h3>
+    <div>
+        <p>test01</p>
+        <p>test02</p>
+    </div>
+    <div>
+        <p>test03</p>
+        <p>test04</p>
+    </div>
+
+</body>
+</html>

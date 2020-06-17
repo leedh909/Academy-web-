@@ -1,0 +1,176 @@
+2020.6.17 [수업 57일차]
+
+*Dom -> document - html - head - body -...태그들을 의미한다.
+//Document Object Model
+*Bom -> 브라우저 - dom -... 을 의미한다.
+//Browser Object Model
+
+***부모, 자식 탐색
+*부모탐색
+var child02 = document.getElementsByTagName("p")[1];
+var parent01 = child02.parentNode;
+//부모노드를 반환해준다.
+
+*자식탐색
+var parent01 = document.getElementsByTagName("div")[0];
+var divChildren = parent01.childNodes;
+//자식태그들이 배열로 반환된다.
+//자식태그 조회시 : 중간중간에 text라는 것이 존재해서 인덱스 번호 조정할때 참고해야한다.
+//(주의) 자식태그중에 text노드(중간중간들어가는) 선택시 백그라운드요소가 존재하지않아서 오류가 뜨는것이다. 
+
+***엘리먼트(Element) 생성하기
+//div 생성
+ var div = document.createElement("div");
+//text 생성
+ var txt = document.createTextNode("엘리먼트 생성 메소드");
+//div에 text 생성
+ div.appendChild(txt);   //결과값: <div>엘리먼트 생성 메소드</div>
+//속성 생성하기
+ var attr = document.createAttribute("style");  //결과값: style="";
+//속성값 설정하기
+ attr.nodeValue="border:2px solid blue";  //결과값: style="border:2px solid blue"
+//태그에 속성값 대입
+ div.setAttributeNode(attr);  //결과값: <div style="border: 2px solid blue">엘리먼트 생성 메소드</div>
+=====>>위 과정들이 바로 지정도 가능하다. 
+	div.setAttribute("style","border:2px solid red") 
+
+
+**기존 이미지를 변경하는 방법
+//방법1
+1.img 태그 생성
+ var img = document.createElement("img");
+2.src속성 만들어서 radioVal값을 넣어주자
+ img.setAttribute("src",radioVal);
+3.img태그 교체
+ var div = document.getElementById("imgView");
+ var chd = document.querySelector("#imgView > img")
+ div.replaceChild(img,chd); //img태그를 하나 새로 만들어서 기존 img(=chd)와 교체하였다.
+
+//방법2
+-사실상 src에 값을 추가하면 되지만 createElement를 이용하기 위해 적용해보았다.
+
+
+*이미지 삭제
+ var img = document.querySelector("#imgView > img");
+ img.setAttribute("src","");  //src에 있는 경로를 없애겠다.
+
+
+**태그 안에 값 넣는 방법 ( 위에서 부터 순서대로 생긴다. )
+//방법 1 ( document.createTextNode )
+ var txt = document.createTextNode("자식태그들 중 마지막에 붙여넣는다.1");
+ p.appendChild(txt);
+ fieldset.appendChild(p);
+
+//방법 2 ( 변수.textContent )
+ p.textContent = "자식태그들 중 마지막에 붙여 넣는다.2";
+ fieldset.appendChild(p);
+
+**태그 앞에다가 붙이기
+//insertBefore( 붙일값 , 지정태그);
+//ex) fieldset.insertBefore(newP,oldDiv);
+	var newP = document.createElement("p");
+	var fieldset = document.getElementById("addele");
+	newP.textContent = "엘리먼트의 앞에 붙여넣는다."+(count++);
+	var oldDiv = document.querySelector("fieldset > div");
+
+***document.태그.childNode 는 중간중간 텍스트도 인덱스 번호로 받는다.
+***document.태그.children[] 은 포함된 요소들만을 배열순서로 가져온다. 
+
+*매번 가져올때 맨 위에 자식을 가져와야한다. 이유는 매번 상황이 바뀌니깐.
+	for(var i=0;i<divcount;i++){
+                var divChi = document.querySelector("#test01").children[0];  //엘리먼트 중에서 제일 위에 있는걸 지칭한다.
+                console.log(divChi);
+                test02.appendChild(divChi);
+            }
+
+
+
+진행 : Dom 부모 자식탐색, 엘리먼트 생성 및 삭제, 이미지 생성 및 삭제, 태그추가하기
+------------------------------------------------------------------------------------
+
+진행 : 자바스크립트 이벤트, jQuery 기초
+
+
+*이벤트  : 변화가 일어날때 실행시키는 함수
+var test1 = document.getElementById("test1");
+//클릭이 되면 함수를 실행시킨다.
+    test1.onclick = function(){
+	var area = document.getElementById("area1");
+	area.innerHTML += "test1()이 실행!<br>";
+    }
+
+
+*이벤트 발생 객체
+// function(e) --> 모든 event 경우들을 의미한다.
+        test2.onclick= function(e){
+            var event = e;
+            var area2 = document.getElementById("area1");
+            for(var key in event){
+                //모든 event 경우들이 들어가 있는걸 확인할 수 있다.
+                area2.innerHTML += key + " : " + event[key]+"<br>";
+            }
+
+        }
+
+*인라인 이벤트 모델
+//태그 안에서 onclick을 사용한 이벤트를 의미한다.
+    <button onclick="test3();">실행확인</button>
+
+//기본 등록 모델 방식
+    window.onload = function(){ //로드가 되면 함수가 실행된다.
+            alert("으잉");
+     }
+
+******jQuery 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+//jquery를 사용하려면 위의 링크를 무조건 추가해야한다.
+// jQuery(document).ready(function(){}); //가장 기본적인 형태이다.
+//해당 document의 모든걸 준비해서 실행해라.
+// $가 붙어있으면 jQuery 라고 생각하면 된다.
+//jQuery 기본작성법 : selector 표현식
+//예) $("selector").함수();
+//    $("p").css("color","red");    //p태그를 선택해서 css의 color값을 red로 바꾼다.
+
+
+*리스트 강조하기
+   $("#list01 > li").eq(0).css("backgroundColor","pink");
+   //eq(인덱스번호) : 해당 선택자의 인덱스번호에 해당하는 요소를 가져온다. 
+
+*이미지 숨기기
+//아래처럼 지정시 window 객체와 비슷하다.(=브라우저가 실행되면 바로 실행됨)
+   $(function(){ 
+           $("img").click(function(){
+               alert("이미지를 클릭했습니다.");
+               $(this).hide(); 
+	//이미지를 숨긴다.
+	==> 브라우저 검사를 해보면 display="none"으로 자동으로 들어가있다.
+           });
+        });
+
+*이미지 보이기
+  $("img").show(); 
+  //이미지 보이기 ==>브라우저 검사를 해보면 display="none"이 사라진다.
+
+*이미지 축소(resize)
+//체이닝을 이용해서 두가지 방법을 동시에 할 수 있다.
+  $("img").css("width","100px").css("height","100px"); 
+// { ... } 중괄호와 : 를 사용해서 한번에 처리도 가능하다.
+  $("img").css({"width":"100px","height":"100px"}).css("opacity","0.5");
+
+*이미지 추가
+  $("img").last().after("<img src='image/flower2.PNG'>");
+ //last() : 선택한 요소 중에서 마지막 요소를 찾아준다.
+ //after() : 선택권 요소 다음에 ()안에 내용을 추가하겠다.라는 의미이다.
+
+*이미지 숨기기/보이기(toggle)
+  $("img").toggle(1000);
+ //브라우저 검색를 해보면 자동적으로 display가 변경되는걸 볼 수 있다.
+ //toggle(숫자) 는 형태가 변할때 애니메이션 속도를 나타낸다.
+
+
+
+
+
+
+
+

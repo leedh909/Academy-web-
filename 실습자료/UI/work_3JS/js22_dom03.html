@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        img, #imgView{
+            width: 300px;
+            height: 300px;
+
+        }
+        #imgView{
+            background-color: lightgray;
+        }
+
+
+
+    </style>
+    <script type="text/javascript">
+
+        function createImg(){
+            var radios = document.getElementsByName("rdoBtn");
+            var radioVal = "";
+            
+            for(var i=0;i<radios.length;i++){
+                if(radios[i].checked){
+                    radioVal = "image/"+radios[i].value;
+                    break;
+                }
+            }
+            //1.img 태그 생성
+            var img = document.createElement("img");
+            //2.src속성 만들어서 radioVal값을 넣어주자
+            img.setAttribute("src",radioVal);
+            //3.img태그 교체
+            var div = document.getElementById("imgView");
+            var chd = document.querySelector("#imgView > img")
+
+            div.replaceChild(img,chd); //img태그를 하나 새로 만들어서 기존 img와 교체하였다.
+
+
+            //사실상 src에 값을 추가하면 되지만 createElement를 이용하기 위해 적용해보았다.
+
+        }
+        function deleteImg(){
+
+            var img = document.querySelector("#imgView > img");
+            img.setAttribute("src","");  //src에 있는 경로를 없애겠다.
+
+        }
+
+    </script>
+</head>
+<body>
+    <input type="radio" name="rdoBtn" value="flower1.PNG" />그림1<br>
+    <input type="radio" name="rdoBtn" value="flower2.PNG" />그림2<br>
+    <input type="radio" name="rdoBtn" value="flower3.PNG" />그림3<br>
+
+    <button onclick="createImg();">이미지 생성하기</button>
+    <button onclick="deleteImg();">이미지 삭제하기</button>
+
+    <div id="imgView"><img src=""></div>
+</body>
+</html>

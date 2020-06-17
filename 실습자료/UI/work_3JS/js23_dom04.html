@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        p{
+            border: 1px solid red;
+        }
+        #test01, #test02{
+            width: 300px;
+            height: 300px;
+            border: 1px solid blue;
+        }
+    </style>
+    <script type="text/javascript">
+        function addAppend(){
+            var fieldset = document.getElementById("addele");
+            var p = document.createElement("p"); 
+            //태그 안에 값 넣기 방법1
+            var txt = document.createTextNode("자식태그들 중 마지막에 붙여넣는다.1"+count++);
+            p.appendChild(txt);
+            fieldset.appendChild(p);
+
+            //태그 안에 값 넣기 방법2
+            // p.textContent = "자식태그들 중 마지막에 붙여 넣는다.2";
+            // fieldset.appendChild(p);
+
+        }
+        var count = 1;
+        function addBefore(){
+            var newP = document.createElement("p");
+            var fieldset = document.getElementById("addele");
+
+            newP.textContent = "엘리먼트의 앞에 붙여넣는다."+(count++);
+
+            var oldDiv = document.querySelector("fieldset > div");
+
+            fieldset.insertBefore(newP,oldDiv);
+        }
+       
+        var divcount =0;
+        function addTest(){
+
+            var div = document.createElement("div");
+            //<div></div>
+            div.textContent = "dom test";
+            document.getElementById("test01").appendChild(div);
+            divcount++;
+
+        }
+        function moveTest(){
+           
+            // var test01Chi = document.querySelector("#test01").children[0]; //엘리먼트 중에서 제일 위에 있는걸 지칭한다.
+            // alert(test01Chi.parentNode.nodeName);
+            // var test02 = document.getElementById("test02");
+            // test02.appendChild(test01Chi);
+            // alert(test01Chi.parentNode.nodeName);
+
+
+            var test02 = document.getElementById("test02");
+            for(var i=0;i<divcount;i++){
+                var divChi = document.querySelector("#test01").children[0]; //매번 가져올때 맨 위에 자식을 가져와야한다. 이유는 매번 상황이 바뀌니깐.
+                console.log(divChi);
+                test02.appendChild(divChi);
+            }
+            
+            
+        }
+
+    </script>
+</head>
+<body>
+    <h1>태그 추가하기</h1>
+    <button onclick="addAppend();">appendChild()</button>
+    <button onclick="addBefore();">insertBefore()</button>
+    <fieldset id="addele">
+        <legend>부모태그</legend>
+        <div>div태그</div>
+    </fieldset>
+
+    <h3>문제 1: test01태그에 "dom test"라는 내용을 가진 div태그를 추가
+        <button onclick="addTest();">클릭!</button>
+    </h3>
+
+    <h3>문제 2: test01태그에 추가된 태그들을 test02로 이동시켜보자
+        <button onclick="moveTest();">클릭!!</button>
+    </h3>
+
+    *test01
+    <div id="test01"></div>
+    *test02
+    <div id="test02"></div>
+    
+
+
+
+
+</body>
+</html>

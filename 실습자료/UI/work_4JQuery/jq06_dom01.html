@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("div>p").eq(0).click(function(){ // 가장 처음 p 태그가 클릭이 되면 실행
+                $("pre b").eq(0).toggle(); //pre 안에 b태그 첫번째에 toggle을 건다.
+            });  
+
+            $("div>p").eq(1).click(function(){
+                $("pre b").slice(1,2).toggle(); //1부터 2전까지 적용된다.
+            });
+
+            $("div>p").eq(2).click(function(){
+                // $("pre b").first().css("color","red");
+                // $("pre b").eq(2).toggle();
+                //위의 두 요소를 합쳐보자. ( 인덱스 번호가 다른경우이다. )
+                $("pre b").first().css("color","red").text("연결").end().eq(2).toggle();
+                //중간에 end()를 써서 이전값으로 복원시킨후 적용시킨다.
+                //first() 때문에 index가 하나로 되는데 이걸 다시 여러 인덱스번호로 돌려줌.
+            });
+
+            $("div>p").eq(3).click(function(){
+                $("pre b ").last().toggle();
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+    <pre>
+        <b>eq()함수: 선택한 엘리먼트들 중에 인덱스로 탐색</b>
+        <b>slice()함수: 선택한 엘리먼트들 중에 인덱스 길이로 탐색</b>
+        <b>first()함수: 선택한 엘리먼트들 중에 첫 번째 요소 탐색</b>
+        <b>last()함수: 선택한 엘리먼트들 중에 마지막 요소 탐색</b>
+    </pre>
+
+    <div>
+        <p>eq()</p>
+        <p>slice()</p>
+        <p>first()</p>
+        <p>last()</p>
+    </div>
+
+</body>
+</html>

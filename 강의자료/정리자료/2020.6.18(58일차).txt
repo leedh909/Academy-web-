@@ -1,0 +1,112 @@
+2020.6.18 [수업 58일차]
+
+*jquery 파일 다운 방법
+//jquery홈페이지 -> download ->Download the compressed, production jQuery 3.5.1 다운로드
+
+* $ is not defined 라는 오류는 jquery 설정에 관한 오류이다.
+
+* 파일이 실행되었을때 미리 함수를 실행시키는 방법
+// $(document).ready(function(){...}); 
+// $(function(){});
+//window시작시 function을 실행시킨 상태에서 작동하게 하려고 $(function(){});을 사용하는 것이다.
+//function(){} 그냥 생성시 누군가가 실행시켜줘야 작동한다. 
+
+
+*jQuery 사용시 --> $();    는   jQuerty(); 와 같은 의미이다.
+
+
+*tag로 선택하기
+//$("span").css("color","red");
+*id로 선택하기
+//jQuery("#t1").css("color","blue");
+*class로 선택하기
+//$(".t2").css("color","hotpink");
+*parent child로 선택하기
+//$("li span").css("color","violet");  //자식의 자식까지 검색
+*parent & child로 선택하기
+//$("li > span").css("color","skyblue"); //자신의 자식만 검색
+*:nth-child로 선택하기
+ $("li:nth-child(3)").css("background-color","yellow"); 
+	//li의 형제요소중에 3번째를 의미한다.
+ $("li:nth-child(odd)").css("background-color","yellow"); 
+	//li의 형제요소중에 홀수번째를 의미한다.
+ $("li:nth-child(even)").css("background-color","yellow"); 
+	//li의 형제요소중에 짝수번째를 의미한다.
+*:first-child로 선택하기
+//$("li:first-child").css("background-color","gray");
+*:last-child로 선택하기
+//$("li:last-child").css("background-color","lime");
+
+
+**$("img[id=selId]").hide();
+// 대괄호는 태그의 속성들을 지정할 수 있다.
+
+**$("img[title*='02']").slideUp(2000);
+// *=은 포함하고 있는지 여부를 판단하는 것이다. 
+// slideUp() 은 형태가 변화할때 속성들을 지정할 수 있다.(예, 속도 지정)
+
+**$("td > img").attr("src","image/flower2.PNG");
+// attr은 속성들을 지정할 수 있다.
+
+
+
+
+
+진행 : jquery 선택자, 태그속성들 지정, 비교
+------------------------------------------------------------------------------------
+
+진행 : 
+
+
+*jquery에서는 value를 val()로 사용한다.
+// var inputVal = $("input:text").val();
+
+*input:radio 는 필터선택자로 필터하는 것이다.
+// var inputVal = $("input:radio").val();
+
+
+*each() 배열 안에서 모든 경우들을 접해보는것.
+// i 라는 값은 for의 변수와 같다. 초기화, 증감식 필요없다.
+       $("input[name=chk]:checked").each(function(i){
+         	 var chk = $("input[name=chk]:checked").eq(i);
+              //다시 새롭게 선택을 한것이다. (선택된 값을 가져오는데)
+       	 var book = chk.next().text(); //<b>태그의 text를 가져오겠다는 의미이다.
+       	 var price = chk.val(); //그 체크된 사항의 value값
+*append() : 값을 추가한다.
+        $("#result").append(book+"가격"+price+"<br>"); 
+
+*prop() : 어떤 속성에 어떤 값을 대입하겠다.
+        $("input[name=all]").prop("checked",true);
+
+
+*eq()함수: 선택한 엘리먼트들 중에 인덱스로 탐색
+*slice()함수: 선택한 엘리먼트들 중에 인덱스 길이로 탐색
+*first()함수: 선택한 엘리먼트들 중에 첫 번째 요소 탐색
+*last()함수: 선택한 엘리먼트들 중에 마지막 요소 탐색
+
+**아래의 두 요소를 합쳐보자. ( 인덱스 번호가 다른경우이다. )
+// $("pre b").first().css("color","red");
+// $("pre b").eq(2).toggle();
+$("pre b").first().css("color","red").text("연결").end().eq(2).toggle();
+//중간에 end()를 써서 이전값으로 복원시킨후 적용시킨다.
+//first() 때문에 index가 하나로 되는데 이걸 다시 여러 인덱스번호로 돌려줌.
+
+
+*find("selector")
+            선택한 엘리먼트의 자손들 중에 탐색하고자 하는 엘리먼트를 찾는다.
+// find안에 id, class 다 가능.
+//자식의 자식까지 검색가능.
+*children("selector")
+            선택한 엘리먼트의 자식요소들 중에 탐색하고자 하는 엘리먼트를 찾는다.
+//자신의 자식중에서만 찾을 수 있다.
+*parent()/parents()
+            선택한 엘리먼트의 부모요소를 찾는다.
+//parent()는 나의 부모 만 찾아준다.
+//parnets()는 나의 부모부터 조상분들까지 다 찾아준다.
+*next("selector")
+            선택한 엘리먼트 다음에 따라오는 요소를 찾는다.
+
+
+
+
+

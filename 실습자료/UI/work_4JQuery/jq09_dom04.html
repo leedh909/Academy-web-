@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <style type="text/css">
+        .menu{
+            width: 150px;
+            background-color: hotpink;
+            position: absolute;
+        }
+        #menu2{
+            left: 170px;
+        }
+        #menu3{
+            left: 340px;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function(){
+            $(".menu div").css("display","none");
+
+            //.hover() :특정영역에 마우스를 올리거나 내리면 이벤트가 발생하는 함수.
+            $(".menu").hover(
+                function(){//마우스가 올라갈때
+                    $(this).children("div").show();
+                },      //두가지 함수(동작)을 매개변수로 넣어줄 수 있다.
+                function(){//마우스가 벗어날때
+                    $(this).children("div").hide();
+                }
+            );
+
+
+        });
+    </script>
+</head>
+<body>
+    <b>야식 추천</b>
+    <br>
+    <div id="menu1" class="menu">
+        <a href="http://www.naver.com">치킨</a>
+        <div>교촌</div>
+        <div>처갓집</div>
+        <div>BBQ</div>
+        <div>푸라닥</div>
+    </div>
+    <div id="menu2" class="menu">
+        <a href="http://www.google.com">피자</a>
+        <div>피자헛</div>
+        <div>도미노</div>
+        <div>미피</div>
+        <div>파파존스</div>
+    </div>
+    <div id="menu3" class="menu">
+        <a href="http://www.daum.net">족발</a>
+        <div>가족</div>
+        <div>마왕족발</div>
+        <div>두식이네왕족발</div>
+
+    </div>
+</body>
+</html>

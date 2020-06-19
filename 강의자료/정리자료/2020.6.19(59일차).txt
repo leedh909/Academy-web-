@@ -1,0 +1,200 @@
+2020.6.19 [수업 59일차]
+
+
+***메소드가 궁금하면 jQuery홈페이지 APIDocumentation 에서 찾아보면 된다.
+
+*add()
+//선택한 엘리먼트에 추가적으로 selector 표현식을 작성할  때 사용
+//ex) $("p:eq(0)").add("span").css("color","red");
+//p 태그 eq(0) 와 span태그에 빨간색 배경지정.  (span태그를 추가한 것이다.)
+
+*is()
+//선택한 엘리먼트들 중에 구하는 엘리먼트가 있는지 확인
+//true, false 값을 반환시켜준다.
+//ex)  if($(this).is("p")){ ... }
+
+* $().hover();
+//특정영역에 마우스를 올리거나 내리면 이벤트가 발생하는 함수이다.
+//ex)      $(".menu").hover(
+                function(){//마우스가 올라갈때
+                    $(this).children("div").show();
+                },      //두가지 함수(동작)을 매개변수로 넣어줄 수 있다.
+                function(){//마우스가 벗어날때
+                    $(this).children("div").hide();
+                }
+            );
+
+
+**이벤트 전파(event propagation)
+//자식태그의 이벤트 발생시 부모의 이벤트들도 발생한다.
+//ex)	$("a:eq(0)").click(function(){
+                alert("a클릭!");
+            });
+            $("p").click(function(){
+                alert("p클릭!");
+            });
+            $("div").click(function(){
+                alert("div클릭!");
+            });
+//  a태그를 클릭하였는데 p태그와 div태그도 발생한다.
+
+
+**이벤트 전파 차단
+//e.stopPropagation();
+//부모 동작들이 실행되는걸 막는다(=전파되는걸 막는다.)
+**기본동작 차단
+//e.preventDefault(); 
+//기본동작(=페이지 이동하는것)을 막는다.
+**둘다 차단
+//return false;
+//전파와 기본동작 둘다 막는 강력한 것이다.
+
+
+**추가된 태그에 이벤트 적용방법
+//새로 추가된 요소들은 on()으로 다시 함수를 정의해줘야 작동한다.
+1. on() : 이벤트를 연결해줄수 있다.(최신)
+//ex)	$("body").on("click",">p",function(){
+                alert("새로 추가된 요소도 이벤트 적용!!!");
+            });
+2. bind() : on()이랑 같은 개념이지만 옛날 것이다.
+//ex)	$("b").bind("click",function(){
+                $("p").toggle();
+                $("p").each(function(i){
+                    $(this).animate({
+                        "top":50*(i+1)+"px"
+                    },3000); //animate({속성값}, 시간 ) : 애니메이션(변화) 효과를 적용할 수 있다.
+                });
+            });
+//둘의 차이는 다른 selector를 지정할 수 있냐 없냐 차이이다.
+//$("selector").bind(event,data,function,map) 형태이다.
+//$("selector").on(event,childselector,data,function,map) 형태이다.
+        
+
+*animate({속성값},시간) : 애니메이션(변화) 효과를 적용할 수 있다.
+
+*siblings() : 같은 레벨에 있는 요소들 검색
+//ex) ele.siblings("p").css("background","white"); 
+//클릭을 한 p태그에 같은 레벨에 있는 나머지들을 지정해줌.
+
+*contains(text) : text를 포함하고 있는 요소
+//ex) if(ele.is("p:contains(hide)")){ 
+                    $("img").hide();
+       }
+
+****이펙트(effect)
+-hide() : 숨긴다.
+-show() : 나타낸다.
+-toggle() : 숨기거나 나타낸다.
+-slideUp() : 위로 사라진다.
+-slideDown() : 아래로 나타낸다.
+-slideToggle() : 위로 사라지고 아래로 나타낸다.
+-fadeOut() : 화면에서 사라진다.
+-fadeIn() : 화면에 나타난다.
+-fadeTo(시간,투명도) : 투명도로 변화는 시간을 조절해준다. 
+-fadeToggle() : 투명도를 0으로 변화하거나 100으로 변화시켜준다.
+   //fadeTo()랑 같이 쓰면 오류가 난다.(->투명도가 fadeTo에서 지정해준 값으로 됨)
+-animate({속성값},변경되는시간) : 속성값이 변화하는데 변경되는 시간만큼든다.
+
+
+
+진행 : (add, is, hover)사용법, event처리방법, effect종류
+----------------------------------------------------------------------------------------------------
+
+진행 : 동시에 여러가지 효과주기, end(),  14 15 16
+
+
+*동시에 여러가지 효과주기
+//체이닝 개념을 이용한 여러 효과가 순서대로 적용된다.
+//ex)      $("a").click(function(){
+                $("#box").animate({opacity:"0.2", left:"400px"},1000)
+	   .animate({opacity:"0.4",top:"160px",width:"20px",height:"20px"},"slow")
+                .animate({opacity:"1",left:"0px",width:"100px",height:"100px"},"slow")
+                .animate({top:"0px"},"fast")
+                .slideUp()
+	   .slideDown(); 
+            }); //fast : 200초 정도 , slow : 600초 정도 
+	  // 기본속도는 400이 기준이다.
+
+
+**메뉴라인(선택된 항목만 보이고 나머지는 보이지않게)
+           $("b").click(function(){
+                // $(this).next().slideDown();   
+                //하위메뉴(ul태그)가 애니메이션 효과 적용되면서 아래로 내려온다. 
+                // $(this).parent().siblings().find("ul").slideUp();
+                //아이스크림의 부모인 li태그의 같은레벨에 있는 다른 li들 안에 있는 ul태그를 찾아서 slideUp한다.
+
+                $(this).next().slideDown().end().parent().siblings().find("ul").slideUp();
+	   //위의 두 동작을 합친 것이다.
+            });
+
+**Class 활용 방법
+1.class속성이 없지만 class style을 만들어놓고 후에 대입하는 방법.
+ $("img").toggleClass("onoffimg"); 
+  //해당 태그에 클래스명을 부여했다 안했다.
+  //클래스명으로 style을 만들어놓은 후 대입했다.
+
+2.클래스명이 있는지 여부 검사(true, false 반환)
+// $(선택자).hasClass("클래스명")
+
+3.클래스 삭제 
+// $(선택자).removeClass("클래스명")
+
+4.클래스 생성
+// $(선택자).addClass("클래스명")
+
+//ex) 	if($(this).hasClass("addsize")){ //해당태그에 클래스명이 있는지 여부 검사 (true,false반환)
+ 		$(this).removeClass("addsize").attr("title","이미지 축소"); 
+		//해당 클래스명이 있다면 삭제하겠다.(기존 사이즈로 돌아옴)
+	}else{
+ 		$(this).addClass("addsize").attr("title","이미지 확대"); 
+		//해당 클래스명을 생성하겠다.
+ 	}
+
+*바꾸기( replaceWith / replaceAll )
+//바꿔주는 기능은 동일하다.
+//둘의 차이는? 지정하는 방법의 순서 차이일 뿐이다.
+    $("p").replaceWith("<b>replaceWith</b>");
+    $("<b>replaceAll</b>").replaceAll("p");
+
+****$("<태그>")
+//태그 안에 명시되지 않은 태그 요소를 객체화 하는 경우
+//ex)  $("<p>")
+// 명시되지않은 태그로 p태그를 만들어서 함수에게 전달하겠다.
+
+*$().prepend()
+//해당 선택자의 맨앞쪽에 추가하겠다.
+//ex) $("div").prepend($("<p>").addClass("prepend").text("prepend"));
+
+*$().append()
+//해당 선택자의 맨뒤쪽에 추가하겠다.
+//ex) $("div").append($("<p>").addClass("append").text("append"));
+
+*html()
+//해당 text 중에 html 용어가 있으면 html로 해석 후 실행한다.
+//ex) $("div").html("<b style='font-size:30px;'>html요소</b>");
+//b태그로 인식해서 적용된다.
+
+*text()
+//자체가 그냥 text로 들어간다.
+//ex) $("div").text("<b>text 요소</b>");
+
+
+**setInterval() : 특정시간마다 실행되도록 하는 함수
+//ex)     setInterval(function(){
+                var div = $("#menu");
+                $(".active").first().appendTo(div); //active클라스의 첫번째 요소를 마지막에 추가하겠다.
+            },500);  
+//500 -> 0.5초마다 실행.
+
+**appendTo() : 해당 태그를 특정영역으로 이동시킨다.
+//ex)  $(".active").first().appendTo(div);
+//.active클라스에 첫번째 태그를 div태그 안에 맨뒤로 이동시키겠다.
+
+
+
+
+
+
+
+
+

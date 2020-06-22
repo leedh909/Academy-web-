@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        div{
+            border: 2px solid red;
+            width: 200px;
+            padding: 10px;
+        }
+        p{
+            background-color: greenyellow;
+        }
+        h1{
+            border: 1px solid blue;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("p:eq(0)").click(function(){
+                $(this).remove(); //태그와 함께 안의 내용도 사라진다.
+            });
+            $("p:eq(1)").click(function(){
+                $(this).empty(); //태그는 남고 안의 내용은 비어버린다.
+                // $(this).parent().empty();
+            });
+            $("p:eq(2)").click(function(){
+                var ele = $(this).detach(); //기존 있던 곳에서 다른 곳으로 이동가능.
+                $("h1").append(ele);
+                console.log("p:eq(2)");
+            })
+        });
+    </script>
+</head>
+<body>
+    <h1>엘리먼트 제거</h1>
+
+    <div>
+        <p>remove</p>   <!-- 제거 --> 
+        <p>empty</p>    <!-- 비워버리기 -->
+        <p>detach</p>   <!-- 때어내서 붙이기==잘라내기 기능과 같다. 잘라서 가져온다.-->
+    </div>
+
+</body>
+</html>

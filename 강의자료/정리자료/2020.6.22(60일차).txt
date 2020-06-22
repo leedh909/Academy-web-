@@ -1,0 +1,131 @@
+2020.6.22 [수업 60일차]
+
+
+*시험보고 난후 jsp서블릿 배울것이다.
+*nodejs 로 이루어진 javascript로 이루어진 것이다.
+*서버 제우스->티맥스  
+*외국에서는 jquery 말고 바닐라 js 를 주로 사용한다.
+*jquery를 이용해서 Ajax를 쉽게 이용할 수 있다.
+*바닐라js 는 용량이 0byte이다. 기존브라우저에 내장형으로 있기때문에 다운받아도 용량은 0이다.
+
+
+*after() & insertAfter()
+//원하는 장소 뒤에 엘리먼트를 추가하겠다.
+//둘의 차이는 성능은 같으나 만들때 어순이 다르다.
+	$("#base").after("<div>새로운 엘리먼트(after)</div>");
+	$("<div>새로운 엘리먼트(insertAfter)</div>").insertAfter("#base");
+*before() & insertBefore()
+//원하는 장소 앞에 엘리먼트를 추가하겠다.
+//둘의 차이는 성능은 같으나 만들때 어순이 다르다.
+	$("#base").before("<div>새로운 엘리먼트(before)</div>");
+	$("<div>새로운 엘리먼트(insertBefore)</div>").insertBefore("#base");
+
+* $box 는 jquery를 이용해서 받은 변수를 의미한다.
+  var $box = $("<div>").addClass("box");
+//<div class ="box"></div> 의미이다.
+
+*wrap()
+//엘리먼트를 감싼다.
+//$(".sub_menu:first").wrap($box);
+
+*unwrap()
+//엘리먼트에 감싸져있는 걸 벗긴다.
+//$(this).unwrap(".box");
+
+*wrapInner()
+//지정한 선택자 안에 있는 태그를 감싸겠다.
+ $("a").wrapInner("<span></span>");
+ //a태그 안에 있는걸 감싸겠다.
+
+*wrapAll()
+//지정한 선택자 전체를 감싸겠다.
+ $("pre").wrap("<b></b>");
+ //pre 전체를 감싸겠다.
+
+
+
+***엘리먼트 제거
+*remove() : 태그와 함께 안의 내용도 사라진다.
+ $(this).remove();
+*empty() : 태그는 남고 안의 내용은 비어버린다.
+ $(this).empty();
+*detach() : 기존 있던 곳에서 다른 곳으로 이동 가능하다.
+//잘라내기 기능과 같다. 잘라서 가져온다.
+ var ele = $(this).detach();
+ $("h1").append(ele);
+ //기존에 있던 곳에서 h1으로 옮긴 것이다.
+
+
+
+진행 : 상식, after, before, wrap, unwrap, 엘리먼트 제거 함수
+----------------------------------------------------------------------------------------------------
+
+진행 : index, ajax로 데이터가져오기, js파일 만들기
+
+
+* AJAX (Asynchronous Javascript And XML) : 비동기통신을 통한 데이터 전송을 할 수 있다.
+//웹페이지 전체에서 원하는 곳만 서버와 통신하게 하는 것. ( 예, 로그인페이지) 
+//요즘에는 서버와 통신할때, JSON 형태로 통신한다. 혹은 XML파일로 통신한다.
+//histroy 관리하기가 힘들다. 중간에 데이터를 가로채서 변경하면 모른다.
+//그래서 보안관리를 철저히 해야한다.
+
+*WebContent 아래 index.html 은 루트경로이다.
+
+*작업하다가 프론트딴은 브라우저가 해석하기때문에 그냥 새로고침해주면 고쳐진걸 볼 수 있다.
+ 그러나 html이 아닌 자바코드딴이 있으면 서버(톰켓)을 재시작해주어야한다.
+
+*백엔지니어
+// 클라이언트에게 요청이 들어오면 서버에서 데이터를 전달하는 사람
+// java, spring, mybatis, servlet 등을 사용함.
+// jsp -> html 안에 java를 넣어주겠다. 실행하다가 중간에 for문, if문들이 나온다.
+// JSP(Java Server Page) 의 약자이다.
+
+
+**Ajax로 데이터 가져오기
+ $.ajax({
+	url: "emplist.xml", //전송(통신)할 페이지 주소, 요청을 보낼수도 있다.(나중에는 서버와 통신)
+	method: "get", //서버에 전송하는 방식
+	data: { id: menuId}, //서버가 전송하는 데이터, 전송할 데이터 형태
+	dataType: "xml", //전송받을 데이터타입(xml, json, html ...), 주로 json형태로 받는다.
+	success: function(data){ // 통신 성공했을때 실행, data는 xml파일의 엘리먼트들을 의미한다.
+		var empInfo = $(data).find("EMPLOYEE_ID:contains("+empid+")".parent();
+	},
+	error: function(request, error){ //통신 실패했을때 실행
+		alert(request.status+" "+error ); } 
+ });
+
+//ex) success: function(data){ var empRowList = $(data).find("ROW");
+			$("body").append(makeTable(empRowList)); }
+  //이 경우 함수를 정의한 것도 없는데 불러낸 것이다. 그렇기 때문에 링크를 통해서 함수를 불러와준다.
+  //<script type="text/javascript" src="js/create_table.js"></script>
+
+
+
+* 변수 선언시 var 있고 없고 차이
+// $table = $("< table border =1>");
+// var $table = $("<table border = 1>");
+// 둘의 차이는 var를 쓰면 지역변수로 선언되고, 쓰지않으면 전역변수로 선언된다.
+
+
+***create_table.js 만들기
+function makeTable(elem){
+  $table = $("<table border=1>");
+  for(var i=0;i<1;i++){
+      $tr = $("<tr>");
+      for(var j=0;j<elem.eq(0).children().length;j++){
+	$td = $("<td>").append(elem.eq(0).children().eq(j).prop("tagName"));
+	$tr.append($td);      
+      }
+      $table.append($tr);
+  
+  for(var i=0;i<elem.length;i++){
+    $tr = $("<tr>");
+    for(var j=0; j<elem.eq(i).children().lenth;j++){
+	$td = $("<td>").append(elem.eq(i).children().eq(j).text());
+	$tr.appen($td);
+    }
+    return $table;
+}
+// 테이블 생성하는 함수를 미리 js파일로 만들어 놓은 것이다. 쓰고 싶을때는 script에서 src로 연결하면 된다.
+
+

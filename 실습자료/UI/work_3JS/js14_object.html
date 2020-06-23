@@ -121,6 +121,7 @@
             student.toString = function(){
                 var str="";
                 for( var key in this){
+                    console.log(key);
                     if(key != 'toString'){
                         str += key +" : "+this[key]+"<br>";
                     }

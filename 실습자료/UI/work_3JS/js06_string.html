@@ -61,6 +61,7 @@
             var prop = prompt("검색할 이름을 입력해주세요.");
 
             alert("indexOf(): "+ str.indexOf(prop));
+            // alert("ddf "+str.slice(3,14));
             alert("lastIndexOf(): "+str.lastIndexOf(prop));
 
 
@@ -73,8 +74,8 @@
             var endIndex = strVal.lastIndexOf(".");
             var subStr = strVal.substring(startIndex+1,endIndex);
             alert(subStr);
-            var splitVal = strVal.split(/','|||':'/);
-            // var splitVal = subStr.split(",");
+            // var splitVal = strVal.split(/^[,:.]*$/);
+            var splitVal = subStr.split(",");
             alert(splitVal[0]);
             alert(splitVal[1]);
             alert(splitVal[2]);

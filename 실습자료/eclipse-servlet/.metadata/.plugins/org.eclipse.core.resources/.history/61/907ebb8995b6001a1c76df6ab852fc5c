@@ -1,0 +1,13 @@
+package com.my.dto;
+
+public class MyBoardDto {
+
+	private int myno;
+	private String myname;
+	private String mytitle;
+	private String mycontent;
+	private Date mydate;
+	
+	
+	
+}

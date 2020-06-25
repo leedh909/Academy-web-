@@ -1,0 +1,38 @@
+package com.my.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.my.dto.MyBoardDto;
+
+public class MyBoardDao {
+	
+	Connection con = null;
+	public MyBoardDao() {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			System.out.println("01. driver 연결");
+		} catch (ClassNotFoundException e) {
+			System.out.println("01. driver 연결 실패");
+			e.printStackTrace();
+		}
+	}
+	
+	//전체출력
+	public List<MyBoardDto> selectAll(){
+		
+		try {
+			con = DriverManager.getConnection("jdbc:oracle:this:@localhost:1521:xe","KH","KH");
+			System.out.println("02. 계정 연결");
+		} catch (SQLException e) {
+			System.out.println("02. 계정 연결 실패");
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+		
+	}
+}

@@ -1,0 +1,76 @@
+2020.6.25 [수업 63일차]
+
+
+*WAS : Web Application Server 의 약자 (웹서버 + 컨테이너)
+//사용자가 요청한 서비스의 결과를 스크립트 언어등으로 가공하여 생성한 동적인 페이지를 사용자에게 보여주는 역할
+// tomcat, wildfly, jeus ... 같은 서버들이 있다.
+
+*서블릿 컨테이너(Servlet-Container)
+//서블릿의 생명주기 관리(생성,초기화,소멸), httpservletRequest/response객체 생성
+//전송방식에 따라 동적으로 페이지 구성하는 작업진행, 정적로딩처리!!!
+
+*JSP컨테이너(JSP-Container)
+//JSP파일을 다시 java코드로 변경해주고 class파일로 전환하여 메모리 공강에 로드한 뒤 
+  실행 가능하게 만드는 작업 진행(Servlet화), 처리결과를 HTML파일로 만들어주는 작업진행, 동적로딩처리!!
+
+
+crud(추가,삭제,수정,읽기)
+
+*tomcat이 잘 안돌아갈때 보통 bin폴더에 shutdown.bat을 실행시키고 startup.bat을 하면된다.
+
+*jsp 파일 생성시 빨간줄 뜨면
+-> 프로젝트에서 properties -> javascript->projectFacets -> runtimes -> tomcat연결
+
+*servers 에서 우클릭 -> clean 이나 Add and Remove 를 많이 볼 것이다.
+//Add and Remove 에서 보통 서버는 하나만 올라가 있어야한다.
+
+*WEB-INF > lib 에 ojdbc6.jar 를 포함시켜줘야 db를 이용할 수 있다.
+
+*<jsp:forward>태그
+//액션태그라고 한다. 
+//페이지에 적은 곳으로 이동시켜주겠다.
+//page="./mylist.jsp"   --> . 은 현재 경로를 의미한다.     .. 은 상위를 의미한다.
+
+
+<% request.setCharacterEncoding("UTF-8"); %>
+<% response.setContentType("text/html; charset=UTF-8"); %>
+//WAS에 두개의 httpServlet 요청,응답 생성한후 서블릿에게 전달한 후 받아올때
+//인코딩을 먼저 처리해서 보내주겠다. (라고 할때 사용하는 문장들이다)
+
+
+*오라클이랑 이클립스를 연결해서  src 파일에 디비 sql 을 만들어 놓는다.
+
+*SQL문 작성하고 실행은 ALT + X 로 실행시키면 된다.
+
+
+
+
+진행 : WAS 개념, JSP 파일 생성방법.
+----------------------------------------------------------------------------------------------------
+
+진행 : JSP에서 자바코드 작성방법,  
+
+
+
+* <% //자바코드 %>
+//<% %> 사이에 자바 코드를 작성할 수 있다.
+
+* <%@ page %>
+// 지사자 page : 페이지 전체에 적용되는 속성 지정
+
+
+//이클립스가 멍청해서 빨간줄이 생길 수도 있다. 그럴때 다시 지웠다가 생성하면된다.
+
+//jsp안에서 <% for문 시작 %> html코드 <% 끝%> 하면 html도 for문 안에서 돌아간다.
+
+//출력해주기위해서는 <%= %> 이렇게 써야 들어간다. 값이 들어가는걸 표현한다.
+
+*진행순서
+//index->mylist요청 ->Dao.selectAll요청 -> DB ->Dao.selectAll응답 -> mylist응답
+
+mylist = view + controller 역할을 하고 있다.
+dao = model 역할
+
+
+
+

@@ -1,0 +1,50 @@
+2020.6.26 [수업 64일차]
+
+
+<td><a href="selectone.jsp?myno=<%=list.get(i).getMyno()%>"><%= list.get(i).getMytitle() %></a></td>
+//함부로 띄어쓰기하면 오류가 날수도 있다. =<%= 부분		
+//페이지 이동할때 location.href를 많이 사용한다.
+//데이터를 같이 보내고 싶을때는 url에 같이 넣어서 보낼 수 있다.
+
+*delete의  body 부분
+<% 
+	int myno = Integer.parseInt(request.getParameter("myno"));
+	MyBoardDao dao = new MyBoardDao();
+	int res = dao.delete(myno);
+	
+	if(res>0){
+%>
+	<script type="text/javascript">
+		alert("글 삭제 성공!!!");
+		location.href="mylist.jsp";
+	</script>
+<%
+ 	}else{
+%>
+	<script type="text/javascript">
+		alert("글 삭제 실패!!!");
+		location.href="mylist.jsp";
+	</script>
+<%
+ 	}
+%>
+
+// 자바문 중간에 script를 넣으면서 코드를 돌릴 수 있다.
+
+
+
+
+진행 : selectone, mydelete,
+----------------------------------------------------------------------------------------------------
+
+진행 : myupdate
+
+
+
+* try catch 단축키는 원하는 부분 블럭을 잡은후 ( alt + shift + z ) 누르면 된다.
+
+*update에서 form 형태로 틀을 만들고 데이터를 보낸다.
+// form 으로 보낼때 name 을 꼭 만들어서 보내야 받는 쪽에서 데이터를 쓸수 있다.
+// 데이터를 구분하기 위해서 기본키를 넣어줘야하는데 보안상의 문제로 hidden으로 숨겨서 보낸다.
+ <input type="hidden" name="myno" value="<%=dto.getMyno()%>">
+

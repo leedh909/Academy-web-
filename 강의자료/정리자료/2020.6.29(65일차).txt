@@ -1,0 +1,53 @@
+2020.6.29 [수업 65일차]
+
+
+*프로젝트 순서
+//프로젝트 생성 -> index생성 -> db생성 -> lib에 db(jar)생성 -> 코딩~
+
+//파일을 만들시 encoding 하는건 습관화시켜라!!!
+<% request.setCharacterEncoding("UTF-8"); %>
+<% response.setContentType("text/html; charset=UTF-8"); %>
+
+*JDBCTemplate 생성시
+// 계정을 연결 후 setAutoCommit(false); 로 변경해줘야한다.
+//boolean isConnection(Connection con) 은 현재 커넥션 객체가 연결되있냐 아니냐를 판단해준다.
+//사용시 dao에 extends JDBCTemplate 하여 import하는 것이 편하다.
+
+*list에서 모든걸 조회해오는데 if(list.size()==0) 이면 아무것도 없다는걸 의미한다.
+
+
+
+
+진행 : dao, dto, index, boardlist, jar, jdbcTemplate
+----------------------------------------------------------------------------------------------------
+
+진행 : form/header , footer, boardwrite, boardwrite_res, insert, boarddetail, 
+
+
+
+* href ="../boardlist.jsp"
+// .. 이면 상위폴더 . 이면 현재폴더를 의미한다.
+
+*include
+//미리 작성한걸 태그들을 불러온다.
+//ex) <%@ include file="./form/header.jsp" %>   //머릿말 효과
+//ex) <%@ include file="./form/footer.jsp" %>    //꼬릿말 효과
+
+
+*Dao에서 db관련 처리가 끝나고 결과값이 0이상이 나오면 commit할수 있게 작성하라.
+//ex) if(res>0) {	commit(con);	}
+
+*script를 이용해서 한 파일에 여러개 폼을 만들고 display를 이용해서 
+보이는걸 다양하게 만들 수 있다. 단, id는 필수.
+//ex) 	function updateFormView(){
+		$("#detailform").hide();
+		$("#updateform").show();
+	}
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+package common;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class JDBCTemplate {
+
+	public static Connection getConnection() {
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			System.out.println("01. 드라이버 연결");
+		} catch (ClassNotFoundException e) {
+			System.out.println("01. 드라이버 연결 오류");
+			e.printStackTrace();
+		}
+		
+		String url="jdbc:oracle:thin:@lcalhost:1521:xe";
+		String id="KH";
+		String pw="KH";
+		
+		Connection con = null;
+		try {
+			con = DriverManager.getConnection(url,id,pw);
+			System.out.println("02. 계정 연결");
+		} catch (SQLException e) {
+			System.out.println("02. 계정 연결 오류");
+			e.printStackTrace();
+		}
+		
+		
+		return con;
+	}
+	
+	public static boolean isConnection(Connection con) {
+		
+		
+		
+		
+		return true;
+	}
+	
+	
+	
+	
+	
+}

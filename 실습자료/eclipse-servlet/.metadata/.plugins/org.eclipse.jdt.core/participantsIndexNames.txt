@@ -1,3 +1,9 @@
 INDEX VERSION 1.131
+C:\Users\User\workspace들\eclipse-servlet\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2612474927.index
+\Jsp03_MVC\src
+C:\Users\User\workspace들\eclipse-servlet\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3030165800.index
+\Jsp02_MultiDelete\src
+C:\Users\User\workspace들\eclipse-servlet\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4160739575.index
+\Jsp02_MultiDelete\src
 C:\Users\User\workspace들\eclipse-servlet\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\666087917.index
 \Jsp01_MyBoard\src

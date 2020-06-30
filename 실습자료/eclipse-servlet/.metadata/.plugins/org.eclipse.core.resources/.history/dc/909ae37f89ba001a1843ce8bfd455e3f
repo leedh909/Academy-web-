@@ -1,0 +1,32 @@
+package com.mvc.dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.List;
+
+import com.mvc.dto.MVCBoardDto;
+
+import common.JDBCTemplate;
+
+public class MVCBoardDao extends JDBCTemplate{
+
+	
+	//전체 선택
+	public List<MVCBoardDto> selectAll(){
+		
+		Connection con = getConnection();
+		Statement stmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM MVCBOARD ORDER BY SEQ";
+		
+		
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+}

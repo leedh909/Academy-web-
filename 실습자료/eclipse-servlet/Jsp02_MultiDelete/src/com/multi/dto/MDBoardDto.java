@@ -28,6 +28,13 @@ public class MDBoardDto {
 		this.title = title;
 		this.content = content;
 	}
+	
+	public MDBoardDto(int seq, String title, String content) {
+		super();
+		this.seq = seq;
+		this.title = title;
+		this.content = content;
+	}
 	public MDBoardDto(int seq, String writer, String title, String content, Date regdate) {
 		super();
 		this.seq = seq;

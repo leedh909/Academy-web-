@@ -1,0 +1,18 @@
+DROP SEQUENCE MVCBOARDSEQ;
+DROP TABLE MVCBOARD;
+
+CREATE SEQUENCE MVCBOARDSEQ NOCACHE;
+
+--번호, 작성자, 제목, 내용, 작성일
+
+
+
+
+
+
+
+
+
+
+
+

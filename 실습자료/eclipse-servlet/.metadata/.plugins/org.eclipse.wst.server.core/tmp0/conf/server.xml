@@ -124,7 +124,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\Users\User\workspace들\eclipse-servlet\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\User\workspace들\eclipse-servlet\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Jsp01_MyBoard" path="/Jsp01_MyBoard" reloadable="true" source="org.eclipse.jst.jee.server:Jsp01_MyBoard"/></Host>
+      <Context docBase="C:\Users\User\workspace들\eclipse-servlet\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\User\workspace들\eclipse-servlet\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Jsp03_MVC" path="/Jsp03_MVC" reloadable="true" source="org.eclipse.jst.jee.server:Jsp03_MVC"/><Context docBase="C:\Users\User\workspace들\eclipse-servlet\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Jsp02_MultiDelete" path="/Jsp02_MultiDelete" reloadable="true" source="org.eclipse.jst.jee.server:Jsp02_MultiDelete"/></Host>
     </Engine>
   </Service>
 </Server>

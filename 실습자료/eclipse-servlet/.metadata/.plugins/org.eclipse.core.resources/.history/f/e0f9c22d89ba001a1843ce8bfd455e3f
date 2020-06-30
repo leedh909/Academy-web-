@@ -1,0 +1,20 @@
+package com.mvc.dao;
+
+import java.util.List;
+
+import com.mvc.dto.MVCBoardDto;
+
+public class MVCBoardDao {
+
+	
+	//전체 선택
+	public List<MVCBoardDto> selectAll(){
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+}

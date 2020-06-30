@@ -1,0 +1,14 @@
+package com.dao;
+
+public class MyBoardDao {
+
+	public MyBoardDao() {
+	
+		Class.forName("");
+	
+	}
+	
+	
+	
+	
+}

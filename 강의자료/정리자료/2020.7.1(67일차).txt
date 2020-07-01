@@ -1,0 +1,38 @@
+2020.7.1 [수업 67일차]
+
+
+*값을 넘기지 않고 페이지만 이동시킬때
+// response.sendRedirect(" 파일명 ");
+
+
+
+진행 : selectone, boarddetail, insertform, insert
+----------------------------------------------------------------------------------------------------
+
+진행 : updateform, update , login, session, scope
+
+
+
+*로그인 페이지를 만들시 로그인 상태를 유지시키기 위해서 session 객체를 사용한다.
+session.setAttribute("dto", dto);
+session.setMaxInactiveInterval(60*60);
+
+
+*스코프( scope )
+1. page 영역 : pageContext 객체
+	- 하나의 페이지 영역 안에서만 유효하다.
+	- JSP 파일에는 pageContext 객체가 내장, 이 객체는 page 영역에서만 유효
+2. request 영역 : request 객체
+	- 요청을 받아서 응답하기까지 객체가 유효, forward, include 사용하면 request 객체가 공유
+3. session 영역 : session 객체
+	- 브라우저당 1개, 같은 브라우저안에서 공유된다.
+	- request.getSession();
+4. application 영역 : application 객체
+	- 애플리케이션당 1개, 같은 애플리케이션이면 공유된다.
+	- request.getServletContext() 메서드사용하여 애플리케이션 객체를 얻을 수 있다.
+
+
+
+
+
+

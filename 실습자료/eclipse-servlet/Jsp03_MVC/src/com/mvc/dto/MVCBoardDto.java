@@ -13,6 +13,13 @@ public class MVCBoardDto {
 	
 	public MVCBoardDto() {super();}
 
+	public MVCBoardDto(String writer, String title, String content) {
+		super();
+		this.writer = writer;
+		this.title = title;
+		this.content = content;
+	}
+
 	public MVCBoardDto(int seq, String writer, String title, String content, Date regdate) {
 		super();
 		this.seq = seq;

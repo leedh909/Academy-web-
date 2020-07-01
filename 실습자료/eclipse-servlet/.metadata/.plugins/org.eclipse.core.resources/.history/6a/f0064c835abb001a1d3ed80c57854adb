@@ -1,0 +1,21 @@
+package com.login.dto;
+
+
+//맴버번호, 아이디, 비밀번호, 이름, 주소, 전화번호, 이메일, 가입여부(가입/탈퇴), 등급(ADMIN,USER,...)
+
+public class MyMemberDto {
+
+	private int myno;
+	private String myid;
+	private String mypw;
+	private String myname;
+	private String myaddr;
+	private String myphone;
+	private String myemail;
+	private String enabled;
+	private String myrole;
+	
+	
+	
+	
+}

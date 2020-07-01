@@ -1,0 +1,28 @@
+package com.login.dao;
+
+import static common.JDBCTemplate.getConnection;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class MyMemberDao {
+
+	
+	
+	
+	//로그인
+	public MyMemberDao login(String id, String pw) {
+		
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		MyMemberDto res = new MyMemberDto();
+		String sql = "SELECT * FROM MYMEMBER WHERE MYID=? AND MYPW=? AND MYENABLE=?";
+		
+		
+		return null;
+	}
+	
+	
+}

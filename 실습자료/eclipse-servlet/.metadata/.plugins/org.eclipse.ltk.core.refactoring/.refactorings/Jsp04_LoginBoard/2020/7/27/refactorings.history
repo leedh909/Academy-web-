@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Jsp04_LoginBoard/src/db/loginboard.sql&apos; to &apos;login.sql&apos;" description="Rename resource &apos;loginboard.sql&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/db/loginboard.sql" name="login.sql" stamp="1593578880255" updateReferences="true"/>
+</session>

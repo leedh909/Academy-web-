@@ -1,0 +1,10 @@
+package com.login.dao;
+
+import static common.JDBCTemplate.*;
+
+public class MyMemberDao {
+
+	
+	
+	
+}

@@ -51,6 +51,128 @@
 		pageContext.forward("boarddetail.jsp");
 		
 		
+	}else if(command.equals("boardinsertform")){
+		response.sendRedirect("boardinsert.jsp");
+		//값을 넘기지 않고 페이지만 이동하겠다.
+
+	}else if(command.equals("boardinsert")){
+		
+		String writer = request.getParameter("writer");
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		
+		MVCBoardDto dto = new MVCBoardDto(writer,title,content);
+		
+		int res = dao.insert(dto);
+		
+		if(res>0){
+%>
+		<script type="text/javascript">
+			alert("글 작성 성공!!");
+			location.href="mycontroller.jsp?command=boardlist";
+		</script>			
+<%
+			
+		}else{
+%>
+		<script type="text/javascript">
+			alert("글 작성 실패!!");
+			/* location.href="mycontroller.jsp?command=boardinsertform"; */
+		</script>
+<%
+			response.sendRedirect("mycontroller.jsp?command=boardinsertform");
+		}
+		
+		
+	}else if(command.equals("boardupdateform")){
+		
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		
+		MVCBoardDto dto = dao.selectone(seq);
+		
+		request.setAttribute("dto", dto);
+		pageContext.forward("boardupdate.jsp");
+		
+		
+	}else if(command.equals("boardupdate")){
+		
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		
+		
+		MVCBoardDto dto = new MVCBoardDto();
+		dto.setSeq(seq);
+		dto.setTitle(title);
+		dto.setContent(content);
+		
+		int res = dao.update(dto);
+		
+		if(res>0){
+%>
+			<script type="text/javascript">
+				alert("글 수정 성공!!");
+				location.href="mycontroller.jsp?command=boarddetail&seq="+<%=seq%>;
+			</script>
+<% 
+		}else{
+%>
+			<script type="text/javascript">
+				alert("글 수정 실패!!");
+				location.href="mycontroller.jsp?command=boardupdateform&seq="+<%=seq%>;
+			</script>
+<% 			
+		}
+		
+	}else if(command.equals("boarddelete")){
+		
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		
+		int res = dao.delete(seq);
+		
+		if(res>0){
+%>
+		<script type="text/javascript">
+			alert("글 삭제 성공");
+			location.href="mycontroller.jsp?command=boardlist";
+		</script>
+<%		
+		}else{
+%>
+		<script type="text/javascript">
+			alert("글 삭제 실패");
+			location.href="mycontroller.jsp?command=boarddetail&seq="<%=seq%>;
+		</script>
+<%		
+			
+		}
+		
+	}else if(command.equals("muldel")){
+		
+		String[] seq = request.getParameterValues("chk");
+		
+		int res = dao.muldel(seq);
+		
+		if(res>0){
+%>
+			<script type="text/javascript">
+				alert("정상적으로 삭제되었습니다.");
+				location.href="mycontroller.jsp?command=boardlist";
+			</script>
+<% 
+			
+			
+		}else{
+			
+%>
+			<script type="text/javascript">
+				alert("삭제가 실패하였습니다.");
+				location.href="mycontroller.jsp?command=boardlist";
+			</script>
+<%
+			
+		}
+		
 	}
 	
 	

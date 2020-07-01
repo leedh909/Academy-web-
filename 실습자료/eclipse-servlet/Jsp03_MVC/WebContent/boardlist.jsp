@@ -36,6 +36,7 @@
 	<h1>글 목록</h1>
 	
 	<form action="mycontroller.jsp" method="post" id="muldelform">
+		<input type="hidden" name="command" value="muldel">
 		<table border="1">
 			<col width="30px"><col width="50px"><col width="100px">
 			<col width="300px"><col width="100px"> 
@@ -70,7 +71,7 @@
 			<tr>
 				<td colspan="5">
 					<input type="submit" value="삭제" >
-					<input type="button" value="글쓰기" onclick="location.href='boardwrite.jsp'">
+					<input type="button" value="글쓰기" onclick="location.href='mycontroller.jsp?command=boardinsertform'">
 				</td>
 			</tr>
 		</table>

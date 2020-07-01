@@ -1,0 +1,20 @@
+package com.login.dao;
+
+import static common.JDBCTemplate.*;
+
+public class MyMemberDao {
+
+	
+	
+	
+	//로그인
+	public MyMemberDao login(String id, String pw) {
+		
+		
+		
+		
+		return null;
+	}
+	
+	
+}

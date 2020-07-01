@@ -57,6 +57,7 @@ public class MVCBoardDao {
 		return res;
 	}
 	
+	//글 하나 검색
 	public MVCBoardDto selectone(int seq) {
 		
 		Connection con = getConnection();
@@ -90,6 +91,163 @@ public class MVCBoardDao {
 		return res;
 	}
 	
+	//글 추가
+	public int insert(MVCBoardDto dto) {
+		
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
+		String sql = "INSERT INTO MVCBOARD VALUES(MVCBOARDSEQ.NEXTVAL,?,?,?,SYSDATE)";
+		
+		try {
+			pstm=con.prepareStatement(sql);
+			pstm.setString(1, dto.getWriter());
+			pstm.setString(2, dto.getTitle());
+			pstm.setString(3, dto.getContent());
+			System.out.println("03. query 준비: "+sql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴 ");
+			
+			if(res>0) {
+				commit(con);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("03/04 단계 오류");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료 \n");
+		}
+		
+		return res;
+	}
 	
+	//글 수정
+	public int update(MVCBoardDto dto) {
+		
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
+		String sql = "UPDATE MVCBOARD SET TITLE=?, CONTENT=? WHERE SEQ=?";
+		
+		try {
+			pstm= con.prepareStatement(sql);
+			pstm.setString(1, dto.getTitle());
+			pstm.setString(2, dto.getContent());
+			pstm.setInt(3, dto.getSeq());
+			System.out.println("03. query 준비: "+sql);
+			
+			res=pstm.executeUpdate();
+			System.out.println("04. query 실행 및 준비");
+			
+			if(res>0) {
+				commit(con);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("03/04 단계 오류");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료 \n");
+		}
+		
+		return res;
+	}
 	
+	//글 삭제
+	public int delete(int seq) {
+		
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
+		String sql ="DELETE FROM MVCBOARD WHERE SEQ=?";
+		
+		try {
+			pstm=con.prepareStatement(sql);
+			pstm.setInt(1, seq);
+			System.out.println("03. query 준비: "+sql);
+			
+			res=pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+			
+			if(res>0) {
+				commit(con);
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println("03/04 단계 오류");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+
+		return res;
+	}
+	
+	//글 여러개 삭제
+	public int muldel(String[] seq) {
+		
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
+		int[] cnt = null;
+		
+		String sql = "DELETE FROM MVCBOARD WHERE SEQ=?";
+		
+		try {
+			pstm=con.prepareStatement(sql);
+			
+			for(int i=0; i<seq.length;i++) {
+				
+				pstm.setString(1, seq[i]);
+				
+				pstm.addBatch();
+				System.out.println("03. query 준비 : "+sql+"(삭제할 번호: "+seq[i]+")");
+				
+			}
+			
+			cnt=pstm.executeBatch();
+			System.out.println("04. query 실행 및 리턴");
+			
+			for(int i=0; i<cnt.length;i++) {
+				
+				if(cnt[i]==-2) {
+					res++;
+				}
+				
+				if(seq.length==res) {
+					commit(con);
+				}
+			}
+		} catch (SQLException e) {
+			System.out.println("03/04 단계 오류");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료 \n");
+		}
+		
+		return res;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+

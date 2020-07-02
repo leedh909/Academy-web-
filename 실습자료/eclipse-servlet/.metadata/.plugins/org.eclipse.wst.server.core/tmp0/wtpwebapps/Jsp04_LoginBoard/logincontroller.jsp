@@ -30,10 +30,10 @@
 		
 		if(dto.getMyid()!= null){
 			session.setAttribute("dto", dto);
-			session.setMaxInactiveInterval(60*60);
+			session.setMaxInactiveInterval(60*60); //60초 * 60초 를 의미한다. defalut는 30분 
 			//브라우저는 키는 순간 세션이 생성되었다가 브라우저가 닫히면 사라진다.
 			//세션은 화면이 바뀌어도 브라우저가 꺼지지않는이상 살아있다.
-		}
+		
 		/* 
 			*스코프( scope )
 			1. page 영역 : pageContext 객체
@@ -49,11 +49,86 @@
 				- request.getServletContext() 메서드사용하여 애플리케이션 객체를 얻을 수 있다.
 		*/
 		
+			if(dto.getMyrole().equals("ADMIN")){
+				response.sendRedirect("adminmain.jsp");
+			}else if(dto.getMyrole().equals("USER")){
+				response.sendRedirect("usermain.jsp");
+			}
+
+		}else{
+%>
+			<script type="text/javascript">
+				alert("login 실패");
+				location.href="index.jsp";
+			</script>
+<%			
+			
+			
+		}
+	}else if(command.equals("logout")){
+		session.invalidate(); //세션 정보 삭제
+		response.sendRedirect("index.jsp");
+		
+	}else if(command.equals("userlistall")){
+		List<MyMemberDto> list = dao.selectAll();
+		
+		request.setAttribute("list", list);
+		pageContext.forward("userlistall.jsp");
+		
+	}else if(command.equals("userlistenabled")){
+		List<MyMemberDto> list = dao.selectEnabled();
+		
+		request.setAttribute("list", list);
+		pageContext.forward("userlistenabled.jsp");
+	}else if(command.equals("updateroleform")){
+		
+		int myno = Integer.parseInt(request.getParameter("myno"));
+		MyMemberDto dto = dao.selectUser(myno);
+		
+		request.setAttribute("selectone", dto);
+		pageContext.forward("updateroleform.jsp");
+		
+		
+	}else if(command.equals("updaterole")){
+		
+		int myno = Integer.parseInt(request.getParameter("myno"));
+		String myrole=request.getParameter("myrole");
+		
+		int res = dao.updateRole(myno,myrole);
+		
+		if(res>0){
+%>
+			<script type="text/javascript">
+				alert("회원등급 조정 성공")
+				location.href="logincontroller.jsp?command=userlistenabled";
+			</script>
+<%
+		}else{
+%>
+			<script type="text/javascript">
+				alert("회원등급 조정 실패")
+				location.href="logincontroller.jsp?command=updateroleform&myno=<%=myno%>";
+			</script>
+<%		
+		}
+		
+	}else if(command.equals("registform")){
+		response.sendRedirect("registform.jsp");
+		
+	}else if(command.equals("idchk")){
+		
+		String myid= request.getParameter("id");
+		String res = dao.idChk(myid);
+		boolean idnotused = true;
+		
+		if(res != null){
+			idnotused=false;
+		}
+		
+		response.sendRedirect("idchk.jsp?idnotused="+idnotused);
+		
 	}
-	
-	
-	
-	
+
 	
 %>
 

@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-	onload=function(){
+	window.onload=function(){
 		var id = opener.document.getElementsByName("myid")[0].value;
 		document.getElementsByName("id")[0].value=id;
 	}

@@ -239,6 +239,41 @@ public class MyMemberDao {
 		return res;
 	}
 	
+	//유저 추가
+	public int insertUser(MyMemberDto dto) {
+		
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0;
+		String sql = "INSERT INTO MYMEMBER VALUES( MYNOSEQ.NEXTVAL,?,?,?,?,?,?,'Y','USER')";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, dto.getMyid());
+			pstm.setString(2, dto.getMypw());
+			pstm.setString(3, dto.getMyname());
+			pstm.setString(4, dto.getMyaddr());
+			pstm.setString(5, dto.getMyphone());
+			pstm.setString(6, dto.getMyemail());
+			System.out.println("03. query 준비: "+sql);
+			
+			res = pstm.executeUpdate();
+			System.out.println("04. query 실행 및 리턴");
+			if(res>0) {
+				commit(con);
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("03/04 단계 오류");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료 \n");
+		}
+
+		return res;
+	}
 	
 	
 	

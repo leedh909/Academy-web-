@@ -1,0 +1,21 @@
+package com.hello.controller;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/HelloController.do")
+public class HelloController extends HttpServlet {
+	
+	public HelloController() {
+		System.out.println("servlet 생성자!");
+	}
+	
+	public void init(ServletConfig config) throws ServletException{
+		
+	}
+	public void destroy() {
+		
+	}
+}

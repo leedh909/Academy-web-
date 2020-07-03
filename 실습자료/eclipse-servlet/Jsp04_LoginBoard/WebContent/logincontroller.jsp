@@ -127,6 +127,43 @@
 		
 		response.sendRedirect("idchk.jsp?idnotused="+idnotused);
 		
+	}else if(command.equals("insertuser")){
+		
+		String myid = request.getParameter("myid");
+		String mypw = request.getParameter("mypw");
+		String myname = request.getParameter("myname");
+		String myaddr = request.getParameter("myaddr");
+		String myphone = request.getParameter("myphone");
+		String myemail = request.getParameter("myemail");
+
+		MyMemberDto dto = new MyMemberDto();
+		dto.setMyid(myid);
+		dto.setMypw(mypw);
+		dto.setMyname(myname);
+		dto.setMyaddr(myaddr);
+		dto.setMyphone(myphone);
+		dto.setMyemail(myemail);
+		
+		int res = dao.insertUser(dto);
+		
+		if(res>0){
+%>			
+			<script type="text/javascript">
+				alert("회원가입 성공");
+				location.href="index.jsp";
+			</script>
+<%			
+		}else{
+%>
+			<script type="text/javascript">
+				alert("회원가입 실패");
+				location.href="logincontroller.jsp?command=registform";
+			</script>
+<%			
+		}
+		
+		
+		
 	}
 
 	

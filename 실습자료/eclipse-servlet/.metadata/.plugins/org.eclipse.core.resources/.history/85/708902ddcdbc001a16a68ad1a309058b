@@ -1,0 +1,9 @@
+package com.hello.controller;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet("/HelloController.do")
+public class HelloController extends HttpServlet {
+
+}

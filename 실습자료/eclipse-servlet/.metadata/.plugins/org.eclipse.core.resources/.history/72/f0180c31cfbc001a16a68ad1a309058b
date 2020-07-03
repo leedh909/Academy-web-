@@ -1,0 +1,36 @@
+package com.hello.controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/HelloController")
+public class HelloController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+  
+    public HelloController() {
+        System.out.println("servlet 생성자!");
+    }
+    
+    @Override
+    public void init(ServletConfig config) throws ServletException{
+    	System.out.println("servlet init()!!");
+    }
+    
+    //요청을 받는 메소드1
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	//요청을 받는 메소드2
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
+}

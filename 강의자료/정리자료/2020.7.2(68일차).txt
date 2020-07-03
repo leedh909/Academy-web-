@@ -1,0 +1,49 @@
+2020.7.2 [수업 68일차]
+
+
+* session 정보 삭제(로그아웃시)
+//session.invalidate(); 
+//기존에 있던 세션 정보를 삭제한다.
+
+*관리자페이지와 유저페이지를 나누어서 제작한다.
+//로그인값이 저장된 세션을 이용해서 구분가능하다.
+
+
+*request 로 값을 받을시
+//Attribute를 사용하면 객체로 받고
+//name을 사용해서 Parameter로 받으면 String으로 받는다.
+
+
+*가입/탈퇴 여부를 삼항연산자로 처리한다.
+//ex) <%=dto.getEnabled().equals("Y")?"가입":"탈퇴" %>
+
+
+
+진행 : session 정보 삭제, adminmain, usermain, userlistall, userlistenabled, 
+----------------------------------------------------------------------------------------------------
+
+진행 : DB정보추가, 등급변경, 회원가입폼, id 중복체크
+
+
+
+* 등급변경
+// 변경시 -> updateroleform & myno -> updateroleform.jsp -> updaterole
+    ->변경후 성공시 userlistenabled, 실패시 updateroleform & myno 
+
+
+* 회원가입 폼(form)
+// registform -> sendRedirect("registform.jsp") -> 회원가입 작성태그
+   ->아이디 중복체크 idChk() -> 새로운창으로 중복여부 판단 -> idchk 
+   ->id 등록여부 boolean값 -> idchk.jsp -> 삼항연산자로 id존재여부 출력
+   ->확인 누를시(confirm) title 값을 변경 및 focus 지정
+//doc.value.trim()으로 앞뒤 공백을 제거 후 판단한다.
+//var target="logincontroller.jsp?command=idchk&id="+doc.value.trim();
+//open(target,"","width=200,height=200"); 
+//<%=idnotused.equals("true")?"아이디 생성 가능":"중복 아이디 존재" %>
+
+*id의 title은 중복체크가 이뤄지고나서 상태를 표시할때 사용한다.
+// y는 중복체크를 하였다. n은 안하였다 로 판별한다.
+
+*idChkConfirm()
+//id의 title 값으로 중복체크여부를 판단 후 y이면 실행, n이면 중복체크 먼저 하라고 focus를 옮겨준다.
+

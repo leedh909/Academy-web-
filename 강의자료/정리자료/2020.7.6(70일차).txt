@@ -1,0 +1,79 @@
+2020.7.6 [수업 70일차]
+
+
+
+* EL : Expression Language
+// <%=a %> => ${a}     , ${a.name} 으로 사용할 수 있다.
+* JSTL : Jsp Standard Tag Lib
+// 태그 라이브러리이다.
+// 종류 : C, fmt, fn, sql, ...... 
+
+
+*서블릿에 맵핑하는 방법
+1. web.xml
+2. 어노테이션
+//컨트롤러의 @WebServlet("/controller.do") 부분의 이름을 바꾸어준다.
+
+
+*Expression Language
+// 사칙연산부터 삼항연산자까지도 가능하다.
+// import와 객체를 받아오는 변수를 생성하지 않아도 request에 담겨있는 매개변수를 사용할 수 있다.
+//ex) <td>${ 1 }</td> 
+//ex) <td>${ (1==2) ? 3 : 4 }</td>
+
+
+* \(역슬래쉬) 를 이용하면 스트링으로 보일수 있다.
+//ex) <td>\${ (1==2) ? 3 : 4 }</td>
+
+
+*RequestDispatcher 객체를 이용한 데이터 공유
+//ex) 	RequestDispatcher dispatch = request.getRequestDispatcher("eltest.jsp");
+	dispatch.forward(request, response);
+
+
+*JSTL
+// 반복문, if문을 간단하게 사용가능하다.
+// JSTL을 사용하려면 jar 파일이 필요하다.
+*jar 파일 다운방법
+//tomcat홈페이지 -> 왼쪽목록에서 (Download>Taglibs) -> impl,jstlel,spec 3가지를 다운 받는다.
+
+
+
+
+진행 :  Expression Language, Jsp Standard Tag Lib, 맵핑(web.xml, 어노테이션), 
+----------------------------------------------------------------------------------------------------
+
+진행 : 자주 사용하는 JSTL, JSTL을 이용한 구구단 생성, MVC적용
+
+
+*JSTL 사용시 import 방법
+// <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+* eq 
+// 같다.
+
+* 자주 사용하는 JSTL
+// c:forEach , c:if , c:choose , c:when , c:otherwise , c:set
+
+* c:forEach
+// 향상된 for문 처럼 지정 var를 설정하고 받아오는 값을 items에 넣으면 된다.
+//ex) <c:forEach var="score" items="${list}">
+//ex) <c:forEach var="i" begin="2" end="9" step="1">
+* c:if
+// test 안에 조건을 넣는다. true 일 경우 실행됨.
+* c:choose
+// 자바의 switch문과 비슷하다. choose 안에 조건들을 넣어서 맞는 경우에 실행.
+* c:when
+// 자바의 switch문의 case와 비슷하다. choose 안에 들어가는 조건 형태이다. 
+* c:otherwise
+// 자바의 switch문의 default와 비슷하다. choose 안에 들어가는 조건 형태이다.
+* c:set
+// var(변수)에 value(값)을 저장한다.
+
+
+*biz나 Dao는 보통 interface를 만들어서 상속받아 사용한다.
+
+* index (요청) -> controller -> biz -> Dao ->DB -> ...->controller 까지 반환 -> list.jsp 
+
+*biz에서 원자성을 관리한다. 
+//한 메소드에서 여러개의 결과가 있을때 하나라도 실패하면 모두 실패로 반환. 모두 성공하면 성공을 반환.

@@ -1,0 +1,13 @@
+package com.mvc.dto;
+
+import java.util.Date;
+
+public class MyMVCDto {
+
+	private int seq;
+	private String writer;
+	private String title;
+	private String content;
+	private Date regdate;
+	
+}

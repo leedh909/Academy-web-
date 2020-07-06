@@ -15,5 +15,6 @@
 	sessionId=<%=session.getAttribute("sessionId") %><br>
 	applicationId=<%=application.getAttribute("appId") %><br>
 
+	
 </body>
 </html>

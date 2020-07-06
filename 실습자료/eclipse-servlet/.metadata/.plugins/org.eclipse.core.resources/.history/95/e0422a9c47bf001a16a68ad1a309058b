@@ -1,0 +1,43 @@
+package com.mvc.dao;
+
+import java.util.List;
+
+import com.mvc.dto.MyMVCDto;
+
+public class MyMVCDaoImpl implements MyMVCDao{
+
+	@Override
+	public List<MyMVCDto> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public MyMVCDto selectOne(int seq) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean insert(MyMVCDto dto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean update(MyMVCDto dto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean delete(int seq) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+	
+	
+	
+}

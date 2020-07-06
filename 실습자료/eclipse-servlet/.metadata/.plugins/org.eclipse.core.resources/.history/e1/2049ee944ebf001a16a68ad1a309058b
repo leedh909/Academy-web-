@@ -1,0 +1,51 @@
+package com.mvc.dao;
+
+import static common.JDBCTemplate.getConnection;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.List;
+
+import com.mvc.dto.MyMVCDto;
+
+public class MyMVCDaoImpl implements MyMVCDao{
+
+	@Override
+	public List<MyMVCDto> selectAll() {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		
+		
+		
+		
+		
+		return null;
+	}
+
+	@Override
+	public MyMVCDto selectOne(int seq) {
+		return null;
+	}
+
+	@Override
+	public boolean insert(MyMVCDto dto) {
+		return false;
+	}
+
+	@Override
+	public boolean update(MyMVCDto dto) {
+		return false;
+	}
+
+	@Override
+	public boolean delete(int seq) {
+		return false;
+	}
+
+	
+	
+	
+	
+}

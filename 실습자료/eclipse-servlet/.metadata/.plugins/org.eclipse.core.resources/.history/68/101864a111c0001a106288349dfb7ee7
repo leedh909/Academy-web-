@@ -1,0 +1,24 @@
+DROP SEQUENCE BOARDNOSQ;
+DROP SEQUENCE GROUPNOSQ;
+DROP TABLE ANSWERBOARD;
+
+
+--글 번호 시퀀스(PRIMARY KEY)
+CREATE SEQUENCE BOARDNOSQ NOCACHE;
+--그룹번호 시퀀스(새로운 글 등록할때만)
+CREATE SEQUENCE GROUPNOSQ NOCACHE;
+
+--글번호, 그룹번호, 그룹순서, 제목탭,
+--제목, 내용, 작성자, 작성일
+
+
+
+
+
+
+
+
+
+
+
+

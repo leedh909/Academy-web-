@@ -17,22 +17,22 @@ public class MyMVCBizImpl implements MyMVCBiz{
 
 	@Override
 	public MyMVCDto selectOne(int seq) {
-		return null;
+		return dao.selectOne(seq);
 	}
 
 	@Override
 	public boolean insert(MyMVCDto dto) {
-		return false;
+		return dao.insert(dto);
 	}
 
 	@Override
 	public boolean update(MyMVCDto dto) {
-		return false;
+		return dao.update(dto);
 	}
 
 	@Override
 	public boolean delete(int seq) {
-		return false;
+		return dao.delete(seq);
 	}
 
 }

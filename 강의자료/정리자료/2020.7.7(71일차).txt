@@ -1,0 +1,79 @@
+2020.7.7 [수업 71일차]
+
+
+
+* 필터(filter) 만들기
+// new -> filter 
+// 클라이언트가 요청한 reg,res를 서블릿으로 가기전에 필터 처리하고 보내준다.
+// 형태가 서블릿과 매우 흡사한다.
+//filter도 web.xml 에서 맵핑을 해주어야한다. 
+
+
+*컨트롤러에 Dao가 성공적으로 실행되면 알림과 페이지 변경
+//매번 한다? -> 메소드를 만들어서 실행
+//script문은 String으로 작성해서 만들어 놓는다. (주의, 따옴표 및 쌍따옴표 체크하기!!)
+//script를 작성하기위해 PrintWriter 객체를 사용한다.
+	jsResponse("글 작성 성공","controller.do?command=list",response);
+
+	private void jsResponse(String msg, String url,HttpServletResponse response) throws IOException {
+		String s="<script type='text/javascript'>"+"alert('"+msg+"');"+"location.href='"+url+"';"+"</script>";
+		
+		PrintWriter out = response.getWriter();
+		out.print(s);		
+	}
+
+*컨트롤러에서 request와 response 값을 담아서 페이지를 넘길때
+//매번 한다? -> 메소드를 만들어서 실행
+//RequestDispatcher 를 이용해서 url를 담고 forward 메소드를 이용해서 옮긴다.
+ 	dispatch("boardupdate.jsp",request,response);
+
+	private void dispatch(String url, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		RequestDispatcher dispatch = request.getRequestDispatcher(url);
+		dispatch.forward(request, response);
+		
+	}
+
+
+
+진행 : insert, boardlist, 필터, boardwrite,
+----------------------------------------------------------------------------------------------------
+
+진행 : detail, update , answerboard, 답글달기.
+
+
+
+
+* DB를 이용한 댓글 순서
+1. 글번호, 그룹 번호 시퀀스를 만든다.
+2. 댓글을 저장할 테이블 생성.
+3. 정렬 순서를 그룹번호 내림차순, 그룹내번호 오름차순. (본인이 원하는대로 수정가능)
+4. 답글달때, 부모와 같은 그룹번호일 경우 그룹번호+1, 부모의 TITLETAB+1
+
+
+
+//ex) INSERT INTO ANSWERBOARD VALUES(BOARDNOSQ.NEXTVAL, (SELECT GROUPNO FROM ANSWERBOARD WHERE BOARDNO=1),(SELECT GROUPSQ FROM ANSWERBOARD WHERE BOARDNO=1)+1,
+	(SELECT TITLETAB FROM ANSWERBOARD WHERE BOARDNO=1)+1, 'RE:첫번째 글','1번 글의 답글입니다.','유저2',SYSDATE);	
+
+
+*답글에 답글
+UPDATE ANSWERBOARD SET GROUPSQ = GROUPSQ+1 
+ WHERE GROUPNO=(SELECT GROUPNO FROM ANSWERBOARD WHERE BOARDNO=2)
+ AND GROUPSQ > (SELECT GROUPSQ FROM ANSWERBOARD WHERE BOARDNO=2);
+
+INSERT INTO ANSWERBOARD VALUES(BOARDNOSQ.NEXTVAL, (SELECT GROUPNO FROM ANSWERBOARD WHERE BOARDNO=2),(SELECT GROUPSQ FROM ANSWERBOARD WHERE BOARDNO=2)+1,
+ (SELECT TITLETAB FROM ANSWERBOARD WHERE BOARDNO=2)+1, 'RE:두번째 글','2번 글의 답글2입니다.','유저3',SYSDATE);	
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+2020.7.8 [수업 72일차]
+
+
+
+*댓글 페이지 만들기
+컨트롤러를 어노테이션으로 지정해주었다.
+
+//반복되는 RequestDispatcher를 메소드로 만들어서 쓰고있다.
+
+
+
+
+진행 : 댓글DB 복습, 댓글페이지 만들기, index, db, dto, dao, boardlist, 
+----------------------------------------------------------------------------------------------------
+
+진행 : boardwrite,boarddetail,answerwrite 
+
+
+
+*답글 다는 방법
+//답글 달기 위해서는 selectone메소드로 부모의 데이터를 받아와야한다.
+//부모의 데이터 중 groupno, groupsq, titletab 3가지
+//먼저 업데이트를 실행한다. 매개변수로 parentgroupno와 parentgroupsq를 보낸다.
+//sql를 이용해서 groupsq+1 하게 update 시킨다.
+//그 후 추가사항 객체를 다시 만들어 boardnosq는 0으로 받고 나머지는 셋팅
+//insert를 실행해서 데이터를 DB에 넣는다. 
+
+
+*들여쓰는 방법
+// 태그 앞에 forEach문을 걸어줘서 원하는 만큼 &nbsp; 를 하면 된다.

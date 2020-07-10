@@ -1,0 +1,82 @@
+2020.7.9 [수업 73일차]
+
+
+
+*Ajax : 비동기식 통신
+//홈페이지의 일부분만 컨트롤러와 통신을 하고 응답받는다.
+
+	function getParameterValues(){
+		var name = "name="+encodeURIComponent($("#name").val());
+		var kor = "kor="+$("#kor").val();
+		var eng = "eng="+$("#eng").val();
+		var math = "math="+$("#math").val();
+		
+		return "?"+name+"&"+kor+"&"+eng+"&"+math;
+	}//리턴으로 파라매터로 들어갈 값들을 보내준다.
+
+	$(function(){
+		$("#process").click(function(){
+			$.ajax({
+				url:"CalScore"+getParameterValues(),
+				dataType: "json",
+				success:function(msg){
+					alert(msg);
+					$("#result").html(msg.name+"의 총점은 "+msg.sum+"이고, 평균은"+msg.avg+"입니다.");
+				},
+				error:function(){
+					alert("실패ㅜㅜ");
+				}
+			});
+
+		});	
+		
+	});
+
+
+
+
+
+
+
+진행 : ajax, student.html, score.js, 
+----------------------------------------------------------------------------------------------------
+
+진행 : json파일 다루는법.
+
+
+
+*json파일 다루는법
+//json_simple-1.1.jar 파일이 있어야한다.
+
+*js파일 이용방법
+//<script type="text/javascript" src="score.js"></script> 
+//js파일에 링크를 걸어서 가져온다.
+
+*load() 메소드
+//url을 변수로 가져온다.
+//httpRequest = new XMLHttpRequest(); //서버와 통신
+//httpRequest.onreadystatechange=callback; //서버로 보낸 요청에 대한 응답을 받았을때 어떤 동작을 할 것인지
+//httpRequest.open("GET",url,true); //true를 통해서 비동기식 통신이다 라는걸 알수 있다.
+//httpRequest.send();
+
+*readyState
+1: loading - 로드 중
+2: loaded - 로드 됨
+3: interactive - 통신 됨
+4: complete - 통신 완료
+//httpRequest.readyState로 값을 불러올 수 있다.
+
+*json파일 데이터를 DB에 넣기
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="./js/bike01.js"></script>
+//자바스크립트 와 js파일을 링크로 받아온다.
+//json파일의 데이터를 $.getJSON("파일이름.json", function(data){ $.each(data, function(key,val){ 틀! };};로 받아온다.
+//list[배열]로 받아와서 컨트롤러에 보내준다.
+//컨트롤러에서는 가져온 데이터를 String[] 에 담고 split을 이용해 다시 String[] 배열에 넣는다.
+// Dto 형태로 변형후 List에 담아 Dao에게 보내준다.
+//Dao에서 insert메소드를 통해 DB에 넣어준다.
+//단, addBatch()메소드를 이용해서 메모리에 담고 한번에 실행
+//결과값을 모두 비교해서 성공했는지 판단하고 commit한다.
+
+
+* gson 은 json 타입의 object를 java 타입의 object로 바꾼다. (역도 가능한다.)

@@ -1,0 +1,25 @@
+package com.bike.dao;
+
+import java.util.List;
+
+import com.bike.dto.BikeDto;
+
+import common.JDBCTemplate;
+
+public class BikeDao extends JDBCTemplate{
+	
+	public int insert(List<BikeDto> dtos) {
+		
+		return 0;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

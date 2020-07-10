@@ -1,0 +1,8 @@
+function getParameterValues(){
+	var name = "name="+$("#name").val();
+	var kor = "kor="+$("#kor").val();
+	var eng = "eng="+$("#eng").val();
+	var math = "math="+$("#math").val();
+	
+	return "?"+name+"&"+kor+"&"+eng+"&"+math;
+}

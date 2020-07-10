@@ -1,0 +1,34 @@
+package com.answer.dao;
+
+import java.util.List;
+
+import com.answer.dto.AnswerDto;
+
+import static common.JDBCTemplate.*;
+
+
+public class AnswerDao {
+
+	//전체
+	public List<AnswerDto> selectAll(){
+		
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

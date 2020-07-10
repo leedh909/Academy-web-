@@ -1,0 +1,22 @@
+$(function(){
+	getJson();
+});
+
+//대소문자 조심해라
+function getJson(){
+	
+	$.getJSON("json/bike.json",function(data){
+		$.each(data,function(key,val){
+			if(key=="DESCRIPTION"){
+				$("table").attr("border","1");
+				$("thead").
+				
+			}
+		});
+		
+		
+	});
+	
+	
+	
+}

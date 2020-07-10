@@ -1,0 +1,40 @@
+package com.bike.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.List;
+
+import com.bike.dto.BikeDto;
+
+import common.JDBCTemplate;
+
+public class BikeDao extends JDBCTemplate{
+	
+	public int insert(List<BikeDto> dtos) {
+		
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		String sql = "";
+		
+		
+		pstm = con.prepareStatement(sql);
+		
+		
+		
+		
+		
+		return 0;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

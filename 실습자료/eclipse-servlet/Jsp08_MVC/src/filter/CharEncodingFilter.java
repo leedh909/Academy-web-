@@ -24,7 +24,6 @@ public class CharEncodingFilter implements Filter {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		chain.doFilter(request, response);
-		
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {

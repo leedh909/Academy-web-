@@ -1,0 +1,53 @@
+package com.bike.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.bike.dto.BikeDto;
+
+import common.JDBCTemplate;
+
+public class BikeDao extends JDBCTemplate{
+	
+	public int insert(List<BikeDto> dtos) {
+		
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		String sql = "INSERT INTO BIKE_TB VALUES(?,?,?,?,?,?,?)";
+		
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			System.out.println("03. query 준비: "+sql);
+			
+			
+			rs = pstm.executeQuery();
+			
+			System.out.println("04. query 실행 및 리턴");
+			
+		} catch (SQLException e) {
+			System.out.println("03/04 단계 오류");
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		return 0;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

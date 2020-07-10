@@ -5,3 +5,44 @@
 7월 06, 2020 11:52:55.38 [13976:16364:0706/115255.389:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
 7월 06, 2020 11:52:55.77 [13976:16364:0706/115255.776:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
 7월 06, 2020 13:12:03.82 [11664:22220:0706/131203.823:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -7
+
+7월 08, 2020 12:39:45.91 NEW SESSION
+7월 08, 2020 12:39:45.92 [23812:17844:0708/123945.907:ERROR:socket_stream.cc(218)] Closing stream with result -2
+7월 08, 2020 13:18:01.91 [23812:17844:0708/131801.911:ERROR:socket_stream.cc(218)] Closing stream with result -2
+7월 08, 2020 15:20:05.12 [23812:17844:0708/152005.120:ERROR:socket_stream.cc(218)] Closing stream with result -2
+7월 08, 2020 15:24:50.91 [23812:17844:0708/152450.913:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
+7월 08, 2020 15:37:51.63 [23812:17844:0708/153751.638:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
+7월 08, 2020 15:41:20.08 [23812:17844:0708/154120.084:ERROR:socket_stream.cc(218)] Closing stream with result -2
+7월 08, 2020 18:21:41.23 [23812:17844:0708/182141.236:ERROR:socket_stream.cc(218)] Closing stream with result -2
+7월 08, 2020 21:21:42.51 [23812:17844:0708/212142.518:ERROR:socket_stream.cc(218)] Closing stream with result -2
+7월 08, 2020 21:21:43.84 [23812:17844:0708/212142.959:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -105
+7월 08, 2020 21:21:43.85 [23812:22912:0708/212142.983:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+7월 08, 2020 21:21:46.01 [23812:17844:0708/212146.018:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
+7월 08, 2020 21:24:52.26 [23812:17844:0708/212452.260:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -106
+7월 08, 2020 23:41:20.94 [23812:23704:0708/234120.943:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.397 s for first_image_paint 0.38 s
+7월 08, 2020 23:41:22.12 [23812:23704:0708/234122.125:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.397 s for first_image_paint 0.38 s
+7월 08, 2020 23:41:23.22 [23812:23704:0708/234123.224:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.397 s for first_image_paint 0.38 s
+7월 08, 2020 23:41:25.32 [23812:23704:0708/234125.326:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.397 s for first_image_paint 0.38 s
+7월 08, 2020 23:41:26.37 [23812:23704:0708/234126.379:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.397 s for first_image_paint 0.38 s
+7월 08, 2020 23:41:28.45 [23812:23704:0708/234128.451:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.397 s for first_image_paint 0.38 s
+7월 08, 2020 23:41:31.13 [23812:23704:0708/234131.133:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.397 s for first_image_paint 0.38 s
+7월 08, 2020 23:41:32.41 [23812:23704:0708/234132.413:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.397 s for first_image_paint 0.38 s
+7월 08, 2020 23:41:34.45 [23812:23704:0708/234134.452:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.397 s for first_image_paint 0.38 s
+7월 08, 2020 23:41:36.05 [23812:23704:0708/234136.053:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.397 s for first_image_paint 0.38 s
+7월 08, 2020 23:41:37.21 [23812:23704:0708/234137.212:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.397 s for first_image_paint 0.38 s
+7월 08, 2020 23:41:38.21 [23812:23704:0708/234138.218:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.397 s for first_image_paint 0.38 s
+7월 08, 2020 23:41:40.55 [23812:23704:0708/234140.558:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.397 s for first_image_paint 0.38 s
+7월 08, 2020 23:41:41.63 [23812:23704:0708/234141.637:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.397 s for first_image_paint 0.38 s
+7월 08, 2020 23:41:42.77 [23812:23704:0708/234142.773:ERROR:page_load_metrics_update_dispatcher.cc(165)] Invalid first_paint 0.397 s for first_image_paint 0.38 s
+7월 09, 2020 24:15:08.54 [23812:17844:0709/001508.541:ERROR:socket_stream.cc(218)] Closing stream with result -2
+7월 09, 2020 24:49:49.00 [23812:17844:0709/004949.008:ERROR:socket_stream.cc(218)] Closing stream with result -2
+7월 09, 2020 03:49:50.33 [23812:22912:0709/034950.337:ERROR:get_updates_processor.cc(258)] PostClientToServerMessage() failed during GetUpdates with error 2
+7월 09, 2020 08:38:09.03 [23812:17844:0709/083809.030:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -105
+
+7월 10, 2020 08:47:35.88 NEW SESSION
+7월 10, 2020 08:47:35.88 [10548:23572:0710/084735.876:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -105
+7월 10, 2020 08:48:04.06 [10548:23572:0710/084804.065:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -105
+7월 10, 2020 08:48:13.98 [10548:19116:0710/084813.987:ERROR:account_info_fetcher.cc(60)] OnGetTokenFailure: Connection failed (-105).
+7월 10, 2020 08:48:47.77 [10548:23572:0710/084847.769:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -105
+7월 10, 2020 08:49:39.04 [11500:17824:0710/084939.040:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -105
+7월 10, 2020 08:50:24.91 [22644:19776:0710/085024.914:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -105

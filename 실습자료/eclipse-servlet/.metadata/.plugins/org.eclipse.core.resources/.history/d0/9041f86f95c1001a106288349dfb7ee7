@@ -1,0 +1,11 @@
+$(function(){
+	getJson();
+});
+
+//대소문자 조심해라
+function getJson(){
+	
+	$.getJSON();
+	
+	
+}

@@ -1,0 +1,15 @@
+$(function(){
+	parseJson();
+});
+
+
+function parseJson(){
+	$.getJSON("json/bike.json",function(data){
+		$.ajax({
+			
+			
+		});
+		
+		
+	});
+}

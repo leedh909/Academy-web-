@@ -1,0 +1,54 @@
+$(function(){
+	parseJson();
+});
+
+
+function parseJson(){
+	$.getJSON("json/bike.json",function(data){
+		$.ajax({
+			url:"bike.do?command=second_db",
+			method:"post",
+			data: {"obj":JSON.stringify(data)},
+			success:function(msg){
+				alert(msg);
+				
+				if(msg>0){
+					//$.getJSON 한 결과(data)를 가지고
+					//table을 채워보자
+					var list = val;
+					for(var i=0; i<list.length;i++){
+						
+						var str = list[i];
+						$("tbody").append(
+								"<tr>"+
+								"<td>"+str.addr_gu+"</td>"+
+								"<td>"+str.content_id+"</td>"+
+								"<td>"+str.content_nm+"</td>"+
+								"<td>"+str.new_addr+"</td>"+
+								"<td>"+str.cradle_count+"</td>"+
+								"<th>"+str.longitude+"</th>"+
+								"<td>"+str.latitude+"</td>"+
+								"<input type='hidden' name='bike' value='"+ 
+								str.addr_gu+"/"+str.content_id+"/"+str.content_nm+"/"+str.new_addr+"/"
+								+str.cradle_count+"/"+str.longitude+"/"+str.latitude+"'>"+                    
+								"</tr>"
+								
+						);
+						
+						
+					}
+					
+				}else{
+					
+					
+				}
+				
+			},
+			error:function(){
+				alert("data 저장 실패!");
+			}
+		});
+		
+		
+	});
+}

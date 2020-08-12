@@ -1,0 +1,62 @@
+2020.8.11 [수업 98일차]
+
+
+*넥사크로 : 뷰를 도와주는 툴이다.
+*위지위그 : 보는 대로 얻는다.
+
+*nexacro 프로젝트 생성
+// file -> new -> project -> projectName설정 -> 용도(pc,phone,..) 클릭 -> finish
+
+*파일 만들기
+// typeDefinition -> Services 더블클릭 -> 밑에 + 버튼 클릭 -> type설정 -> PrefixID명 변경 (URL도 같이 변경된다.)
+ ->다 설정하면 OK 버튼을 누른다. 그러면 알아서 설정된다.
+
+*상단의 컴포넌트 누른 후 드래그
+//화면에 원하는 크기의 컴포넌트 생성된다.
+ 
+*Generate하기
+//Generate -> application (or Service) 클릭 
+//또는 저장하면 자동적으로 Generate가 된다.
+
+*결과창보기
+//Generate가 완료되면 -> Generate -> QuickView -> 64bit 실행
+
+*Properties
+//메뉴바에서 우클릭시 생성가능.
+
+*컴포넌트를 더블클릭시 script에 이벤트 함수가 자동 생성된다.
+//이벤트 함수를 만들면 적용시켜줘야 실행된다.
+
+*nexacro.getApplication().trace("입력값");
+//이 구문은 nexacro로 애플리케이션을 열었을때 output창에 나타난다.
+
+
+
+진행 : 넥사크로
+----------------------------------------------------------------------------------------------------
+
+진행 : 넥사크로 프로그램 안의 컴포넌트 실행
+
+
+*버튼을 클릭하면 Edit00의 값을 변경
+//"클릭 이벤트 구동!"
+//setter
+//this.Edit00.set_value("클릭 이벤트 구동!");
+
+*사용법을 모를때 F1 을 눌러서 찾아본다.
+
+*script에서 데이터를 넣을때 사용 (ex) radio
+var innerDs = this.Radio00.getInnerDataset();
+innerDs.insertRow(1);
+innerDs.setColumn(1,"codecolumn","code값");
+innerDs.setColumn(1,"datacolumn","data값");
+
+
+
+
+
+
+
+
+
+

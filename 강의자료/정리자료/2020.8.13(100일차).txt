@@ -1,0 +1,80 @@
+2020.8.13 [수업 100일차]
+
+
+*xcss : 넥사크로 css
+//file -> new -> xcss
+//css를 미리 만들어서 적용하는 것이다.
+
+*적용범위
+//테마 -> App -> Component 순으로 적용된다.
+//테마(Theme)는 제일 큰 영역으로 모든 파일에 적용된다.(Resource Explorer에서 찾을 수 있다.)
+//App(은 중간영역으로 해당 파일에서만 적용된다.(Project Explorer에서 Apps 안에 넣으면된다.)
+//component는 제일 작은 영역으로 component 내에서만 적용된다.(form안에서 적용시킬 수 있다.)
+
+*JS 파일을 만드는이유
+//중복된 코드를 없애기 위해
+//수정 및 코드 관리를 쉽게 하기 위해
+
+*xjs : 넥사크로 js
+//file -> new -> xjs
+
+*script는 보통 form, application 2개가 있고, xjs를 따로 만들어줘서 적용시켜줄 수도 있다.
+
+*app에서 script 선언시 불러오는 방법
+//_application.foo(); 방식으로 불러온다.     
+//만드는 방법은
+this.foo = function(){
+	alert("foo");
+};
+_application.bar = function(){
+	alert("bar");
+};
+
+
+진행 : 넥사크로(xcss,xjs)
+----------------------------------------------------------------------------------------------------
+
+진행 : 넥사크로(xjs)
+
+
+
+*xjs 실행방법
+//xjs파일 안에는 
+this.test1 = function(msg){
+	alert("this.test1= "+msg);
+};
+//다른파일안에서는 xjs를 호출해주고 사용해야한다.
+include "Work::work.common.xjs.xjs";
+this.test1('안녕');
+
+*window 단위로 만들면 호출해주지않고 사용해줘도된다.
+test2 = function(msg){
+	alert("window.test1= "+msg);
+};
+//다른파일안에서 test2("hello"); 로 호출해주면된다.
+
+*application 단위로 xjs의 메소드 호출하기
+var application = nexacro.getApplication();
+application.test3 =function(msg){ //_application
+	alert("application.test3: "+msg);
+};
+//실행시 _application.test3("hhhhhtest3");
+
+
+*프레임(frame)
+//Jframe을 이용할때 처럼 메인 틀을 의미한다.
+//mainframe 과 childframe으로 화면을 나눌 수 있다.
+
+*프레임 안에 separatesize를 변경하면 화면이 변화한다.(숫자,숫자)
+// *의 의미는 나머지를 의미한다.
+
+*템플릿으로 생성하면 form은 자동적으로 연결이 되어있다.
+
+*메뉴component에 dataset을 넣을때
+//captioncolumn : 사용자에게 보여지는 값
+//idcolumn : 컬럼별로 id
+//levelcolumn : level별로 보임
+
+*Service에서 생성한 Work 는 패키지(그룹)라고 생각하면된다.
+//form들을 모아놓은 패키지(그룹)
+

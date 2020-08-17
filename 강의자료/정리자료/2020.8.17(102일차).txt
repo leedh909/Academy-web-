@@ -1,0 +1,65 @@
+2020.8.17 [수업 102일차]
+
+
+
+*이클립스와 넥사크로 연동
+//이클립스에서 workspace 만들고  다이나믹웹프로젝트를 생성한다.
+//넥사크로 가서 상단 메뉴바의 Tools 에 options 클릭
+//Project의 Generate에서 Path(경로)를 이클립스 workspace로 지정.
+
+
+
+
+진행 : 넥사크로 연동
+----------------------------------------------------------------------------------------------------
+진행 : 마이바티스
+
+
+*Mybatis(마이바티스)
+//마이바티스를 실행하려면 전용 jar 파일이 필요하다.
+//jar 파일은 홈페이지 시작하기 메뉴에 있다. -> jar파일 클릭후 zip 파일로 다운 받는다.
+//이클립스 -> 프로젝트 -> WebContent -> lib 안에 넣는다.
+
+*JDBC 역할을 Mybatis 로 대체한다.
+
+*file파일을 하나(db.properties), xml 파일을 두개(Config.xml, Mapper.xml) 만든다.
+
+*db.properties
+//db를 연동하는 구문을 작성한다.
+//driver, url, username, password
+
+*Config.xml
+//마이바티스 홈페이지에서 시작하기 안에 아래 구문을 찾아 추가해준다.
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+//POOLED : 
+
+*Mapper.xml
+//마이바티스 홈페이지에서 매퍼설정 안에 아래 구문을 찾아 추가해준다.
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+//필드명이랑 이름이 같을 경우 resultMap을 안써도된다.
+//하지만 다를때는 임의로 지정해줘야하기때문에 써줘야한다.
+
+//property를 사용한다는것은 setter메소드를 사용하는것이기때문에 데이터가 새롭게 들어간다는 의미이다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

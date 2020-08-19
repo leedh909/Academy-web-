@@ -1,0 +1,50 @@
+2020.8.18 [수업 103일차]
+
+
+
+*resultType 은 컬럼명이랑 필드명이랑 같을 경우 사용해준다.
+*resultMap 은 컬럼명이랑 필드명이 다를 경우 사용해준다.
+
+**Mybatis 만드는 순서
+1) mybatis-3.5.5.jar 파일을 lib 폴더 안에 넣는다.
+2) Config.xml 파일을 만든다. - factory생성시 참조
+ 2-1) config에 필요한 태그를 mybatis홈페이지에서 받아온다.
+ 2-2) properties 설정
+ 2-3) typeAliases 설정(=경로를 별칭으로)
+ 2-4) environments 설정
+ 2-5) mappers 설정
+3) Mapper.xml 파일을 만든다. - session실행시 참조
+ 3-1) mapper에 필요한 태그를 mybatis홈페이지에서 받아온다.
+ 3-2) mapper namespace 설정
+ 3-3) sql 문을 작성한다.
+
+POOLED 하나만들어 놓고 돌려쓰겠다.
+UNPOOLED 매번 새롭게 만들어서 사용하겠다.
+resultType : select한 결과값을 resultType형태로 담겠다.
+
+
+*SqlMapConfig.java
+1) SqlSessionFactory 변수 선언
+2) getSqlSessionFactory() 함수 선언
+3) resource 로 config.xml 파일 지정
+4) Reader 스트림을 통해서 Resources.getResourceAsReader(resource) 통로 선언
+5) sqlSessionFactory 변수에 SqlSessionFactoryBuilder().build(reader) 로 생성
+7) return sqlSessionFactory
+
+
+*TRY CATCH 단축키 -> alt + shift + z 
+
+
+
+
+진행 : Mybatis
+----------------------------------------------------------------------------------------------------
+진행 : 실전연습
+
+
+*select, insert , update, delete 관련 예제연습을 하였다.
+
+
+
+
+

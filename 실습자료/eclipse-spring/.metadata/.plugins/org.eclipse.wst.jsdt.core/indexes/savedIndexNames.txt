@@ -1,0 +1,1 @@
+INDEX VERSION 1.4+C:\Users\User\workspaceµé\eclipse-spring\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes

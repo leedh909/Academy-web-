@@ -1,0 +1,45 @@
+2020.8.20 [수업 105일차]
+
+
+*<bean id="singleton" class="com.test01.AbstractTest" factory-method="getInstance"></bean>
+//factory-method 란?
+//상속받은것들이 여러개 있는 경우 그때그때 빈을 받아와서 생성한다.
+
+*AbstractTest today = factory.getBean("singleton",AbstractTest.class);
+//형변환시켜줘야하는데 가로안에 뒤에다가 형변환할 클래스를 넣어주면 괜찮다.
+
+*constructor-arg 는 생성자를 이용한 매개변수값을 입력할 수 있다.
+(단, 매개변수 개수에 맞게 입력해야한다.)
+
+*property는 setter메소드를 이용한 값을 입력할 수 있다.
+(그리고 객체변수 개수가 달라도 실행된다. 단, 정의 안해준 변수는 null값이다.)
+
+
+*다른 빈(객체)를 참조하는 방법 (ref="참조할 빈")
+//<constructor-arg index="0" ref="lee"/>
+
+
+
+
+진행 : Spring03
+----------------------------------------------------------------------------------------------------
+진행 : 
+
+
+
+
+*
+
+
+
+
+
+
+
+
+
+
+
+
+
+

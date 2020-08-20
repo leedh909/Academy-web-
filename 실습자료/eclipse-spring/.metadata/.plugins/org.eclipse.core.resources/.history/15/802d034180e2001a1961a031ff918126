@@ -1,0 +1,20 @@
+package com.test02;
+
+public class Emp {
+
+	private String name;
+	private String money;
+	
+	public Emp() {
+	}
+	
+	public Emp(String name, String money) {
+		super();
+		this.name = name;
+		this.money = money;
+	}
+	
+	
+	
+	
+}

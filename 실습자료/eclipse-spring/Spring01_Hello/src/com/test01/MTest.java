@@ -1,0 +1,14 @@
+package com.test01;
+
+import com.test01.MessageBean;
+
+public class MTest {
+
+	public static void main(String[] args) {
+		MessageBean bean = new MessageBean();
+		bean.sayHello("Spring");		
+		
+	}
+	
+	
+}

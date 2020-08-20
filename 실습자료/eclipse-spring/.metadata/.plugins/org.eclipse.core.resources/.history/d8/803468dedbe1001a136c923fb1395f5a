@@ -1,0 +1,17 @@
+package com.test02;
+
+public class MTest {
+	public static void main(String[] args) {
+		
+		//getBean()통해 bean 확인 후 해당 빈 출력
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

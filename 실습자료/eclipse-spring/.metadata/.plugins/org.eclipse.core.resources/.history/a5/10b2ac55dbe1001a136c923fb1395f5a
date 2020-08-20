@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean 2개 설정(생성자를 이용한 빈 초기화)
+		1. 이순신, 서울시 강남구, 010-111-1111 => id:lee 
+		2. 홍길동, 경기도 수원시, 010-222-2222 => id:hong
+		-->
+
+	<bean id="lee" class="com.test02.Address">
+		<constructor-arg index="0" value="이순신" />
+		<constructor-arg index="1" value="서울시 강남구" />		
+	</bean>
+	
+	<bean id="hong" class="com.test02.Address">
+		<constructor-arg index="0" value="홍길동" />
+		<constructor-arg index="1" value="경기도 수원시" />		
+	</bean>
+
+</beans>

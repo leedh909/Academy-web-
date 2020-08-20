@@ -1,0 +1,21 @@
+package com.test01;
+
+import com.test01.MessageBean;
+
+public class MTest {
+
+	public static void main(String[] args) {
+		MessageBean bean = new MessageBean();
+		bean.sayHello("Spring");
+		
+		MessageBeanEn beanen = new MessageBeanEn();
+		beanen.sayHello("Spring");
+		
+		MessageBeanKo beanko = new MessageBeanKo();
+		beanko.sayHello("스프링");
+		
+		
+	}
+	
+	
+}

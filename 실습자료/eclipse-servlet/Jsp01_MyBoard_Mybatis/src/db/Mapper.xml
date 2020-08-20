@@ -26,6 +26,24 @@
 		WHERE MYNO = #{myno}
 	</select>
 
+	<insert id="myinsert" parameterType="MyBoardDto">
+		INSERT INTO MYBOARD
+		VALUES(MYSEQ.NEXTVAL,#{myname},#{mytitle},#{mycontent},SYSDATE)	
+	</insert>
+
+	<delete id="delete" parameterType="int">
+		DELETE
+		FROM MYBOARD
+		WHERE MYNO = #{myno}
+	</delete>
+	
+	<update id="update" parameterType="MyBoardDto">
+		UPDATE MYBOARD
+		SET MYTITLE=#{mytitle}, MYCONTENT=#{mycontent}
+		WHERE MYNO=#{myno}
+	</update>
+
+
 
 
 </mapper>

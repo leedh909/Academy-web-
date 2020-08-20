@@ -1,0 +1,25 @@
+package com.test03;
+
+import org.springframework.context.ApplicationContext;
+
+public class MTest {
+
+	public static void main(String[] args) {
+		
+		//1. FileSystemResource + BeanFactory
+		//2. ClassPathResource + BeanFactory
+		
+		//3.
+		ApplicationContext factory = new ClassPathXmlApplicationContext("com/test03/beans.xml");
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+}

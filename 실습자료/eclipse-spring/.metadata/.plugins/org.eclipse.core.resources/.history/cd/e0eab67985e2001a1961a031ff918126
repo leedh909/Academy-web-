@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 1. name:홍길동, salary:2500000, dept:개발  -->
+	<bean id="" class=""></bean>
+
+	<!-- 2. name:이순신, salary:2000000, dept:기술  -->
+	<bean id="" class=""></bean>
+
+
+</beans>

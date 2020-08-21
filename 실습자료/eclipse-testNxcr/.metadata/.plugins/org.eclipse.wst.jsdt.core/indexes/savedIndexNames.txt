@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\User\workspaceµé\eclipse-testNxcr\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3275578557.index
+1657323287.index
+4069885831.index
+3271193799.index
+2967242890.index
+758771526.index

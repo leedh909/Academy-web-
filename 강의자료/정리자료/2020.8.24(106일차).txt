@@ -1,0 +1,80 @@
+2020.8.24 [수업 106일차]
+
+
+*Namespaces 추가
+1.application.xml 에서 하단메뉴에 Namespaces를 클릭
+2. C 와 P 를 선택
+3. Source에 xmlns:c="http://www.springframework.org/schema/c"
+	   xmlns:p="http://www.springframework.org/schema/p"가 추가된걸 볼 수 있다.
+4. c:constructor 와 p:property 를 의미한다.
+5. 예시로 매개변수를 참조하는걸 볼 수 있다.
+<bean id="lee" class="com.test05.Emp" c:name="이순신" c:salary="3000000" />
+<bean id="leess" class="com.test05.Developer" c:emp-ref="lee" c:dept="개발팀" />
+<bean id="hong" class="com.test05.Emp" p:name="홍길동" p:salary="2500000" />
+<bean id="honggd" class="com.test05.Engineer" p:emp-ref="hong" p:dept="기술팀" />
+
+
+*BeanFactory 클래스 === 게으른호출 (레이지로딩)
+//호출했을때 객체를 생성해서 리턴해주는걸 의미한다.
+//applicationContext와 생성해주는 시기가 다르다.
+
+*applicationContext.xml에서 객체가 생성될때 호출되어야 생성되는걸로 바꿀 수 있다.
+//bean태그 안에 lazy-init="true" -->getBean할때 생성된다.
+//lazy-init을 사용하면 BeanFactory와 생성해주는 시기가 같다.
+
+*Main에서 ApplicationContext 객체를 선언하면 xml안에 설정해둔 모든 메소드가 생성되고 준비상태로 있는다.
+
+
+
+
+진행 : Namespaces(C, P), BeanFactory, lazyloding
+----------------------------------------------------------------------------------------------------
+진행 : Spring04-com.test01
+
+
+
+*BeanTest 안에 setter메소드들
+1) public BeanTest(Date date) 호출
+// <constructor-arg ref="date" />    미리 생성한 date객체를 ref로 참조하는 것이다.
+2) setMyClass(MyClass myClass) 호출
+// <property name="myClass" ref="myClass" /> 
+3) setDate(Date date) 호출
+// <property name="date" ref="date" />    
+//setter메소드를 불러올때는 set를 제외하고 대문자를 소문자로 바꾸어서 name으로 놓는다.
+4) setNumber(int num) 호출
+// <property name="number" value="25" />
+5) setArray(String[] array)
+// <property name="array">
+	<array>
+		<value>값</value>.....
+	</array>
+   </property>
+6) setList(List<String> list)
+// <property name="list">
+	<list>
+		<value>봄</value>.....
+	</list>
+   </property>
+7) setScore(List<Score> list)
+// <property name="score">
+	<list>
+		<bean class="com..test01.Score">    객체를 이용할때 bean을 사용한다.
+			<property name="name" value="홍길동" />
+			<property name="kor" value="100" />
+			<property name="eng" value="80" />
+			<property name="math" value="67" />
+		</bean>
+		<!-- list에서 객체단위로 데이터를 받아올때 -->
+		<!-- 미리정의해준(=생성된) 빈을 참조하여 list에 추가 -->
+		<ref bean="score" />
+	</list>
+  </property>
+
+
+
+
+
+
+
+
+

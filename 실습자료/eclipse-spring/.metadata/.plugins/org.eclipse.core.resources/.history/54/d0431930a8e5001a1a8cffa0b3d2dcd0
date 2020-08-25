@@ -1,0 +1,28 @@
+package com.test07;
+
+public class LgTV implements TV{
+
+	@Override
+	public void tvon() {
+		System.out.println("lg tv on");
+	}
+
+	@Override
+	public void tvoff() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void volup() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void voldown() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

@@ -1,0 +1,39 @@
+package com.test03;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class MTest {
+
+	public static void main(String[] args) {
+		//1.인터페이스 TV를 상속받아 LgTV, SamsungTV 완성
+		//2.bean 설정 관련 anotation을 작성 한 다음
+		//3.main에서 설정파일을 읽어 bean을 등록한뒤
+		//4.getBean()을 통해 생성된 bean을 확인
+		
+		ApplicationContext factory = new ClassPathXmlApplicationContext("com/test03/applicationContext.xml");
+		
+		TV tv = factory.getBean("lg",TV.class);
+		tv.powerOn();
+		tv.powerOff();
+		tv.volUp();
+		tv.volDown();
+		
+		
+		
+		LgTV lg = factory.getBean("lgTV",LgTV.class);
+		lg.powerOn();
+		lg.powerOff();
+		lg.volUp();
+		lg.volDown();
+		
+		SamsungTV samsung = factory.getBean("samsungTV",SamsungTV.class);
+		samsung.powerOn();
+		samsung.powerOff();
+		samsung.volUp();
+		samsung.volDown();
+		
+		
+	}
+
+}

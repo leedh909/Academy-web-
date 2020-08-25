@@ -1,0 +1,13 @@
+package com.test02;
+
+public class MyFood {
+	private Food favoriteFood;
+	private Food unFavoriteFood;
+	
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,17 @@
+package com.test02;
+
+public class School {
+
+	private Student person;
+	private int grade;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- 1.NickName bean 생성 -->
+	<!-- 2.MyNickName bean 생성 -->
+	
+	<bean id="nickname" class="com.test01.NickName" ></bean>
+	
+	<bean id="MyNickNamePrn" class="com.test01.MyNickNamePrn">
+		<property name="nickName" value="원빈" />
+	</bean>
+
+
+
+</beans>

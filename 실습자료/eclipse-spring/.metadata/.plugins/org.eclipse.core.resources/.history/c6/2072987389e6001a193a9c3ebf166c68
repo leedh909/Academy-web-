@@ -1,0 +1,25 @@
+package com.test03;
+
+public class SamsungTV implements TV{
+
+	@Override
+	public void powerOn() {
+		
+	}
+
+	@Override
+	public void powerOff() {
+		
+	}
+
+	@Override
+	public void volUp() {
+		
+	}
+
+	@Override
+	public void volDown() {
+		
+	}
+
+}

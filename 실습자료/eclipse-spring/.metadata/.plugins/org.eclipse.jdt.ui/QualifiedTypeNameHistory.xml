@@ -6,7 +6,16 @@
 <fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
 <fullyQualifiedTypeName name="com.test01.AbstractTest"/>
+<fullyQualifiedTypeName name="com.test04.Engineer"/>
+<fullyQualifiedTypeName name="com.test01.MyClass"/>
+<fullyQualifiedTypeName name="com.test01.BeanTest"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.test01.anno.MyNickNamePrn"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Qualifier"/>
 <fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
 <fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
-<fullyQualifiedTypeName name="com.test04.Engineer"/>
+<fullyQualifiedTypeName name="com.test03.LgTV"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 </qualifiedTypeNameHistroy>

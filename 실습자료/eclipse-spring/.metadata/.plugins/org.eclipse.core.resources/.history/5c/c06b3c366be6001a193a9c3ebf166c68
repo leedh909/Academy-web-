@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="favoriteFood" name="favoriteFood" class="com.test02.Food">
+		<property name="name" value="고기"></property>
+		<property name="price" value="20000"></property>
+	</bean>
+
+	<bean id="unfavoriteFood" name="UnFavorite" class="com.test02.Food">
+		<constructor-arg value="고사리" />
+		<constructor-arg value="10000" />
+	</bean>
+
+
+
+</beans>

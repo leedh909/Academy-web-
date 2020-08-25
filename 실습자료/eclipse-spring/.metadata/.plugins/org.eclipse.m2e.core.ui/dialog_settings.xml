@@ -14,6 +14,9 @@
 	</section>
 	<section name="wizardPage">
 		<list key="groupId">
+			<item value="Spring05_Anno"/>
+			<item value="Spring04"/>
+			<item value="Spring00"/>
 			<item value="Spring03"/>
 			<item value="Spring02_Bean"/>
 			<item value="Spring01_Hello"/>
@@ -23,6 +26,9 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="Spring05_Anno"/>
+			<item value="Spring04"/>
+			<item value="Spring00"/>
 			<item value="Spring03"/>
 			<item value="Spring02_Bean"/>
 			<item value="Spring01_Hello"/>

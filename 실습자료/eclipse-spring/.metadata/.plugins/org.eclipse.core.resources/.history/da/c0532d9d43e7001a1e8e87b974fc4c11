@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<!-- bean 등록 -->
+	<bean id="man" class="com.test02.Man"></bean>
+	<bean id="woman" class="com.test02.Woman"></bean>
+
+	<!-- ccc: 공통 관심 사항 -->
+	<bean id="myAdvice" class="com.test02.MyAspect"></bean>
+
+	<!-- proxy 객체 생성 -->
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" />
+
+	<!-- advisor(aspect) : advice + pointcut -->
+	<bean id="myAdvisor" class="org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor">
+		<property name="advice" ref="myAdvice"></property>
+		
+		<!-- Pointcut을 어디에 주냐에 따라 실행되는 메소드들이 다르다. -->
+		<!--<property name="expression" value="execution(public * *(..))"></property> -->
+		<property name="expression" value="execution(public * com.test02.Woman.classWork(..))"></property>
+		<!-- execution(public * *(..)) -> 모든 메소드가 실행될때 작동하겠다.  -->
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+	
+</beans>

@@ -1,0 +1,5 @@
+package com.hello.mvc.model;
+
+public class HelloBiz {
+
+}

@@ -13,7 +13,8 @@ public class MTest {
 		School person = factory.getBean("mySchool",School.class);
 		System.out.println(person);
 		
-		
+		School person2 = factory.getBean("mySchool2",School.class);
+		System.out.println(person2);
 		
 	}
 

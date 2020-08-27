@@ -24,6 +24,10 @@
 		<property name="grade" value="1" />
 	</bean>
 	
+	<bean id="mySchool2" class="com.test02.School">
+		<property name="person" ref="kim" />
+		<property name="grade" value="2" />
+	</bean>
 	
 
 	

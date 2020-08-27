@@ -13,8 +13,8 @@
 		<constructor-arg value="10000" />
 	</bean>
 
-	<!-- <bean id="myFood" class="com.test02.MyFood" autowire="byName"/> -->
-	<bean id="myFood" class="com.test02.MyFood" autowire="constructor"/>
+	<bean id="myFood" class="com.test02.MyFood" autowire="byName"/>
+	<!-- <bean id="myFood" class="com.test02.MyFood" autowire="constructor"/> -->
 	<!-- <bean id="myFood" class="com.test02.MyFood" autowire="byType"/> -->
 	<!-- 
 		byName: id/name이 setter와 같은 이름의 bean이 있으면 자동 할당 

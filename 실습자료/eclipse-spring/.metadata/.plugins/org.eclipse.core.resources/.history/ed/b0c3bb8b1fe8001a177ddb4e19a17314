@@ -1,0 +1,26 @@
+package com.hello.mvc.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.hello.mvc.model.HelloBiz;
+
+@Controller
+public class HelloController {
+
+	//TODO: 05.Biz(@Service) 호출
+	@Autowired
+	private HelloBiz biz;
+	
+	
+	//TODO: 04. handler mapping을 통해 controller의 메서드를 찾아
+	@RequestMapping("/hello.do")
+	public String getHello(Model model) {
+		
+		return null;
+	}
+	
+	
+}

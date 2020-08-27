@@ -1,0 +1,22 @@
+package com.test05;
+
+import org.aspectj.lang.JoinPoint;
+
+public class MyAspect {
+
+	public void myClass() {
+		
+	}
+	
+	public void before(JoinPoint join) {
+		System.out.println("출석카드를 찍는다.");
+	}
+	
+	public void after(JoinPoint join) {
+		
+	}
+	
+	
+	
+	
+}

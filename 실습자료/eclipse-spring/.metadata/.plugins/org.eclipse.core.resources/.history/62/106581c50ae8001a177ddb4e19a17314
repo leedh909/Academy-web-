@@ -1,0 +1,12 @@
+package com.edu.entity;
+
+public class Triangle extends Shape{
+
+	@Override
+	public void viewSize() {
+
+		
+		
+	}
+
+}

@@ -1,0 +1,89 @@
+2020.8.26 [수업 108일차]
+
+
+*Spring AOP(Aspect Oriented Programming)
+//관점 지향 프로그래밍
+//중복되는 공통 코드 부분을 별도의 영역으로 분리
+//소스 코드의 중복을 줄이고, 필요할 때마다 가져다 쓸 수 있게 객체화하는 기술
+//핵심 관점(Primary Concern/Core Concern) - pc/cc, 횡단 관점(Cross-cutting Concern) - ccc
+
+
+*Spring에서 DI IOC가 핵심이다.
+
+
+*AOP Proxy 
+//Client Request(요청)를 대신 받아서 대상객체 메소드를 호출한다.
+
+*Proxy - Advice를 삽입할 대상 객체 
+//proxy는 runtime시에 생성된다.
+//Target Object로 가는 Request를 가로챈다.
+*Advice - 공통되는 부분을 따로 빼내어 작성하는 클래스
+*Joinpoint - Advice를 실행하는 시점, advice가 연결될 수 있는 모든 포인트
+*Weaving - Joingpoint에 공통 코드를 끼워 넣는 작업
+
+*Aspect = Advice + PointCut = Advisor(어드바이저) = 들어가야될 대상+들어가야될 위치
+//PointCut - joinpoint의 부분집합, 실제 advice가 적용되는 부분
+
+*라이브러리 추가(pom.xml)
+AspectJ 검색 -> AspectJ Weaver 를 원하는 버전으로 추가한다.
+->추가로 AspectJRuntime 도 원하는 버전으로 추가한다.
+
+
+*인터페이스 오버라이드 단축키 (Alt + Shift + S) -> V
+
+
+진행 : Spring-AOP 용어 정리
+----------------------------------------------------------------------------------------------------
+진행 : Spring-AOP 실습
+
+
+*Proxy 객체 생성
+//<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" />
+
+*Advisor(aspect) = advice + pointcut
+//<bean id="myAdvisor" class="org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor">
+
+*Advice가 실행되는 Pointcut을 어디에 주냐에 따라 실행되는 메소드들이 다르다.
+//<property name="expression" value="execution(public * *(..))" />
+->모든 메소드가 실행될때 작동하겠다.
+//<property name="expression" value="execution(public * com.test02.Woman.classWork(..))" />
+->com.test02.Woman.classWork 의 메소드를 사용할때 작동하겠다.
+
+*Aspect 만들기
+//implements MethodInterceptor 를 클래스에 상속받는다.
+//target = invocation.proceed();
+  -->대상 객체 메소드 실행
+
+
+*AOP사용방법
+//Namespaces - aop 선택
+
+*applicationContext에서 aop 사용방법
+1. <aop:config> 태그 사용
+2. <aop:aspect ref="myAspect"> 사용할 Aspect 참조
+3. <aop:before method="before" pointcut="execution(public * *(..))"/>
+   <aop:after method="after" pointcut="execution(public * *(..))"/>
+   적용될 메소드(method)를 만들어 놓는다. 적용대상(pointcut)도 지정한다.
+4. 적용될 메소드는 MyAspect에서 매개변수로 JoinPoint를 이용해서 만들어놓는다.
+
+*JoinPoint 사용방법
+//org.aspectj.lang.JoinPoint를 상속받는다.
+
+*Aspect에 사용될 어노테이션(annotation)
+@Aspect
+@Before("적용대상")
+@After("적용대상")
+@AfterThrowing("적용대상")
+@AfterReturning(pointcut="적용대상", returning="리턴할값")
+
+*AOP를 자동으로 적용하는 방법
+1.<aop:aspectj-autoproxy />를 선언한다.
+2.선언시 @Aspect, @Before, @After, @AfterThrowing, @AfterReturning 같은
+  어노테이션을 자동으로 읽어올 수 있다.
+
+
+*적용대상은 execution을 이용해서 표현가능
+//ex) execution(public * * (..)), execution(public void * (..))
+//ex) execution(public * com.test01.Woman.*(..))
+
+

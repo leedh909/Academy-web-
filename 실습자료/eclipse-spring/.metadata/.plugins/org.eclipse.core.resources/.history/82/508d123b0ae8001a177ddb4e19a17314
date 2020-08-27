@@ -1,0 +1,26 @@
+package com.edu.entity;
+
+public abstract class Shape {
+	private String title;
+	private int width;
+	private int height;
+	
+	public Shape() {}
+
+	public Shape(String title, int width, int height) {
+		super();
+		this.title = title;
+		this.width = width;
+		this.height = height;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

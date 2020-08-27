@@ -1,0 +1,14 @@
+package com.hello.mvc.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class HelloController {
+
+	//TODO: 04. handler mapping을 통해 controller의 메서드를 찾아
+	public String getHello(Model model) {
+		
+	}
+	
+	
+}

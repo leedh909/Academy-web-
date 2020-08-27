@@ -1,0 +1,5 @@
+package com.edu.aop;
+
+public class MyAspect {
+
+}

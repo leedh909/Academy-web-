@@ -1,0 +1,13 @@
+package com.test06;
+
+public class MessageBeanImpl implements MessageBean{
+
+	@Override
+	public void sayHello() {
+
+		
+		
+		
+	}
+
+}

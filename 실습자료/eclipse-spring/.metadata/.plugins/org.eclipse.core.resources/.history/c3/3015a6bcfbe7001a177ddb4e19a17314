@@ -1,0 +1,20 @@
+package com.test05;
+
+import org.aspectj.lang.JoinPoint;
+
+public class MyAspect {
+
+	public void myClass() {
+		
+	}
+	public void before(JoinPoint join) {
+		
+	}
+	public void after(JoinPoint join) {
+		
+	}
+	
+	
+	
+	
+}

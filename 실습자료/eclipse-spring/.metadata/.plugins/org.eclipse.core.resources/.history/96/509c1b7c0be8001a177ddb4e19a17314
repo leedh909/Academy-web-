@@ -1,0 +1,15 @@
+package com.edu.entity;
+
+public class Rectamgle extends Shape {
+
+	
+	
+	
+	@Override
+	public void viewSize() {
+
+		
+		
+	}
+
+}

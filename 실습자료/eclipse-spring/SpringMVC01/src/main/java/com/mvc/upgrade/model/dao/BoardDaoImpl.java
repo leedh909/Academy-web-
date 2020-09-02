@@ -1,5 +1,6 @@
 package com.mvc.upgrade.model.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -18,30 +19,76 @@ public class BoardDaoImpl implements BoardDao{
 	
 	
 	
-	
 	@Override
 	public List<BoardDto> selectList() {
-		return null;
+//		List<BoardDto> list = new ArrayList<BoardDto>();
+		List<BoardDto> list = null;
+		
+		try {
+			list = sqlSession.selectList(NAMESPACE+"selectList");
+		} catch (Exception e) {
+			System.out.println("[error] : select list");
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 	@Override
 	public BoardDto selectOne(int myno) {
-		return null;
+		
+		BoardDto dto = null;
+		try {
+			dto=sqlSession.selectOne(NAMESPACE+"selectOne",myno);
+		} catch (Exception e) {
+			System.out.println("[error] : select one");
+			e.printStackTrace();
+		}
+		
+		return dto;
 	}
 
 	@Override
 	public int insert(BoardDto dto) {
-		return 0;
+		
+		int res = 0;
+		
+		try {
+			res=sqlSession.insert(NAMESPACE+"insert",dto);
+		} catch (Exception e) {
+			System.out.println("[error] : insert");
+			e.printStackTrace();
+		}
+		
+		
+		return res;
 	}
 
 	@Override
 	public int update(BoardDto dto) {
-		return 0;
+		
+		int res = 0;
+		
+		try {
+			res = sqlSession.update(NAMESPACE+"update",dto);
+		} catch (Exception e) {
+			System.out.println("[error] : update");
+			e.printStackTrace();
+		}
+		
+		return res;
 	}
 
 	@Override
 	public int delete(int myno) {
-		return 0;
+		int res = 0;
+		try {
+			res = sqlSession.delete(NAMESPACE+"delete",myno);
+		} catch (Exception e) {
+			System.out.println("[error] : delete");
+			e.printStackTrace();
+		}
+		return res;
 	}
 
 }

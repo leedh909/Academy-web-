@@ -20,27 +20,27 @@ public class BoardBizImpl implements BoardBiz{
 	
 	@Override
 	public List<BoardDto> selectList() {
-		return null;
+		return dao.selectList();
 	}
 
 	@Override
 	public BoardDto selectOne(int myno) {
-		return null;
+		return dao.selectOne(myno);
 	}
 
 	@Override
 	public int insert(BoardDto dto) {
-		return 0;
+		return dao.insert(dto);
 	}
 
 	@Override
 	public int update(BoardDto dto) {
-		return 0;
+		return dao.update(dto);
 	}
 
 	@Override
 	public int delete(int myno) {
-		return 0;
+		return dao.delete(myno);
 	}
 
 	

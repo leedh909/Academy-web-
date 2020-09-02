@@ -21,8 +21,28 @@
 		ORDER BY MYNO DESC
 	</select>
 
+	<insert id="insert" parameterType="boardDto">
+		INSERT INTO MYBOARD
+		VALUES (MYNOSEQ.NEXTVAL,#{myname},#{mytitle},#{mycontent},SYSDATE)
+	</insert>
 
+	<select id="selectOne" parameterType="int" resultType="boardDto">
+		SELECT MYNO, MYNAME, MYTITLE, MYCONTENT, MYDATE
+		FROM MYBOARD
+		WHERE MYNO = #{myno}
+	</select>
 
+	<update id="update" parameterType="boardDto">
+		UPDATE MYBOARD
+		SET MYTITLE = #{mytitle}, MYCONTENT=#{mycontent}
+		WHERE MYNO = #{myno}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM MYBOARD
+		WHERE MYNO = #{myno}
+	</delete>
+	
 
 </mapper>
 

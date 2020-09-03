@@ -1,0 +1,24 @@
+package com.mvc.upgrade;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.mvc.upgrade.model.biz.MemberBiz;
+
+@Controller
+public class MemberController {
+	
+	@Autowired
+	private MemberBiz biz;
+	
+	
+	public MemberDto login(MemberDto dto) {
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,22 @@
+package com.mvc.upgrade.common.aop;
+
+import org.aspectj.lang.JoinPoint;
+import org.slf4j.Logger;
+
+public class LogAop {
+	
+	public void before(JoinPoint join) {
+		Logger logger = LoggerFactroy.getLogger(join.getTarget()+"");
+		
+	}
+	
+	public void after(JoinPoint join) {
+		
+		
+	}
+	
+	public void afterThrowing(JoinPoint join) {
+		
+		
+	}
+}
